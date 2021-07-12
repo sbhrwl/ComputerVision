@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
-from src.core.utils import load_dataset, visualise_dataset, visualize_input, preprocess_features, preprocess_labels, \
-    reshape_features
+from src.core.mnist_data_preparation import load_dataset, visualise_dataset, visualize_input, preprocess_features, \
+    preprocess_labels, reshape_features
 from src.core.training import build_model, compile_model, start_training, load_model, evaluate_model
 
 
