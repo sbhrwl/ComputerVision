@@ -1,3 +1,6 @@
 tensorflow
 numpy
 matplotlib
+scipy
+flask
+flask_cors
