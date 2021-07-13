@@ -1,12 +1,13 @@
 # Computer Vision
 
 ## Drawbacks of MLP/ANN
-- Spatial Invariance 
 - Loss of features
-  - The spatial features of a 2D image are lost when it is flattened to a 1D vector input.
   - Before feeding an image to the hidden layers of an MLP, we must flatten the image matrix to a 1D vector, this implies that all of the image's 2D information is discarded.
-- Increase in number of Parameters to train, Consider  image with dimensions 1000 × 1000, it will yield 1 million parameters for each node in the first hidden layer.
-  So if the first hidden layer has 1,000 neurons, this will yield **1 billion parameters** even in such a small network. You can imagine the computational complexity of optimizing 1 billion parameters after only the first layer
+- Spatial Invariance 
+  - The information regarding spatial relation between different parts of objects in an imagespatial features of a 2D image are lost when it is flattened to a 1D vector input.
+- Increase in number of Parameters to train
+  - Consider  image with dimensions 1000 × 1000, it will yield 1 million parameters for each node in the first hidden layer.
+    So if the first hidden layer has 1,000 neurons, this will yield **1 billion parameters** even in such a small network. You can imagine the computational complexity of optimizing 1 billion parameters after only the first layer
 
 # Convolution Neural Network
 ## Prinicpals
@@ -75,42 +76,10 @@ Max Pooling with 2x2 filter and a stride of 2
 
 [notebook](https://colab.research.google.com/drive/1tNle1niW_5rDf9wUL_HNY6rG1l54rGIA?usp=sharing)
 
-### Local and Global Receptive field
-
-
-## Hyperparameter Tuning
-- Image Resolution
-- Kernel Size: 3 * 3, 5 * 5, 7 * 7
-- Stride: 2, 3
-- Padding: same, valid
-- Activation Function: Relu
-- Dense Layer: 64, 128
-- Loss Function: Categorical sparse entropy
-- Optimizers: Adam, SGD
-- Number of Convolution layers
-  - Image reduction
-- Epochs
-
-## Experiments
-
-### Architecture 1
-| Layers              | Kernel Size | Stride | Padding | Number of Kernels |Activation  |
-| ------------------- | ----------- | -------| --------| ----------------- |----------- |
-| Convolution Layer 1 | 3 * 3       | 1      | 1       | 32                | Relu       |
-| Max Pooling         | 2 * 2       | 2      | 2       |                   | Relu       |
-| Convolution Layer 2 | 3 * 3       | 1      | 1       | 32                | Relu       |
-| Max Pooling         | 2 * 2       | 2      | 2       |                   | Relu       |
-| Convolution Layer 3 | 3 * 3       | 1      | 1       | 64                | Relu       |
-| Max Pooling         | 2 * 2       | 2      | 2       |                   | Relu       |
-| Flatten             |             |        |         |                   |            |
-| Dense/FC            |             |        |         |                   |            |
-| Dropout             |             |        |         |                   |            |
-| Dense/FC            |             |        |         |                   |            |
-| Dropout             |             |        |         |                   |            |
-| Output layer        |             |        |         |                   | Softmax    |
-
 - **Convolution Layer** is also refered as **Convolution block**
 - **Max pooling Layer** is also refered as **Transition block**
+
+### Local and Global Receptive field
 
 ## Dropout
 Dropout layer makes Pixels black (CNN)
@@ -128,6 +97,19 @@ Dropout layer makes Pixels black (CNN)
 - Run time
 - Pre processed
 
+## Hyperparameter Tuning
+- Image Resolution
+- Kernel Size: 3 * 3, 5 * 5, 7 * 7
+- Stride: 2, 3
+- Padding: same, valid
+- Activation Function: Relu
+- Dense Layer: 64, 128
+- Loss Function: Categorical sparse entropy
+- Optimizers: Adam, SGD
+- Number of Convolution layers
+  - Image reduction
+- Epochs
+
 ## Note
 - Batch Normalisation
 - BP and FP in terms of CNN
@@ -135,6 +117,24 @@ Dropout layer makes Pixels black (CNN)
 - BP starts from Entry side of the model (first layer)
 - TF1.14 is stable but old
 - Steps per epoch = Total number of samples/Batch size
+
+## Experiments
+### Architecture 1
+| Layers              | Kernel Size | Stride | Padding | Number of Kernels |Activation  |
+| ------------------- | ----------- | -------| --------| ----------------- |----------- |
+| Convolution Layer 1 | 3 * 3       | 1      | 1       | 32                | Relu       |
+| Max Pooling         | 2 * 2       | 2      | 2       |                   | Relu       |
+| Convolution Layer 2 | 3 * 3       | 1      | 1       | 32                | Relu       |
+| Max Pooling         | 2 * 2       | 2      | 2       |                   | Relu       |
+| Convolution Layer 3 | 3 * 3       | 1      | 1       | 64                | Relu       |
+| Max Pooling         | 2 * 2       | 2      | 2       |                   | Relu       |
+| Flatten             |             |        |         |                   |            |
+| Dense/FC            |             |        |         |                   |            |
+| Dropout             |             |        |         |                   |            |
+| Dense/FC            |             |        |         |                   |            |
+| Dropout             |             |        |         |                   |            |
+| Output layer        |             |        |         |                   | Softmax    |
+
 
 ## References
 - Kernels
