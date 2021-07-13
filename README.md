@@ -91,9 +91,50 @@ Max Pooling with 2x2 filter and a stride of 2
   - Image reduction
 - Epochs
 
+## Experiments
+
+### Architecture 1
+| Layers              | Kernel Size | Stride | Padding | Number of Kernels |Activation  |
+| ------------------- | ----------- | -------| --------| ----------------- |----------- |
+| Convolution Layer 1 | 3 * 3       | 1      | 1       | 32                | Relu       |
+| Max Pooling         | 2 * 2       | 2      | 2       |                   | Relu       |
+| Convolution Layer 2 | 3 * 3       | 1      | 1       | 32                | Relu       |
+| Max Pooling         | 2 * 2       | 2      | 2       |                   | Relu       |
+| Convolution Layer 3 | 3 * 3       | 1      | 1       | 64                | Relu       |
+| Max Pooling         | 2 * 2       | 2      | 2       |                   | Relu       |
+| Flatten             |             |        |         |                   |            |
+| Dense/FC            |             |        |         |                   |            |
+| Dropout             |             |        |         |                   |            |
+| Dense/FC            |             |        |         |                   |            |
+| Dropout             |             |        |         |                   |            |
+| Output layer        |             |        |         |                   | Softmax    |
+
+- **Convolution Layer** is also refered as **Convolution block**
+- **Max pooling Layer** is also refered as **Transition block**
+
+## Dropout
+Dropout layer makes Pixels black (CNN)
+### Where to place
+- After flattening in between FCs (mostly used)
+- Layers before output layers (softmax/sigmoid)
+
+### What not to do
+- Not use dropout between Convolution layer
+- Not use dropout at First Convolution block (we are capturing features)
+  and Last Convolution block (we have all extracted features we would not want to loose them)
+- Not use Convolution layer in transition block (MP layer)
+
+## Data Augumentation
+- Run time
+- Pre processed
+
 ## Note
+- Batch Normalisation
+- BP and FP in terms of CNN
 - NO backpropogation for Max pooling and FC layers
 - BP starts from Entry side of the model (first layer)
+- TF1.14 is stable but old
+- Steps per epoch = Total number of samples/Batch size
 
 ## References
 - Kernels
@@ -105,6 +146,12 @@ Max Pooling with 2x2 filter and a stride of 2
   - [CNN explainer](https://poloclub.github.io/cnn-explainer/)
   - [ConvNetJS](https://cs.stanford.edu/people/karpathy/convnetjs/)
   - [NB](https://jovian.ai/paulbindass/convolutional-neural-network-world)
-  
+- Data Augumentation
+  - [Library imgaug](https://github.com/aleju/imgaug)
+  - [Augmentor](https://augmentor.readthedocs.io/en/master/)
+  - [Augmentor github](https://github.com/mdbloice/Augmentor)
+  - [Research paper- Cutout](https://arxiv.org/pdf/1708.04552.pdf)
+  - [Research paper- Image Cropping and Patching](https://arxiv.org/pdf/1811.09030.pdf)
+  - [Library Albumentations](https://github.com/albumentations-team/albumentations)
   
   
