@@ -4,8 +4,8 @@ from keras.preprocessing import image
 
 
 class ImageClassification:
-    def __init__(self, filename):
-        self.filename = filename
+    def __init__(self, model_input_image_file_name):
+        self.model_input_image_file_name = model_input_image_file_name
 
     def dog_or_cat(self):
         # load model
@@ -13,8 +13,8 @@ class ImageClassification:
 
         # summarize model
         # model.summary()
-        image_name = self.filename
-        test_image = image.load_img(image_name, target_size=(64, 64))
+        input_image_file = self.model_input_image_file_name
+        test_image = image.load_img(input_image_file, target_size=(64, 64))
         test_image = image.img_to_array(test_image)
         test_image = np.expand_dims(test_image, axis=0)
         result = model.predict(test_image)

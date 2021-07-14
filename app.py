@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify, render_template
 import os
 from flask_cors import CORS, cross_origin
-from src.core.utils import decodeImage
+from src.core.utils import decode_image
 from src.predict import ImageClassification
 
 os.putenv('LANG', 'en_US.UTF-8')
@@ -14,8 +14,8 @@ CORS(app)
 # @cross_origin()
 class ClientApp:
     def __init__(self):
-        self.filename = "inputImage.jpg"
-        self.classifier = ImageClassification(self.filename)
+        self.model_input_file = "input_image_for_model.jpg"
+        self.classifier = ImageClassification(self.model_input_file)
 
 
 @app.route("/", methods=['GET'])
@@ -26,9 +26,9 @@ def home():
 
 @app.route("/predict", methods=['POST'])
 @cross_origin()
-def predictRoute():
+def predict_route():
     image = request.json['image']
-    decodeImage(image, clApp.filename)
+    decode_image(image, clApp.model_input_file)
     result = clApp.classifier.dog_or_cat()
     return jsonify(result)
 
