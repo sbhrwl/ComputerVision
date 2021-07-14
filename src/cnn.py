@@ -3,22 +3,22 @@ from tensorflow.keras import datasets, layers, models
 from keras.preprocessing.image import ImageDataGenerator
 
 
-def image_preproacessing():
-    train_datagen = ImageDataGenerator(rescale=1. / 255,
-                                       shear_range=0.2,
-                                       zoom_range=0.2,
-                                       horizontal_flip=True)
-    test_datagen = ImageDataGenerator(rescale=1. / 255)
+def image_preprocessing():
+    train_data_generator = ImageDataGenerator(rescale=1. / 255,
+                                              shear_range=0.2,
+                                              zoom_range=0.2,
+                                              horizontal_flip=True)
+    test_data_generator = ImageDataGenerator(rescale=1. / 255)
 
-    training_set = train_datagen.flow_from_directory('images/train',
-                                                     target_size=(64, 64),
-                                                     batch_size=32,
-                                                     class_mode='binary')  # category
+    training_set = train_data_generator.flow_from_directory('images/train',
+                                                            target_size=(64, 64),
+                                                            batch_size=32,
+                                                            class_mode='binary')  # category
 
-    test_set = test_datagen.flow_from_directory('images/validation',
-                                                target_size=(64, 64),
-                                                batch_size=32,
-                                                class_mode='binary')
+    test_set = test_data_generator.flow_from_directory('images/validation',
+                                                       target_size=(64, 64),
+                                                       batch_size=32,
+                                                       class_mode='binary')
     return training_set, test_set
 
 
@@ -49,17 +49,17 @@ def build_model():
 
     classifier.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
     print(classifier.summary())
-    return(classifier)
+    return classifier
 
 
 def train_model():
-    training_set_images, test_set_images = image_preproacessing()
+    training_set_images, test_set_images = image_preprocessing()
     model = build_model()
     model.fit_generator(training_set_images,
-                         steps_per_epoch=8000,
-                         epochs=1,
-                         validation_data=test_set_images,
-                         validation_steps=2000)
+                        steps_per_epoch=8000,
+                        epochs=1,
+                        validation_data=test_set_images,
+                        validation_steps=2000)
 
     model.save("artifacts/model/model.h5")
     print("Saved model to disk")
