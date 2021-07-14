@@ -56,7 +56,7 @@ def train_model():
     training_set_images, test_set_images = image_preprocessing()
     model = build_model()
     model.fit_generator(training_set_images,
-                        steps_per_epoch=8000,
+                        steps_per_epoch=62,
                         epochs=1,
                         validation_data=test_set_images,
                         validation_steps=2000)
