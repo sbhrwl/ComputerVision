@@ -1,6 +1,28 @@
 # Computer Vision
 
-## Drawbacks of MLP/ANN
+- [Drawbacks of ANN](#drawbacks-of-ann)
+- [Convolution Neural Network](#convolution-neural-network)
+  - [Principals](#principals)
+  - [Kernel](#kernel)
+  - [CNN in Action](#cnn-in-action)
+    - [Steps in Convolution operation](#steps-in-convolution-operation)
+    - [Convolution done on RGB channels with 3 * 3 kernel](#convolution-done-on-rgb-channels)
+    - [Max Pooling](#max-pooling)
+    - [CNN Example](#cnn-example)
+- [Features extracted at different layers](#features-extracted-at-different-layers)
+- [Local and Global Receptive field](#local-and-global-receptive-field)
+- [Dropout](#dropout)
+- [Data Augmentation](#data-augmentation)
+- [Hyper parameter Tuning](#hyper-parameter-tuning)\
+- [Experiments](#experiments)
+- [BP in CNN](#bp-in-cnn)
+- [Networks](#networks)
+  - [LeNet](#lenet)
+  - [AlexNet](#alexnet)
+  - [VGG net](#vgg-net)
+- [References](#references)
+
+## Drawbacks of ANN
 - Loss of features
   - Before feeding an image to the hidden layers of an MLP, we must flatten the image matrix to a 1D vector, this implies that all the image's 2D information is discarded.
 - Spatial Invariance 
@@ -30,7 +52,8 @@
 - Feature accumulation
 - Feature aggregation
 
-### Convolution done on RGB channels with 3 * 3 kernel
+### Convolution done on RGB channels
+#### Example with 3 * 3 kernel
   * Same Filter/Kernel convolve 3 channels
   * Finally, after feature aggregation we have 1 extracted feature
   * Similarly, after using more filters, we would **extract** more features from the image
@@ -78,7 +101,7 @@ Max Pooling with 2x2 filter and a stride of 2
 - **Convolution Layer** is also referred as **Convolution block**
 - **Max pooling Layer** is also referred as **Transition block**
 
-### Local and Global Receptive field
+## Local and Global Receptive field
 
 ## Dropout
 Dropout layer makes Pixels black (CNN)
@@ -146,6 +169,14 @@ Augmentation Types
 | Dropout             |             |        |         |                   |            |
 | Output layer        |             |        |         |                   | Softmax    |
 
+## BP in CNN
+
+## Networks
+### LeNet
+
+### AlexNet
+
+### VGG net
 
 ## References
 - Kernels
