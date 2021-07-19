@@ -170,6 +170,52 @@ Augmentation Types
 | Output layer        |             |        |         |                   | Softmax    |
 
 ## BP in CNN
+### BP in Fully Connected Layers
+#### Network for Classification
+Flatter Layer -> Fully Connected layer -> Logits -> Softmax -> Output (Classification)
+
+#### Forward Propgation for above network
+- Output of FC layer is Logits
+  - Logits never adds upto 1
+- Output of Softmax is the Output classification
+  - Softmax output adds upto 1
+    
+    <img src="https://render.githubusercontent.com/render/math?math=Softmax = \frac{e^{z_{i}}}{\sum_{i=1}^{k} e^{z_{k}}}">
+    
+    Logit output of Fully connected layer
+    
+    <img src="https://render.githubusercontent.com/render/math?math=\begin{vmatrix}z_{1}\\ z_{2}\\ z_{3}\\ z_{4}\end{vmatrix}">
+    
+    <img src="https://render.githubusercontent.com/render/math?math=\begin{vmatrix}0.23\\ 0.89\\ 0.45\\ 0.12\end{vmatrix}">
+
+    This is now fed to Softmax, Output of Softmax 
+    
+    <img src="https://render.githubusercontent.com/render/math?math=\begin{vmatrix}y_{1}\\ y_{2}\\ y_{3}\\ y_{4}\end{vmatrix}">
+    
+    <img src="https://render.githubusercontent.com/render/math?math=\begin{vmatrix}0.05\\ 0.7\\ 0.2\\ 0.05\end{vmatrix}">
+    
+    **Output** class will be **y2**
+
+#### Backward Propgation for above network
+- Loss Function is cross entropy
+  - For Binary classification
+    
+    <img src="https://render.githubusercontent.com/render/math?math=-(ylog(p)+(1-y)log(1-p))">
+
+  - For MultiClass classification (classes>2)
+    
+    <img src="https://render.githubusercontent.com/render/math?math=-\sum_{c=1}^{M}y_{0,c}log(p_{0,c})">
+
+  - During BP the Cross Entropy will be reduced based on new **weights** and **biases**
+    
+    - <img src="https://render.githubusercontent.com/render/math?math=w_{new} = w_{old} - \eta\frac{\partial y}{\partial w_{old}}">
+    
+    - <img src="https://render.githubusercontent.com/render/math?math=b_{new} = b_{old} - \eta\frac{\partial y}{\partial b_{old}}">
+
+#### Lets say now, BP of Fully connected layers give us an output "gradient" <img src="https://render.githubusercontent.com/render/math?math=\frac{\partial L}{\partial w}">
+This **gradient** will now be backpropogated to Maxx Pooling and Convolution layers
+
+### BP in Max pooling and Convolution Layers
 
 ## Networks
 ### LeNet
