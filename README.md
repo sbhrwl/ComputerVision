@@ -233,8 +233,47 @@ CNN L1 -> Max Pooling 1 -> ... -> Flatter Layer -> Fully Connected layer -> Logi
 - As parameters of Max pooling layer are **not trainable**, so there is **NO NEED to calculate Gradients** at Max pooling layer
 
 #### BP for Convolution Layers
+##### Intution
+Lets say we have an Image 3 * 3 
 
+<img src="https://latex.codecogs.com/svg.image?\begin{bmatrix}&space;0&space;&&space;0&space;&&space;0&space;\\&space;0&space;&&space;25&space;&&space;0\\&space;0&space;&&space;0&space;&&space;0&space;\end{bmatrix}" title="\begin{bmatrix} 0 & 0 & 0 \\ 0 & 25 & 0\\ 0 & 0 & 0 \end{bmatrix}" />
 
+and the Filter 3 * 3
+
+<img src="https://latex.codecogs.com/svg.image?\begin{bmatrix}&space;0&space;&&space;0&space;&&space;0&space;\\&space;0&space;&&space;0&space;&&space;0\\&space;0&space;&&space;0&space;&&space;0&space;\end{bmatrix}" title="\begin{bmatrix} 0 & 0 & 0 \\ 0 & 0 & 0\\ 0 & 0 & 0 \end{bmatrix}" />
+
+The Convolution Operation would result in an Image of all **ZEROS**
+
+<img src="https://latex.codecogs.com/svg.image?\begin{bmatrix}&space;0&space;&&space;0&space;&&space;0&space;\\&space;0&space;&&space;0&space;&&space;0\\&space;0&space;&&space;0&space;&&space;0&space;\end{bmatrix}" title="\begin{bmatrix} 0 & 0 & 0 \\ 0 & 0 & 0\\ 0 & 0 & 0 \end{bmatrix}" />
+
+But Lets say, we introduce small variation in the filter and change filter with so that we have **1** in the center
+
+<img src="https://latex.codecogs.com/svg.image?\begin{bmatrix}&space;0&space;&&space;0&space;&&space;0&space;\\&space;0&space;&&space;1&space;&&space;0\\&space;0&space;&&space;0&space;&&space;0&space;\end{bmatrix}" title="\begin{bmatrix} 0 & 0 & 0 \\ 0 & 1 & 0\\ 0 & 0 & 0 \end{bmatrix}" />
+
+Now, the Convolution Operation would result in an Image with pixels value in center increased to **25**
+
+<img src="https://latex.codecogs.com/svg.image?\begin{bmatrix}&space;0&space;&&space;0&space;&&space;0&space;\\&space;0&space;&&space;25&space;&&space;0\\&space;0&space;&&space;0&space;&&space;0&space;\end{bmatrix}" title="\begin{bmatrix} 0 & 0 & 0 \\ 0 & 25 & 0\\ 0 & 0 & 0 \end{bmatrix}" />
+
+**Conclusion**
+- Output of the Center Image is increased with a value which is **same as that of the image**
+- It further implies that if we calculate gradient wrt weights of kernel/filter we can get the INput image in the Output as well
+
+### Mathematical form of Convolution
+**Output Image(i,j) = Conv(Image, Filter)**
+
+<img src="https://latex.codecogs.com/svg.image?\sum_{x=0}^{3}\sum_{y=0}^{3}&space;Image(i&plus;x,&space;j&plus;y)\star&space;&space;Filter(x,&space;y)" title="\sum_{x=0}^{3}\sum_{y=0}^{3} Image(i+x, j+y)\star Filter(x, y)" />
+
+If we take partial Derivative of Output image, we will get image at the location x, y represented as **Image(i+x, j+y)**
+
+<img src="https://latex.codecogs.com/svg.image?\frac{\partial&space;Output&space;Image}{\partial&space;Filter(x,&space;y)}&space;=&space;Image(i&plus;x,&space;j&plus;y)" title="\frac{\partial Output Image}{\partial Filter(x, y)} = Image(i+x, j+y)" />
+
+Now we can calculate Derivative of Loss wrt weights of **filter/kernel**
+
+<img src="https://latex.codecogs.com/svg.image?\frac{\partial&space;L}{\partial&space;w}&space;=&space;\frac{\partial&space;L}{\partial&space;Filter(x,&space;y)}&space;=&space;\sum_{i}^{}\sum_{j}^{}\frac{\partial&space;L}{\partial&space;OutputImage}&space;\bullet&space;\frac{\partial&space;OutputImage}{\partial&space;Filter}" title="\frac{\partial L}{\partial w} = \frac{\partial L}{\partial Filter(x, y)} = \sum_{i}^{}\sum_{j}^{}\frac{\partial L}{\partial OutputImage} \bullet \frac{\partial OutputImage}{\partial Filter}" />
+
+**and partial Derivative of Loss wrt Output image is same as partial Derivative of Loss wrt x`** obtained as output of **Max pooling** layer
+
+<img src="https://latex.codecogs.com/svg.image?\frac{\partial&space;L}{\partial&space;OutputImage}&space;=&space;\frac{\partial&space;L}{\partial&space;x^{`}}" title="\frac{\partial L}{\partial OutputImage} = \frac{\partial L}{\partial x^{`}}" />
 
 ## Networks
 ### LeNet
