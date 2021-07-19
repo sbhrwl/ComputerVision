@@ -13,7 +13,7 @@
 - [Local and Global Receptive field](#local-and-global-receptive-field)
 - [Dropout](#dropout)
 - [Data Augmentation](#data-augmentation)
-- [Hyper parameter Tuning](#hyper-parameter-tuning)\
+- [Hyper parameter Tuning](#hyper-parameter-tuning)
 - [Experiments](#experiments)
 - [BP in CNN](#bp-in-cnn)
 - [Networks](#networks)
@@ -219,9 +219,21 @@ This **gradient** will now be backpropogated to Maxx Pooling and Convolution lay
 CNN L1 -> Max Pooling 1 -> ... -> Flatter Layer -> Fully Connected layer -> Logits -> Softmax -> Output (Classification)
 
 #### BP for Max pooling
+- Passing Gradients obtained from Fully connected layers (derivative of Loss function (for the output of Softmax function) wrt weights used at fully connected layers)
+- Creating a Matrix of same size (as input image matrix)
+- Filling the Matrix by passing the gradients as shown
 
+<img src="https://github.com/sbhrwl/ComputerVision/blob/main/artifacts/images/BP-MaxPoolingLayer.jpg">
+
+- Now we have above Matrix of 4 * 4 gradients
+- Lets call it as <img src="https://render.githubusercontent.com/render/math?math=\frac{\partial L}{\partial w^{`}}"> 
+- These are newly calculated gradients based on gradients of fully connected layers
+- These gradients will now be passed to Convolution layer present behind **this** Max pooling layer
+- As parameters of Max pooling layer are **not trainable**, so there is **NO NEED to calculate Gradients** at Max pooling layer
 
 #### BP for Convolution Layers
+
+
 
 ## Networks
 ### LeNet
