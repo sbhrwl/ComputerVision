@@ -218,7 +218,7 @@ This **gradient** will now be backpropogated to Maxx Pooling and Convolution lay
 ### BP in Max pooling and Convolution Layers
 CNN L1 -> Max Pooling 1 -> ... -> Flatter Layer -> Fully Connected layer -> Logits -> Softmax -> Output (Classification)
 
-#### BP for Max pooling
+#### [BP for Max pooling](https://www.youtube.com/watch?v=GH6qN0Bj8lA&t=1595s)
 - Passing Gradients obtained from Fully connected layers (derivative of Loss function (for the output of Softmax function) wrt weights used at fully connected layers)
 - Creating a Matrix of same size (as input image matrix)
 - Filling the Matrix by passing the gradients as shown
