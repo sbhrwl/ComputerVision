@@ -216,6 +216,12 @@ Flatter Layer -> Fully Connected layer -> Logits -> Softmax -> Output (Classific
 This **gradient** will now be backpropogated to Maxx Pooling and Convolution layers
 
 ### BP in Max pooling and Convolution Layers
+CNN L1 -> Max Pooling 1 -> ... -> Flatter Layer -> Fully Connected layer -> Logits -> Softmax -> Output (Classification)
+
+#### BP for Max pooling
+
+
+#### BP for Convolution Layers
 
 ## Networks
 ### LeNet
