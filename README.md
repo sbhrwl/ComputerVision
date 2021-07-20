@@ -172,7 +172,7 @@ Augmentation Types
 ## [BP in CNN](https://github.com/sbhrwl/ComputerVision/blob/main/CNN_BP.md)
 
 ## Networks
-### [LeNet](https://drive.google.com/file/d/1I1aqvBPQ0qxOSsLr5wdNe-LNQHySmgBS/view?usp=sharing)
+### [LeNet](https://colab.research.google.com/drive/1N29L05F972fB97JL0mdqQwc3os2OB-Me?usp=sharing)
 
 ### [AlexNet](https://drive.google.com/file/d/1Sc5wUxu5hlAzarK91vWL2So9ECuGRPPy/view?usp=sharing)
 
