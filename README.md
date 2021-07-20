@@ -172,11 +172,11 @@ Augmentation Types
 ## [BP in CNN](https://github.com/sbhrwl/ComputerVision/blob/main/CNN_BP.md)
 
 ## Networks
-### LeNet
+### [LeNet](https://drive.google.com/file/d/1I1aqvBPQ0qxOSsLr5wdNe-LNQHySmgBS/view?usp=sharing)
 
-### AlexNet
+### [AlexNet](https://drive.google.com/file/d/1Sc5wUxu5hlAzarK91vWL2So9ECuGRPPy/view?usp=sharing)
 
-### VGG net
+### [VGG net](https://drive.google.com/file/d/18PQ867fQRULK-mD7gQkEOJv5_Cv2pv5v/view?usp=sharing)
 
 ## References
 - Kernels
