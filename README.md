@@ -174,9 +174,9 @@ Augmentation Types
 ## Networks
 ### [LeNet](https://colab.research.google.com/drive/1N29L05F972fB97JL0mdqQwc3os2OB-Me?usp=sharing)
 
-### [AlexNet](https://drive.google.com/file/d/1Sc5wUxu5hlAzarK91vWL2So9ECuGRPPy/view?usp=sharing)
+### [AlexNet](https://colab.research.google.com/drive/1RvvNKpxc0z2xtunAe13un1Ri_SzITTMG?usp=sharing)
 
-### [VGG net](https://drive.google.com/file/d/18PQ867fQRULK-mD7gQkEOJv5_Cv2pv5v/view?usp=sharing)
+### [VGG net](https://colab.research.google.com/drive/1wNoiB5e8iHFKH0YXp7H6iOTG8Y2a5RL2?usp=sharing)
 
 ## References
 - Kernels
