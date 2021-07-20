@@ -186,7 +186,7 @@ Augmentation Types
 4. Enhanced Data via Data Augmentation
 
 ### [VGG net](https://colab.research.google.com/drive/1wNoiB5e8iHFKH0YXp7H6iOTG8Y2a5RL2?usp=sharing)
-<img src='https://drive.google.com/uc?id=1vXB4PZlXSu9O_H9IM3Nt6TuQ9zx2tV7P'>
+<img src='https://github.com/sbhrwl/ComputerVision/blob/main/artifacts/images/vgg_network.png'>
 
 [Visualise model](https://ethereon.github.io/netscope/#/preset/vgg-16)
 
