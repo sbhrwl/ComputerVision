@@ -87,7 +87,7 @@ Now, the Convolution Operation would result in an Image with pixels value in cen
 - Output of the Center Image is increased with a value which is **same as that of the image**
 - It further implies that if we calculate gradient wrt weights of kernel/filter we can get the INput image in the Output as well
 
-### Mathematical form of Convolution
+### Mathematical form of Convolution (Forward Propagation)
  <img src="https://github.com/sbhrwl/ComputerVision/blob/main/artifacts/images/conv_example.jpg" width=800>
 
 **Output Image(i,j) = Conv(Image, Filter)**
@@ -96,15 +96,21 @@ Now, the Convolution Operation would result in an Image with pixels value in cen
 
 **3 channels**
 
-- Step 1: If we take partial Derivative of Output image, we will get image at the location x, y represented as **Image(i+x, j+y)**
+### [Backward Propagation](https://www.youtube.com/watch?v=BvrWiL2fd0M&t=770s)
+#### Goal
+- Calculate Derivative of Loss of network wrt **weights** of filter/kernel
+- Calculate Derivative of Loss of network wrt **Output** Image
 
-<img src="https://latex.codecogs.com/svg.image?\frac{\partial&space;Output&space;Image}{\partial&space;Filter(x,&space;y)}&space;=&space;Image(i&plus;x,&space;j&plus;y)" title="\frac{\partial Output Image}{\partial Filter(x, y)} = Image(i+x, j+y)" />
-
-- Step 2: Now we can calculate Derivative of Loss wrt weights of **filter/kernel**
+#### Steps
+- Step 1: Now we can calculate Derivative of Loss wrt weights of **filter/kernel**
 
 <img src="https://latex.codecogs.com/svg.image?\frac{\partial&space;L}{\partial&space;w}&space;=&space;\frac{\partial&space;L}{\partial&space;Filter(x,&space;y)}&space;=&space;\sum_{i}^{}\sum_{j}^{}\frac{\partial&space;L}{\partial&space;OutputImage}&space;\bullet&space;\frac{\partial&space;OutputImage}{\partial&space;Filter}" title="\frac{\partial L}{\partial w} = \frac{\partial L}{\partial Filter(x, y)} = \sum_{i}^{}\sum_{j}^{}\frac{\partial L}{\partial OutputImage} \bullet \frac{\partial OutputImage}{\partial Filter}" />
 
-**and partial Derivative of Loss wrt Output image is same as partial Derivative of Loss wrt x`** obtained as output of **Max pooling** layer
+- Step 2: If we take partial Derivative of Output image, we will get image at the location x, y represented as **Image(i+x, j+y)**
+
+<img src="https://latex.codecogs.com/svg.image?\frac{\partial&space;Output&space;Image}{\partial&space;Filter(x,&space;y)}&space;=&space;Image(i&plus;x,&space;j&plus;y)" title="\frac{\partial Output Image}{\partial Filter(x, y)} = Image(i+x, j+y)" />
+
+- After Back propagation through Max Pooling layer, we had a **Matrix** which is equivalent to Derivative of Loss of network wrt **Output Image**
 
 <img src="https://latex.codecogs.com/svg.image?\frac{\partial&space;L}{\partial&space;OutputImage}&space;=&space;\frac{\partial&space;L}{\partial&space;x^{`}}" title="\frac{\partial L}{\partial OutputImage} = \frac{\partial L}{\partial x^{`}}" />
 
