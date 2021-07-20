@@ -85,7 +85,7 @@ Now, the Convolution Operation would result in an Image with pixels value in cen
 
 **Conclusion**
 - Output of the Center Image is increased with a value which is **same as that of the image**
-- It further implies that if we calculate gradient wrt weights of kernel/filter we can get the INput image in the Output as well
+- It further implies that if we calculate gradient wrt weights of kernel/filter we can get the Input image in the Output as well
 
 ### Mathematical form of Convolution (Forward Propagation)
  <img src="https://github.com/sbhrwl/ComputerVision/blob/main/artifacts/images/conv_example.jpg" width=800>
@@ -102,6 +102,12 @@ Now, the Convolution Operation would result in an Image with pixels value in cen
 - Calculate Derivative of Loss of network wrt **Output** Image
 
 #### Steps
+- FP is a Convolution operation
+- BP is also a Convolution operation
+- We get Gradient from Fully connected layers represented as <img src="https://render.githubusercontent.com/render/math?math=\frac{\partial L}{\partial x}">
+- This gradient is passed to Max pooling layer, adn now we have a gradient matrix <img src="https://render.githubusercontent.com/render/math?math=\frac{\partial L}{\partial x^{`}}">
+- Next Step is to calculate Gradient wrt weights used in the filter/kernel during the convolution operation
+
 Calculation of Derivative of Loss wrt weights of **filter/kernel** can be represented as below
 
 <img src="https://latex.codecogs.com/svg.image?\frac{\partial&space;L}{\partial&space;w}&space;=&space;\frac{\partial&space;L}{\partial&space;Filter(x,&space;y)}&space;=&space;\sum_{i}^{}\sum_{j}^{}\frac{\partial&space;L}{\partial&space;OutputImage}&space;\bullet&space;\frac{\partial&space;OutputImage}{\partial&space;Filter}" title="\frac{\partial L}{\partial w} = \frac{\partial L}{\partial Filter(x, y)} = \sum_{i}^{}\sum_{j}^{}\frac{\partial L}{\partial OutputImage} \bullet \frac{\partial OutputImage}{\partial Filter}" />
@@ -113,7 +119,3 @@ Here, partial Derivative of Output image wrt filter at (x, y), will give **image
 and after Back propagation through Max Pooling layer, we had a **Matrix** which is equivalent to Derivative of Loss of network wrt **Output Image**
 
 <img src="https://latex.codecogs.com/svg.image?\frac{\partial&space;L}{\partial&space;OutputImage}&space;=&space;\frac{\partial&space;L}{\partial&space;x^{`}}" title="\frac{\partial L}{\partial OutputImage} = \frac{\partial L}{\partial x^{`}}" />
-
-#### Observation
-- FP is a Convolution
-- BP is also a Convolution
