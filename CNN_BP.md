@@ -102,7 +102,7 @@ Now, the Convolution Operation would result in an Image with pixels value in cen
 - Calculate Derivative of Loss of network wrt **Output** Image
 
 #### Steps
-- Calculation of Derivative of Loss wrt weights of **filter/kernel** can be represented as below
+Calculation of Derivative of Loss wrt weights of **filter/kernel** can be represented as below
 
 <img src="https://latex.codecogs.com/svg.image?\frac{\partial&space;L}{\partial&space;w}&space;=&space;\frac{\partial&space;L}{\partial&space;Filter(x,&space;y)}&space;=&space;\sum_{i}^{}\sum_{j}^{}\frac{\partial&space;L}{\partial&space;OutputImage}&space;\bullet&space;\frac{\partial&space;OutputImage}{\partial&space;Filter}" title="\frac{\partial L}{\partial w} = \frac{\partial L}{\partial Filter(x, y)} = \sum_{i}^{}\sum_{j}^{}\frac{\partial L}{\partial OutputImage} \bullet \frac{\partial OutputImage}{\partial Filter}" />
 
@@ -114,5 +114,6 @@ and after Back propagation through Max Pooling layer, we had a **Matrix** which 
 
 <img src="https://latex.codecogs.com/svg.image?\frac{\partial&space;L}{\partial&space;OutputImage}&space;=&space;\frac{\partial&space;L}{\partial&space;x^{`}}" title="\frac{\partial L}{\partial OutputImage} = \frac{\partial L}{\partial x^{`}}" />
 
+#### Observation
 - FP is a Convolution
 - BP is also a Convolution
