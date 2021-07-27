@@ -12,6 +12,7 @@
 - [Features extracted at different layers](#features-extracted-at-different-layers)
 - [Receptive field](#receptive-field)
 - [Dropout](#dropout)
+- [Weight Decay](#weight-decay)
 - [Data Augmentation](#data-augmentation)
 - [Hyper parameter Tuning](#hyper-parameter-tuning)
 - [Experiments](#experiments)
@@ -122,6 +123,16 @@ Dropout layer makes Pixels black (CNN)
 ### Where to place
 - Use drop out after flattening layer and in between FCs (mostly used)
 - Use drop out before output layer (softmax/sigmoid)
+
+## Weight Decay
+- Weight Decay is a regularisation technique (~L2 regularisation)
+- As when working with deep networks, during BP there is an issue of vanishing gradient
+- To handle Vanishing gradient, when applyin GD introduce new term: Weight Decay term (lambda)
+<img src="https://render.githubusercontent.com/render/math?math=w = w - \eta\frac{\partial y}{\partial x}-n\lambda w">
+- This will ensure we would be updating the weights (unlike with vanishing gradient)
+- Lambda is very small number close to ZERO but not zero
+- Keras Implementation: sgd = optimizers.SGD(lr=0.01, **decay=1e-6**, momentum=0.9)
+
 
 ### What not to do
 - Do not use dropout between Convolution layer
