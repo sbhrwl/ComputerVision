@@ -173,9 +173,9 @@
 
 - 5x5 replaced with 2 **3x3 conv**
 
-### Another form of Factorized convolutions
+### Spatial Factorization into Asymmetric Convolutions
 
-<img src="https://github.com/sbhrwl/ComputerVision/blob/main/artifacts/images/FactorizedConvolutions-more.jpg" width=800>
+<img src="https://github.com/sbhrwl/ComputerVision/blob/main/artifacts/images/Spatial Factorization.jpg" width=600>
 
 #### Benefits of Factorizing convolutions
 - One convolutin is broken into 2 lighter convolution making it 
