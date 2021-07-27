@@ -17,9 +17,6 @@
 - [Experiments](#experiments)
 - [BP in CNN](#bp-in-cnn)
 - [Networks](#networks)
-  - [LeNet](#lenet)
-  - [AlexNet](#alexnet)
-  - [VGG net](#vgg-net)
 - [References](#references)
 
 ## Drawbacks of ANN
