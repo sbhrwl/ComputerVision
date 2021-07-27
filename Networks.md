@@ -8,6 +8,7 @@
     - [Naive Version](#naive-version)
     - [Dimension Reduction version](#dimension-reduction-version)
     - [Auxillary Classifier](#auxillary-classifier)
+    - [Global Average Pooling](#global-average-pooling)
     - [Inception Network Design](#inception-network-design)
   - [InceptionV2](#inceptionv2)
   - [InceptionV3](#inceptionv3)
@@ -111,6 +112,18 @@
 - Auxillary Classifier helps for Feature Visualisation
 - Auxillary Classifier also caters to **Vanishing Gradient** problem as well because it serves as closing the networks, so smaller network to Back Propogate hence vanishing gradient is handled
 
+### [Activation Map](https://towardsdatascience.com/live-visualisations-of-cnns-activation-maps-using-tensorflow-js-27353cfffb43)
+- Activation Map is output of particular convolution layer. we can use activation maps for visualisation of CNN.
+
+#### Parameter Comparison with GAP and FC layers
+<img src="https://github.com/sbhrwl/ComputerVision/blob/main/artifacts/images/GAP-parameterComparison.png" width=500>
+
+### Global Average Pooling
+- One advantage of global average pooling over the fully connected layers is that it is **more native to the convolution structure by enforcing correspondences between feature maps and categories**. 
+  - Thus the feature maps can be easily interpreted as categories confidence maps. 
+- Another advantage is that there is **no parameter to optimize** in the global average pooling thus overfitting is avoided at this layer. 
+- Furthermore, global average pooling sums out the spatial information, thus it is more robust to spatial translations of the input.
+
 #### [Inception Network Design](https://colab.research.google.com/drive/1P-0FBj2f0KEsgNevk2SBNzdkPIhnIIrT?usp=sharing)
 **Note**: 
 - Inception-v1 was introduced in 2014
@@ -151,6 +164,8 @@
 
 ### General Design Principles
 1.  **Prevent bottlenecks in characterization**
+    - 1x1 conv in inception block (reduce before 3*3 and 5*5) are termed as bottlenecks as they reduce the number of channels/feature
+    - 1*1 or Pointwise layer or Bottleneck layers
     - The so-called bottleneck of feature description is that a large proportion of features are compressed in the middle layer (such as using a pooling operation). 
     - This operation will cause the loss of feature space information and the loss of features. (Later Hole Convolution operations)
 2.  **The higher the dimensionality of the feature, the faster the training converges** . 
@@ -178,9 +193,11 @@
 <img src="https://github.com/sbhrwl/ComputerVision/blob/main/artifacts/images/Spatial Factorization.jpg" width=600>
 
 #### Benefits of Factorizing convolutions
-- One convolutin is broken into 2 lighter convolution making it 
+- One convolution is broken into 2 lighter convolution making it 
   - Fit of weak GPUs
   - Faster training of network
   - Enables use to deploy our model in weak systems (poor hardware)
 
 ## [Model available in Keras](https://keras.io/api/applications/)
+
+**From TF2 onwards we can add Padding with MP**
