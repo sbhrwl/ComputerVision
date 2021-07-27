@@ -72,6 +72,6 @@
   * The author believes that although the pooling layer will lose space information, it has been effectively applied in many fields, which proves its effectiveness, 
   * So a parallel channel is added, and it is changed by 1x1 conv for its output dimension.
 
-<img src='https://drive.google.com/uc?id=12oYQf63Ax8neA6OAfZ0dKpxbHbm8uwUJ'>
+<img src='https://github.com/sbhrwl/ComputerVision/blob/main/artifacts/images/inception.png'>
 
 #### [Inception Network Design](https://colab.research.google.com/drive/1P-0FBj2f0KEsgNevk2SBNzdkPIhnIIrT?usp=sharing)
