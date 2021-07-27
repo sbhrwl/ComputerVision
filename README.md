@@ -124,6 +124,12 @@ Dropout layer makes Pixels black (CNN)
 - Use drop out after flattening layer and in between FCs (mostly used)
 - Use drop out before output layer (softmax/sigmoid)
 
+### What not to do
+- Do not use dropout between Convolution layer
+- Do not use dropout at First Convolution block (we are capturing features)
+  and Last Convolution block (we have all extracted features we would not want to loose them)
+- Do not use Convolution layer in transition block (MP layer)
+
 ## Weight Decay
 - Weight Decay is a regularisation technique (~L2 regularisation)
 - As when working with deep networks, during BP there is an issue of vanishing gradient
@@ -132,13 +138,6 @@ Dropout layer makes Pixels black (CNN)
 - This will ensure we would be updating the weights (unlike with vanishing gradient)
 - Lambda is very small number close to ZERO but not zero
 - Keras Implementation: sgd = optimizers.SGD(lr=0.01, **decay=1e-6**, momentum=0.9)
-
-
-### What not to do
-- Do not use dropout between Convolution layer
-- Do not use dropout at First Convolution block (we are capturing features)
-  and Last Convolution block (we have all extracted features we would not want to loose them)
-- Do not use Convolution layer in transition block (MP layer)
 
 ## Data Augmentation
 - You can also use a data augmentation type (augmentation_type) hyper parameter to configure your input images to be augmented in multiple ways. 
