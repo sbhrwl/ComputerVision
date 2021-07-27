@@ -121,25 +121,25 @@
 
 ### Algorithm advantages:
 1. **Improved learning rate** : 
-  - In the BN model, a **higher learning rate** is used to accelerate training convergence, but it will not cause other effects. 
-  - Usually, the minimum learning is required to ensure the loss function to decrease, 
-  - But the BN layer keeps the scale of each layer and dimension consistent, so you can directly use a higher learning rate for optimization.
+    - In the BN model, a **higher learning rate** is used to accelerate training convergence, but it will not cause other effects. 
+    - Usually, the minimum learning is required to ensure the loss function to decrease, 
+    - But the BN layer keeps the scale of each layer and dimension consistent, so you can directly use a higher learning rate for optimization.
 2. **Remove the dropout layer** : 
-  - The BN layer makes full use of the goals of the dropout layer. 
-  - Remove the dropout layer from the BN-Inception model, but no overfitting will occur.
+    - The BN layer makes full use of the goals of the dropout layer. 
+    - Remove the dropout layer from the BN-Inception model, but no overfitting will occur.
 3. **Decrease the attenuation coefficient of L2 weight** : 
-  - Although the L2 loss controls the overfitting of the Inception model, **the loss of weight has been reduced by five times in the BN-Inception model**
+    - Although the L2 loss controls the overfitting of the Inception model, **the loss of weight has been reduced by five times in the BN-Inception model**
 4. **Accelerate the decay of the learning rate** : 
-  - When training the Inception model, we let the learning rate decrease exponentially. 
-  - Because our network is faster than Inception, we will **increase the speed of reducing the learning rate by 6 times**.
+    - When training the Inception model, we let the learning rate decrease exponentially. 
+    - Because our network is faster than Inception, we will **increase the speed of reducing the learning rate by 6 times**.
 5. **Remove the local response layer** : 
-  - Although this layer has a certain role, but after the BN layer is added, this layer is not necessary.
+    - Although this layer has a certain role, but after the BN layer is added, this layer is not necessary.
 6. **Scramble training samples more thoroughly** : 
-  - We scramble training samples, which can prevent the same samples from appearing in a mini-batch. 
-  - This improves the accuracy of the validation set by 1%, which is the advantage of the BN layer as a regular term. 
-  - In our method, random selection is more effective when the model sees different samples each time.
+    - We scramble training samples, which can prevent the same samples from appearing in a mini-batch. 
+    - This improves the accuracy of the validation set by 1%, which is the advantage of the BN layer as a regular term. 
+    - In our method, random selection is more effective when the model sees different samples each time.
 7. **To reduce image distortion**: 
-  - Because BN network training is faster and observes each training sample less often, we want the model to see a more realistic image instead of a distorted image.
+    - Because BN network training is faster and observes each training sample less often, we want the model to see a more realistic image instead of a distorted image.
 
 [notebook](https://colab.research.google.com/drive/1bbhZYdvBueu2OH7i-GaOFD-TtVHonBLK?usp=sharing)
 
@@ -150,31 +150,35 @@
 
 ### General Design Principles
 1.  **Prevent bottlenecks in characterization**
-  - The so-called bottleneck of feature description is that a large proportion of features are compressed in the middle layer (such as using a pooling operation). 
-  - This operation will cause the loss of feature space information and the loss of features. (Later Hole Convolution operations)
+    - The so-called bottleneck of feature description is that a large proportion of features are compressed in the middle layer (such as using a pooling operation). 
+    - This operation will cause the loss of feature space information and the loss of features. (Later Hole Convolution operations)
 2.  **The higher the dimensionality of the feature, the faster the training converges** . 
-  - That is, the independence of features has a great relationship with the speed of model convergence.
-  - The more independent features, the more thoroughly the input feature information is decomposed. 
-  - It is easier to converge if the correlation is strong. 
-  - **Hebbin principle** : fire together, wire together.
+    - That is, the independence of features has a great relationship with the speed of model convergence.
+    - The more independent features, the more thoroughly the input feature information is decomposed. 
+    - It is easier to converge if the correlation is strong. 
+    - **Hebbin principle** : fire together, wire together.
 3.  **Reduce the amount of calculation through dimensionality reduction**
-  - In v1, the feature is first reduced by 1x1 convolutional dimensionality reduction. 
-  - There is a certain correlation between different dimensions. 
-  - Dimension reduction can be understood as a **lossless or low-loss compression**. 
-    - Even if the dimensions are reduced, the correlation can still be used to restore its original information.
+    - In v1, the feature is first reduced by 1x1 convolutional dimensionality reduction. 
+    - There is a certain correlation between different dimensions. 
+    - Dimension reduction can be understood as a **lossless or low-loss compression**. 
+      - Even if the dimensions are reduced, the correlation can still be used to restore its original information.
 4.  **Balance the depth and width of the network**
     - Only by increasing the depth and width of the network in the same proportion can the performance of the model be maximized.
 
 ### Factorizing Convolutions with Large Filter Size
 - With the same number of convolution kernels, larger convolution kernels (such as 5x5 or 7x7) are more expensive to calculate than 3x3 convolution kernels , which is about a multiple of 25/9 = 2.78
-- <img src="https://github.com/sbhrwl/ComputerVision/blob/main/artifacts/images/FactorizingConvolutions.png" width=500>
+
+<img src="https://github.com/sbhrwl/ComputerVision/blob/main/artifacts/images/FactorizingConvolutions.png" width=500>
+
 - 5x5 replaced with 2 **3x3 conv**
+
+### Another form of Factorized convolutions
+
+<img src="https://github.com/sbhrwl/ComputerVision/blob/main/artifacts/images/FactorizedConvolutions-more.jpg" width=800>
+
 #### Benefits of Factorizing convolutions
 - One convolutin is broken into 2 lighter convolution making it 
   - Fit of weak GPUs
   - Faster training of network
   - Enables use to deploy our model in weak systems (poor hardware)
 
-
-References
-- [Calculate number of parameters)(https://docs.google.com/spreadsheets/d/1gudVwWo-LQ5H2YX7UT_UJyOG46Yuks9N/edit#gid=406370563)
