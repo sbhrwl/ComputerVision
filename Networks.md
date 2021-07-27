@@ -5,6 +5,9 @@
   - [Inception](#inception)
     - [Intution](#intution)
     - [Core Idea](#core-idea)
+    - [Naive Version](#naive-version)
+    - [Dimension Reduction version](#dimension-reduction-version)
+    - [Auxillary Classifier](#auxillary-classifier)
     - [Inception Network Design](#inception-network-design)
 
 ## [LeNet](https://colab.research.google.com/drive/1N29L05F972fB97JL0mdqQwc3os2OB-Me?usp=sharing)
@@ -44,6 +47,7 @@
 - Prone to Overfitting
 #### Unconventional Convolution Neural Network
 - Fully connected layers replaced with Convolution 
+- [Paper](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/43022.pdf)
 - [Notebook](https://colab.research.google.com/drive/1diTcRiepAFMSUCG-62hJYInn4wYPVK-i?usp=sharing)
 - Notice Convolution layer instead of FC layers when closing the network
     ```
@@ -74,4 +78,36 @@
 
 <img src='https://github.com/sbhrwl/ComputerVision/blob/main/artifacts/images/inception.png'>
 
+### Naive Version
+- Consider an Input from previous layer as **28x28x196**
+- Lets assume that we are using **N** Filters/Kernels/Features with our next stage of convolutions
+- Output of 1x1 will be **28x28x(N)**
+- Output of 3x3 will be **26x26x(N)**
+- Output of 5x5 will be **24x24x(N)**
+- Output of Max Pooling will be **14x14x(N)**
+
+### Dimension Reduction version
+- As 1x1 reduces the number of channels in the output
+- Using 1x1 enables us to have a **Security Border**
+- We can use different 1x1 for each convolution, ex
+  - 32 channels for 1st 1x1
+  - 64 channels for 3x3 conv
+  - 128 channels for 5x5 conv
+  - 96 conv for 1x1 after Max pooling
+- Reducing the number of channels makes our model **Computationally less expensive**
+- As after each convolution the shape has been reduced (as reduced number of channels with 1x1), we then use **Padding** to get the same dimension in Output as was with the previous layer
+- Now Concatenation can be performed (Filter concatenation) at next module
+- **With independent 1x conv (1st block) we always have One copy of image from previous layer**
+
+### Auxillary Classifier
+- Auxillary Classifier serves as an **Exit point** for our network
+  - Feature map from **Inception block** is sent to **Average pool** 
+  - Followed by 1x1 con to reduce number of channel
+  - 2 FCs
+  - Softmax activation for classification
+- Auxillary Classifier helps for Feature Visualisation
+- Auxillary Classifier also caters to **Vanishing Gradient** problem as well because it serves as closing the networks, so smaller network to Back Propogate hence vanishing gradient is handled
+
 #### [Inception Network Design](https://colab.research.google.com/drive/1P-0FBj2f0KEsgNevk2SBNzdkPIhnIIrT?usp=sharing)
+
+
