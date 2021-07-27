@@ -10,7 +10,7 @@
     - [Max Pooling](#max-pooling)
     - [CNN Example](#cnn-example)
 - [Features extracted at different layers](#features-extracted-at-different-layers)
-- [Local and Global Receptive field](#local-and-global-receptive-field)
+- [Receptive field](#receptive-field)
 - [Dropout](#dropout)
 - [Data Augmentation](#data-augmentation)
 - [Hyper parameter Tuning](#hyper-parameter-tuning)
@@ -84,6 +84,8 @@ Max Pooling with 2x2 filter and a stride of 2
   * Max pooling reduced size from 14 to 7
 * 64 Filters applied to image at layer 4 => Feature map with 64 extracted Features
 
+<img src="https://github.com/sbhrwl/ComputerVision/blob/main/artifacts/images/OutputFeatureCalc.jpg">
+
 ## Features extracted at different layers
 * Edges
 * Textures
@@ -99,7 +101,21 @@ Max Pooling with 2x2 filter and a stride of 2
 - **Convolution Layer** is also referred as **Convolution block**
 - **Max pooling Layer** is also referred as **Transition block**
 
-## Local and Global Receptive field
+## Receptive field
+- The receptive field is defined as the region in the input space that a particular CNN’s **feature is looking at** (i.e. be affected by)
+- Within a receptive field, **the closer a pixel to the center of the field, the more it contributes to the calculation of the output feature**. 
+- Which means that a feature does not only look at a particular region (i.e. its receptive field) in the input image, but also focus exponentially more to the middle of that region.
+- Consider Convolution C with 
+  - kernel size k = 3x3, 
+  - padding size p = 1x1, 
+  - stride s = 2x2. 
+- Lets apply this convolution on a 5x5 input image
+  - It produces the 3x3 green feature map (local receptive field) 
+- Lets apply the same convolution on top above 3x3 feature map
+  - It produces the 2x2 orange feature map (global receptive field)
+<img src="https://github.com/sbhrwl/ComputerVision/blob/main/artifacts/images/ReceptiveFieldInAction.jpg">
+
+- [nice video](https://www.youtube.com/watch?v=QyM8c8XK01g)
 
 ## Dropout
 Dropout layer makes Pixels black (CNN)
