@@ -13,6 +13,7 @@
 - [Receptive field](#receptive-field)
 - [Dropout](#dropout)
 - [Weight Decay](#weight-decay)
+- [LR scheduler](#lr-scheduler)
 - [Data Augmentation](#data-augmentation)
 - [Hyper parameter Tuning](#hyper-parameter-tuning)
 - [Experiments](#experiments)
@@ -140,6 +141,8 @@ Dropout layer makes Pixels black (CNN)
 - This will ensure we would be updating the weights (unlike with vanishing gradient)
 - Lambda is very small number close to ZERO but not zero
 - Keras Implementation: sgd = optimizers.SGD(lr=0.01, **decay=1e-6**, momentum=0.9)
+
+## LR scheduler
 
 ## Data Augmentation
 - You can also use a data augmentation type (augmentation_type) hyper parameter to configure your input images to be augmented in multiple ways. 
