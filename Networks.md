@@ -11,6 +11,7 @@
     - [Inception Network Design](#inception-network-design)
   - [InceptionV2](#inceptionv2)
   - [InceptionV3](#inceptionv3)
+  - [Model available in Keras](#model-available-in-keras)
 
 ## [LeNet](https://colab.research.google.com/drive/1N29L05F972fB97JL0mdqQwc3os2OB-Me?usp=sharing)
 * LeNet-5 is a very efficient convolutional neural network for **handwritten character recognition**
@@ -182,3 +183,4 @@
   - Faster training of network
   - Enables use to deploy our model in weak systems (poor hardware)
 
+## [Model available in Keras](https://keras.io/api/applications/)
