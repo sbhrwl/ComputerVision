@@ -4,8 +4,8 @@ from src.core.model_architectures import model_architecture_1conv_1max_pool, mod
 
 
 def build_model():
-    model = model_architecture_cifar10_1conv_1max_pool()
-    # model = model_architecture_1conv_1max_pool()
+    # model = model_architecture_cifar10_1conv_1max_pool()
+    model = model_architecture_1conv_1max_pool()
     # model = model_architecture_2conv_1max_pool()
     # model = model_architecture_3conv_1max_pool()
     return model
