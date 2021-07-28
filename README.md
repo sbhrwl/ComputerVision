@@ -18,6 +18,8 @@
 - [Hyper parameter Tuning](#hyper-parameter-tuning)
 - [Experiments](#experiments)
 - [BP in CNN](#bp-in-cnn)
+- [1x1 conv](#1x1-conv)
+- [Common Operations when building a network](#common-operations-when-building-a-network)
 - [Networks](#networks)
 - [References](#references)
 
@@ -199,6 +201,26 @@ Augmentation Types
 | Output layer        |             |        |         |                   | Softmax    |
 
 ## [BP in CNN](https://github.com/sbhrwl/ComputerVision/blob/main/CNN_BP.md)
+
+## [1x1 conv](https://machinelearningmastery.com/introduction-to-1x1-convolutions-to-reduce-the-complexity-of-convolutional-neural-networks/)
+- Projecting Feature Maps
+- Increasing Feature Maps
+- Decreasing Feature Maps
+
+## Common Operations when building a network
+Increasing Image/Output size after a convolution
+- Padding
+- Upsampling
+
+Decreasing Image/Output size after a convolution
+- Pooling (Min/Max/Average)
+- Down sampling
+
+Increasing feature maps/channels after a convolution
+- 1x1 with Increasing Feature Maps mode
+
+Decreasing feature maps/channels after a convolution
+- 1x1 with Decreasing Feature Maps mode
 
 ## [Networks](https://github.com/sbhrwl/ComputerVision/blob/main/Networks.md)
 
