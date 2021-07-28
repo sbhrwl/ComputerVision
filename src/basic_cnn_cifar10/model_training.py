@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 from src.basic_cnn_cifar10.data_preparation import load_dataset, visualise_dataset, \
     preprocess_features, preprocess_labels
 from tensorflow.keras.callbacks import ModelCheckpoint, EarlyStopping
-from src.basic_cnn_mnist.model_architectures import model_architecture_1conv_1max_pool
+from src.basic_cnn_cifar10.model_architectures import model_architecture_1conv_1max_pool
 
 
 def build_model():
@@ -58,6 +58,7 @@ def evaluate_model(model, X_test, y_test):
     print('Test accuracy: %.4f%%' % accuracy)
     return accuracy
 
+
 def data_preparation():
     (train_features, train_labels), (test_features, test_labels) = load_dataset()
     visualise_dataset(train_features)
@@ -71,6 +72,7 @@ def data_preparation():
 
 
 def model_preparation():
+    X_train, y_train, X_test, y_test = data_preparation()
     model = build_model()
     compile_model(model)
     start_training(model, X_train, y_train, X_test, y_test)
@@ -80,6 +82,5 @@ def model_preparation():
 
 
 if __name__ == '__main__':
-    X_train, y_train, X_test, y_test = data_preparation()
-    accuracy = model_preparation()
-    print(accuracy)
+    accuracy_of_model = model_preparation()
+    print(accuracy_of_model)

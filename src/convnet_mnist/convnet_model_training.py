@@ -1,5 +1,6 @@
 from keras.callbacks import LearningRateScheduler
 # from keras.optimizers import adam
+from src.convnet_mnist.data_preparation import data_preparation
 from src.convnet_mnist.convnet_model_architectures import model_architecture_1
 
 
