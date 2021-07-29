@@ -168,7 +168,6 @@ def build_model_inception():
 def inception_transfer_learning():
     # @title Default title text
     conv_base = InceptionV3(weights='imagenet', include_top=False, input_shape=(256, 256, 3))
-
     conv_base.summary()
 
     model = models.Sequential()
@@ -188,5 +187,8 @@ def inception_transfer_learning():
     model.add(Dropout(0.5))
     model.add(BatchNormalization())
     model.add(Dense(10, activation='softmax'))
+
+    input_shape = (None, 32, 32, 3)
+    model.build(input_shape)
     model.summary()
     return model
