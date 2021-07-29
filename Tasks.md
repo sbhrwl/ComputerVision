@@ -55,7 +55,17 @@
                     shuffle=True)
   ```
 ## [Task 7 Inception architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/inception/inception_model_training.py)  
+  | Inception Model           | Parameters | Epochs | Accuracy |
+  | ------------------- | ---------- | -------| ---------|
+  | [Transfer Learning](https://github.com/sbhrwl/ComputerVision/blob/cf04f951ec58b51f819d93f2a7090425ade7a85a/src/inception/inception_transfer_learning.py)   | 8k         | 1      | %      |
+  | Inception scratch   | 10k        | 1      | %      |
+
 ## [Task 6 VGG architectures for MNIST datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/vgg/vgg_model_training.py)
+  | VGG Model           | Parameters | Epochs | Accuracy |
+  | ------------------- | ---------- | -------| ---------|
+  | Transfer Learning   | 8k         | 1      | %      |
+  | VGG 16 scratch      | 10k        | 1      | %      |
+  | VGG 19 scratch      | 6k         | 1      | %      |
 
 ## [Task 5 Convnet architectures for MNIST datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/convnet_mnist/convnet_model_training.py)
   | Changes to Existing Model              | Parameters | Epochs | Accuracy |
