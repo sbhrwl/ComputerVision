@@ -18,8 +18,9 @@ def evaluate_model(model, X_test, y_test):
 
 
 if __name__ == '__main__':
-    test_features, test_labels = data_preparation()
+    train_features, train_labels, test_features, test_labels = data_preparation()
     print(test_features.shape[0], 'test samples')
+    # For CNN we first load model and then its weights
     model_to_evaluate = load_model(model)
     model_accuracy = evaluate_model(model_to_evaluate, test_features, test_labels)
     print(model_accuracy)
