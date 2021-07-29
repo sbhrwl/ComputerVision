@@ -4,6 +4,7 @@ from keras.datasets import cifar10
 from keras.utils import np_utils
 
 
+# Resizes CIFAR dataset to meet the Input dimension expected by the model
 def data_preparation(img_rows, img_cols):
     num_classes = 10
     # Load cifar10 training and validation sets
@@ -31,6 +32,7 @@ def data_preparation(img_rows, img_cols):
     return X_train, y_train, X_test, y_test
 
 
+# Dimension of CIFAR dataset remains same as 32*32*3
 def data_preparation_transfer_learning():
     (X_train, y_train), (X_test, y_test) = cifar10.load_data()
 

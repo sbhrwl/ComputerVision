@@ -29,7 +29,7 @@ def build_model_vgg_16():
 
     # first block
     vgg_16.add(Conv2D(filters=64, kernel_size=(3, 3), strides=(1, 1), activation='relu', padding='same',
-                      input_shape=(224, 224, 3)))
+                      input_shape=(32, 32, 3)))  # input_shape=(224, 224, 3)))
     vgg_16.add(Conv2D(filters=64, kernel_size=(3, 3), strides=(1, 1), activation='relu', padding='same'))
     vgg_16.add(MaxPool2D(pool_size=(2, 2), strides=(2, 2)))
 
@@ -62,7 +62,8 @@ def build_model_vgg_16():
     vgg_16.add(Dropout(0.5))
     vgg_16.add(Dense(4096, activation='relu'))
     vgg_16.add(Dropout(0.5))
-    vgg_16.add(Dense(1000, activation='softmax'))
+    # vgg_16.add(Dense(1000, activation='softmax'))
+    vgg_16.add(Dense(10, activation='softmax'))
 
     vgg_16.summary()
     return vgg_16
@@ -73,7 +74,7 @@ def build_model_vgg_19():
 
     # first block
     vgg_19.add(Conv2D(filters=64, kernel_size=(3, 3), strides=(1, 1), activation='relu', padding='same',
-                      input_shape=(224, 224, 3)))
+                      input_shape=(32, 32, 3)))  # input_shape=(224, 224, 3)))
     vgg_19.add(Conv2D(filters=64, kernel_size=(3, 3), strides=(1, 1), activation='relu', padding='same'))
     vgg_19.add(MaxPool2D((2, 2), strides=(2, 2)))
 
@@ -109,7 +110,8 @@ def build_model_vgg_19():
     vgg_19.add(Dropout(0.5))
     vgg_19.add(Dense(4096, activation='relu'))
     vgg_19.add(Dropout(0.5))
-    vgg_19.add(Dense(1000, activation='softmax'))
+    # vgg_19.add(Dense(1000, activation='softmax'))
+    vgg_19.add(Dense(10, activation='softmax'))
 
     vgg_19.summary()
     return vgg_19
