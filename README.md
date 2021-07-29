@@ -184,6 +184,24 @@ from keras.preprocessing.image import ImageDataGenerator
 ```
 
 ## Hyper parameter Tuning
+Consider below CNN architecture
+### Architecture
+  | Layers              | Kernel Size | Stride | Padding | Number of Kernels |Activation  |
+  | ------------------- | ----------- | -------| --------| ----------------- |----------- |
+  | Convolution Layer 1 | 3 * 3       | 1      | 1       | 32                | Relu       |
+  | Max Pooling         | 2 * 2       | 2      | 2       |                   | Relu       |
+  | Convolution Layer 2 | 3 * 3       | 1      | 1       | 32                | Relu       |
+  | Max Pooling         | 2 * 2       | 2      | 2       |                   | Relu       |
+  | Convolution Layer 3 | 3 * 3       | 1      | 1       | 64                | Relu       |
+  | Max Pooling         | 2 * 2       | 2      | 2       |                   | Relu       |
+  | Flatten             |             |        |         |                   |            |
+  | Dense/FC            |             |        |         |                   |            |
+  | Dropout             |             |        |         |                   |            |
+  | Dense/FC            |             |        |         |                   |            |
+  | Dropout             |             |        |         |                   |            |
+  | Output layer        |             |        |         |                   | Softmax    |
+
+### Hyperparameters to tune
 - Image Resolution
 - Kernel Size: 3 * 3, 5 * 5, 7 * 7
 - Stride: 2, 3
