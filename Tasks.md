@@ -56,7 +56,16 @@
   ```
 ## [Task 7 Inception architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/inception/inception_model_training.py)  
 ## [Task 6 VGG architectures for MNIST datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/vgg/vgg_model_training.py)
+
 ## [Task 5 Convnet architectures for MNIST datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/convnet_mnist/convnet_model_training.py)
+  | Changes to Existing Model              | Parameters | Epochs | Accuracy |
+  | -------------------------------------- | ---------- | -------| ---------|
+  | max_pool_after_image_reduced_to_8      | 8k         | 1      | 92%      |
+  | one_more_1x1_conv_to_reduce_dimension_from_16_to_10      | 10k         | 1      | 96%      |
+  | 16_channels_replaced_with_8_channels      | 6k         | 2      | 98%      |
+  | one_more_1x1_conv_to_reduce_dimension_from_16_to_10 and  16_channels_replaced_with_8_channels     | 6k         | 2      | 97%      |
+  
+
 ## [Task 4 Basic Image Classifier](https://github.com/sbhrwl/ComputerVision/blob/main/src/basic_image_classifier/model_training.py)
 ## [Task 3 Basic CNN architectures for Flower datatset](https://colab.research.google.com/drive/1bxCs_T6PbcKh7v9FccGUEBj_rOjh861C?usp=sharing)
 ## [Task 2 Basic CNN architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/basic_cnn_cifar10/model_training.py)
