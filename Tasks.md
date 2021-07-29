@@ -61,21 +61,3 @@
 ## [Task 3 Basic CNN architectures for Flower datatset](https://colab.research.google.com/drive/1bxCs_T6PbcKh7v9FccGUEBj_rOjh861C?usp=sharing)
 ## [Task 2 Basic CNN architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/basic_cnn_cifar10/model_training.py)
 ## [Task 1 Basic CNN architectures for MNIST datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/basic_cnn_mnist/model_training.py)
-### Architecture
-  | Layers              | Kernel Size | Stride | Padding | Number of Kernels |Activation  |
-  | ------------------- | ----------- | -------| --------| ----------------- |----------- |
-  | Convolution Layer 1 | 3 * 3       | 1      | 1       | 32                | Relu       |
-  | Max Pooling         | 2 * 2       | 2      | 2       |                   | Relu       |
-  | Convolution Layer 2 | 3 * 3       | 1      | 1       | 32                | Relu       |
-  | Max Pooling         | 2 * 2       | 2      | 2       |                   | Relu       |
-  | Convolution Layer 3 | 3 * 3       | 1      | 1       | 64                | Relu       |
-  | Max Pooling         | 2 * 2       | 2      | 2       |                   | Relu       |
-  | Flatten             |             |        |         |                   |            |
-  | Dense/FC            |             |        |         |                   |            |
-  | Dropout             |             |        |         |                   |            |
-  | Dense/FC            |             |        |         |                   |            |
-  | Dropout             |             |        |         |                   |            |
-  | Output layer        |             |        |         |                   | Softmax    |
-
-
-
