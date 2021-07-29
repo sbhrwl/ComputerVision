@@ -1,9 +1,12 @@
+# Tasks
 - [General Approach](#general-approach)
-- [Task 1 Basic CNN architectures for MNIST datatset](#task-1-basic-cnn-architectures-for-mnist-datatset)
+- [Task 7 Inception architectures for CIFAR10 datatset](#task-7-inception-architectures-for-cifar10-datatset)
+- [Task 6 VGG architectures for MNIST datatset](#task-6-vgg-architectures-for-mnist-datatset)
+- [Task 5 Convnet architectures for MNIST datatset](#task-5-convnet-architectures-for-mnist-datatset)
+- [Task 4 Basic Image Classifier](#task-4-basic-image-classifier)
+- [Task 3 Basic CNN architectures for Flower datatset](#task-3-basic-cnn-architectures-for-flower-datatset)
 - [Task 2 Basic CNN architectures for CIFAR10 datatset](#task-2-basic-cnn-architectures-for-cifar10-datatset)
-- [Task 3 Basic Image Classifier](#task-3-basic-image-classifier)
-- [Task 4 Convnet architectures for MNIST datatset](#task-4-convnet-architectures-for-mnist-datatset)
-- [Task 5 VGG architectures for MNIST datatset](#task-5-vgg-architectures-for-mnist-datatset)
+- [Task 1 Basic CNN architectures for MNIST datatset](#task-1-basic-cnn-architectures-for-mnist-datatset)
 
 ## General Approach
 ### Step 1: Data Preparation
@@ -51,9 +54,14 @@
                     verbose=2,
                     shuffle=True)
   ```
-  
+## [Task 7 Inception architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/inception/inception_model_training.py)  
+## [Task 6 VGG architectures for MNIST datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/vgg/vgg_model_training.py)
+## [Task 5 Convnet architectures for MNIST datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/convnet_mnist/convnet_model_training.py)
+## [Task 4 Basic Image Classifier](https://github.com/sbhrwl/ComputerVision/blob/main/src/basic_image_classifier/model_training.py)
+## [Task 3 Basic CNN architectures for Flower datatset](https://colab.research.google.com/drive/1bxCs_T6PbcKh7v9FccGUEBj_rOjh861C?usp=sharing)
+## [Task 2 Basic CNN architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/basic_cnn_cifar10/model_training.py)
 ## [Task 1 Basic CNN architectures for MNIST datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/basic_cnn_mnist/model_training.py)
-### Architecture 1
+### Architecture
   | Layers              | Kernel Size | Stride | Padding | Number of Kernels |Activation  |
   | ------------------- | ----------- | -------| --------| ----------------- |----------- |
   | Convolution Layer 1 | 3 * 3       | 1      | 1       | 32                | Relu       |
@@ -68,7 +76,6 @@
   | Dense/FC            |             |        |         |                   |            |
   | Dropout             |             |        |         |                   |            |
   | Output layer        |             |        |         |                   | Softmax    |
-## [Task 2 Basic CNN architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/basic_cnn_cifar10/model_training.py)
-## [Task 3 Basic Image Classifier](https://github.com/sbhrwl/ComputerVision/blob/main/src/basic_image_classifier/model_training.py)
-## [Task 4 Convnet architectures for MNIST datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/convnet_mnist/convnet_model_training.py)
-## [Task 5 VGG architectures for MNIST datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/vgg/vgg_model_training.py)
+
+
+
