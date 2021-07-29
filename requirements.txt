@@ -4,3 +4,4 @@ matplotlib
 scipy
 flask
 flask_cors
+opencv-python
