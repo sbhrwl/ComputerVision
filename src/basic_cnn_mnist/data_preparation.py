@@ -75,3 +75,18 @@ def reshape_features(train_features, test_features):
     print('input_shape: ', input_shape)
     print('x_train shape:', X_train.shape)
     return X_train, X_test
+
+
+def data_preparation():
+    (train_features, train_labels), (test_features, test_labels) = load_dataset()
+    visualise_dataset(train_features, train_labels)
+
+    fig = plt.figure(figsize=(12, 12))
+    ax = fig.add_subplot(111)
+    visualize_input(train_features[0], ax)
+
+    engineered_train_features, engineered_test_features = preprocess_features(train_features, test_features)
+    engineered_train_labels, engineered_test_labels = preprocess_labels(train_labels, test_labels)
+    reshaped_train_features, reshaped_test_features = reshape_features(engineered_train_features,
+                                                                       engineered_test_features)
+    return reshaped_train_features, engineered_train_labels, reshaped_test_features, engineered_test_labels

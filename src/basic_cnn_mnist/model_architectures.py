@@ -2,7 +2,8 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout, GlobalAveragePooling2D
 
 
-def model_architecture_1conv_1max_pool():
+# def model_architecture_1conv_1max_pool():
+def model_architecture():
     # build the model object
     model = Sequential()
 

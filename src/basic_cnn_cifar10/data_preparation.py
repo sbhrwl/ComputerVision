@@ -39,3 +39,15 @@ def preprocess_labels(train_labels, test_labels):
     y_train = keras.utils.to_categorical(train_labels, num_classes)
     y_test = keras.utils.to_categorical(test_labels, num_classes)
     return y_train, y_test
+
+
+def data_preparation():
+    (train_features, train_labels), (test_features, test_labels) = load_dataset()
+    visualise_dataset(train_features)
+
+    fig = plt.figure(figsize=(12, 12))
+    ax = fig.add_subplot(111)
+    engineered_train_features, engineered_test_features = preprocess_features(train_features,
+                                                                              test_features)
+    engineered_train_labels, engineered_test_labels = preprocess_labels(train_labels, test_labels)
+    return engineered_train_features, engineered_train_labels, engineered_test_features, engineered_test_labels

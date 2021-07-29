@@ -1,11 +1,11 @@
 from keras.callbacks import LearningRateScheduler
 # from keras.optimizers import adam
 from src.convnet_mnist.data_preparation import data_preparation
-from src.convnet_mnist.convnet_model_architectures import model_architecture_1
+from src.convnet_mnist.convnet_model_architectures import model_architecture
 
 
 def build_model():
-    model = model_architecture_1()
+    model = model_architecture()
     return model
 
 
@@ -35,20 +35,8 @@ def start_training(model, X_train, y_train, X_test, y_test):
               validation_data=(X_test, y_test),
               callbacks=[LearningRateScheduler(scheduler, verbose=1)])
 
-
-def load_model(model):
-    # load the weights that yielded the best validation accuracy
-    model.load_weights('model.weights.best.hdf5')
-
-
-def evaluate_model(model, X_test, y_test):
-    # evaluate test accuracy
-    score = model.evaluate(X_test, y_test, verbose=0)
-    accuracy = 100 * score[1]
-
-    # print test accuracy
-    print('Test accuracy: %.4f%%' % accuracy)
-    return accuracy
+    model.save("artifacts/model/convnet_mnist/model.h5")
+    print("Model saved to disk")
 
 
 def model_preparation():
@@ -56,11 +44,8 @@ def model_preparation():
     model = build_model()
     compile_model(model)
     start_training(model, train_features, train_labels, test_features, test_labels)
-    # load_model(model)
-    model_accuracy = evaluate_model(model, test_features, test_labels)
-    return model_accuracy
 
 
 if __name__ == '__main__':
-    accuracy_of_model = model_preparation()
-    print(accuracy_of_model)
+    model_preparation()
+

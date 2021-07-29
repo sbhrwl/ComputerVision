@@ -5,7 +5,8 @@ from keras import layers, models
 
 # Accuracy 96%, parameters 6340
 # 16 channels replaced with 8 channels
-def model_architecture_1():
+# def model_architecture_1():
+def model_architecture():
     model = models.Sequential()
 
     model.add(layers.Conv2D(10, (3, 3), activation='relu', input_shape=(28, 28, 1)))

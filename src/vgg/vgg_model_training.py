@@ -30,7 +30,7 @@ def start_training(model, train_set, test_set):
     # num_epochs = 1000
     # num_batch_size = 32
 
-    checkpoint = ModelCheckpoint(filepath='my_model.h5',
+    checkpoint = ModelCheckpoint(filepath='artifacts/model/vgg/my_model.h5',
                                  verbose=1, save_best_only=True)
 
     callbacks = [checkpoint, lr_reducer]
@@ -47,6 +47,7 @@ def start_training(model, train_set, test_set):
 
     duration = datetime.now() - start
     print("Training completed in time: ", duration)
+    print("Model saved to disk via ModelCheckpoint callback")
 
 
 def model_preparation():

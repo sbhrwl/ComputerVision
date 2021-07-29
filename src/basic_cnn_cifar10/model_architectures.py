@@ -2,7 +2,8 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout, GlobalAveragePooling2D
 
 
-def model_architecture_1conv_1max_pool():
+# def model_architecture_1conv_1max_pool():
+def model_architecture():
     # build the model object
     model = Sequential()
 
@@ -45,7 +46,7 @@ def model_architecture_2conv_1max_pool():
     # CONV_1: add CONV layer with
     # RELU activation and depth = 32 of kernels (Feature extractor), each kernel of size 3*3
     # padding as same means we the output image size of this layer will be same as Input layer
-    model.add(Conv2D(32, kernel_size=(3, 3), padding='same', activation='relu', input_shape=(28, 28, 1)))
+    model.add(Conv2D(32, kernel_size=(3, 3), padding='same', activation='relu', input_shape=(32, 32, 3)))
     # Output: 28 * 28 * 32
 
     # POOL_1: down sample the image to choose the best features
@@ -81,7 +82,7 @@ def model_architecture_3conv_1max_pool():
     # CONV_1: add CONV layer with
     # RELU activation and depth = 32 of kernels (Feature extractor), each kernel of size 3*3
     # padding as same means we the output image size of this layer will be same as Input layer
-    model.add(Conv2D(32, kernel_size=(3, 3), padding='same', activation='relu', input_shape=(28, 28, 1)))
+    model.add(Conv2D(32, kernel_size=(3, 3), padding='same', activation='relu', input_shape=(32, 32, 3)))
     # Output: 28 * 28 * 32
 
     # POOL_1: down sample the image to choose the best features

@@ -1,55 +1,5 @@
-import tensorflow as tf
-from tensorflow.keras import datasets, layers, models
-from keras.preprocessing.image import ImageDataGenerator
-
-
-def image_preprocessing():
-    train_data_generator = ImageDataGenerator(rescale=1. / 255,
-                                              shear_range=0.2,
-                                              zoom_range=0.2,
-                                              horizontal_flip=True)
-    test_data_generator = ImageDataGenerator(rescale=1. / 255)
-
-    training_set = train_data_generator.flow_from_directory('images/train',
-                                                            target_size=(64, 64),
-                                                            batch_size=32,
-                                                            class_mode='binary')  # category
-
-    test_set = test_data_generator.flow_from_directory('images/validation',
-                                                       target_size=(64, 64),
-                                                       batch_size=32,
-                                                       class_mode='binary')
-    return training_set, test_set
-
-
-def build_model():
-    # Option 1
-    # classifier = tf.keras.Sequential([
-    #     tf.keras.layers.Conv2D(32, (3, 3), activation='relu', input_shape=(64, 64, 3)),
-    #     tf.keras.layers.MaxPooling2D((2,2)),
-    #     tf.keras.layers.Conv2D(64, (3, 3), activation='relu'),
-    #     tf.keras.layers.MaxPooling2D((2, 2)),
-    #     tf.keras.layers.Conv2D(64, (3, 3), activation='relu'),
-    #     tf.keras.layers.Flatten(),
-    #     tf.keras.layers.Dense(64,activation='relu'),
-    #     tf.keras.layers.Dense(1,activation='sigmoid')
-    #     # tf.keras.layers.Dense(10,activation='softmax')
-    # ])
-
-    # Option 2
-    classifier = models.Sequential()
-    classifier.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=(64, 64, 3)))
-    classifier.add(layers.MaxPooling2D((2, 2)))
-    classifier.add(layers.Conv2D(64, (3, 3), activation='relu'))
-    classifier.add(layers.MaxPooling2D((2, 2)))
-    classifier.add(layers.Conv2D(64, (3, 3), activation='relu'))
-    classifier.add(layers.Flatten())
-    classifier.add(layers.Dense(64, activation='relu'))
-    classifier.add(layers.Dense(1, activation='sigmoid'))
-
-    classifier.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-    print(classifier.summary())
-    return classifier
+from src.basic_image_classifier.data_preparation import image_preprocessing
+from src.basic_image_classifier.model_architectures import build_model
 
 
 def train_model():
@@ -61,8 +11,8 @@ def train_model():
                         validation_data=test_set_images,
                         validation_steps=2000)
 
-    model.save("artifacts/model/model.h5")
-    print("Saved model to disk")
+    model.save("artifacts/model/basic_image_classifier/model.h5")
+    print("Model saved to disk")
 
 
 if __name__ == '__main__':
