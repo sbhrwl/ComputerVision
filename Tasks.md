@@ -55,25 +55,25 @@
                     shuffle=True)
   ```
 ## [Task 7 Inception architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/inception/inception_model_training.py)  
-  | Inception Model           | Parameters | Epochs | Validation Accuracy |
-  | ------------------------- | ---------- | -------| --------------------|
+  | Inception Model | Parameters | Epochs | Validation Accuracy |
+  | ----------------| ---------- | -------| --------------------|
   | [Transfer Learning](https://github.com/sbhrwl/ComputerVision/blob/cf04f951ec58b51f819d93f2a7090425ade7a85a/src/inception/inception_transfer_learning.py)   | 8k         | 1      | %      |
   | Inception scratch   | 10k        | 1      | %      |
 
 ## [Task 6 VGG architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/vgg/vgg_model_training.py)
-  | VGG Model           | Parameters | Epochs | Validation Accuracy |
-  | ------------------- | ---------- | -------| --------------------|
-  | Transfer Learning Custom Dataset   | 50k        | 1      |85%   |
-  | VGG 16 scratch CIFAR10 Dataset     | 10k        | 33,638,218      | %      |
-  | VGG 19 scratch CIFAR10 Dataset     | 6k         | 33,638,218      | %      |
+  | VGG Model | Parameters | Epochs | Validation Accuracy |
+  | --------- | ---------- | -------| --------------------|
+  | Transfer Learning Custom Dataset | 50k        | 1      |85%   |
+  | VGG 16 scratch CIFAR10 Dataset | 10k        | 33,638,218      | %      |
+  | VGG 19 scratch CIFAR10 Dataset | 6k         | 33,638,218      | %      |
 
 ## [Task 5 Convnet architectures for MNIST datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/convnet_mnist/convnet_model_training.py)
-  | Changes to Existing Model              | Parameters | Epochs | Validation Accuracy |
-  | -------------------------------------- | ---------- | -------| --------------------|
-  | max_pool_after_image_reduced_to_8      | 8k         | 1      | 92%      |
-  | one_more_1x1_conv_to_reduce_dimension_from_16_to_10      | 10k         | 1      | 96%      |
-  | 16_channels_replaced_with_8_channels      | 6k         | 2      | 98%      |
-  | one_more_1x1_conv_to_reduce_dimension_from_16_to_10 and  16_channels_replaced_with_8_channels     | 6k         | 2      | 97%      |
+  | Changes to Existing Model | Parameters | Epochs | Validation Accuracy |
+  | ------------------------- | ---------- | -------| --------------------|
+  | max_pool_after_image_reduced_to_8 | 8k         | 1      | 92%      |
+  | one_more_1x1_conv_to_reduce_dimension_from_16_to_10 | 10k         | 1      | 96%      |
+  | 16_channels_replaced_with_8_channels | 6k         | 2      | 98%      |
+  | one_more_1x1_conv_to_reduce_dimension_from_16_to_10 and 16_channels_replaced_with_8_channels | 6k         | 2      | 97%      |
   
 
 ## [Task 4 Basic Image Classifier](https://github.com/sbhrwl/ComputerVision/blob/main/src/basic_image_classifier/model_training.py)
