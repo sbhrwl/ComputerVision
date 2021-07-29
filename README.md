@@ -16,11 +16,11 @@
 - [LR scheduler](#lr-scheduler)
 - [Data Augmentation](#data-augmentation)
 - [Hyper parameter Tuning](#hyper-parameter-tuning)
-- [Experiments](#experiments)
 - [BP in CNN](#bp-in-cnn)
 - [1x1 conv](#1x1-conv)
 - [Common Operations when building a network](#common-operations-when-building-a-network)
 - [Networks](#networks)
+- [Tasks](#tasks)
 - [References](#references)
 
 ## Drawbacks of ANN
@@ -145,7 +145,13 @@ Dropout layer makes Pixels black (CNN)
 - Keras Implementation: sgd = optimizers.SGD(lr=0.01, **decay=1e-6**, momentum=0.9)
 
 ## LR scheduler
-
+```
+# Creating the "scheduler" function with two arguments i.e learning rate and epoch
+def scheduler(epoch, lr):
+    # Learning rate = Learning rate * 1/(1 + decay * epoch)
+    # here decay is 0.319 and epoch is 10.
+    return round(0.003 * 1 / (1 + 0.319 * epoch), 10)
+```
 ## Data Augmentation
 - You can also use a data augmentation type (augmentation_type) hyper parameter to configure your input images to be augmented in multiple ways. 
 - You can randomly 
@@ -155,8 +161,27 @@ Dropout layer makes Pixels black (CNN)
   - Patching
 
 Augmentation Types
+- [Pre processed](https://github.com/sbhrwl/ComputerVision/blob/main/src/basic_image_classifier/data_preparation.py)
 - Run time
-- Pre processed
+```
+from keras.preprocessing.image import ImageDataGenerator
+...
+
+  data_augmentation=Sequential([
+    layers.experimental.preprocessing.RandomFlip('horizontal',input_shape=(180,180,3)),
+    layers.experimental.preprocessing.RandomFlip('vertical',input_shape=(180,180,3)),
+    layers.experimental.preprocessing.RandomZoom(0.3),
+  layers.experimental.preprocessing.RandomRotation(0.4)
+  ])
+  
+  model=models.Sequential([
+                         data_augmentation,
+                         layers.experimental.preprocessing.Rescaling(1./255),
+                         layers.Conv2D(filters=32,kernel_size=(3,3),padding='same',activation='relu'),
+                         layers.MaxPool2D(pool_size=(2,2)),
+                         layers.Dropout(0.2),
+                         ...
+```
 
 ## Hyper parameter Tuning
 - Image Resolution
@@ -174,31 +199,6 @@ Augmentation Types
   - Default batch size in keras is 32
   - We have 2000 sample images
   - Steps per epoch = 2000/32 = 62
-
-## Note
-- Batch Normalisation
-- BP and FP in terms of CNN
-- NO back propagation for Max pooling and FC layers
-- BP starts from Entry side of the model (first layer)
-- TF1.14 is stable but old
-
-
-## Experiments
-### Architecture 1
-| Layers              | Kernel Size | Stride | Padding | Number of Kernels |Activation  |
-| ------------------- | ----------- | -------| --------| ----------------- |----------- |
-| Convolution Layer 1 | 3 * 3       | 1      | 1       | 32                | Relu       |
-| Max Pooling         | 2 * 2       | 2      | 2       |                   | Relu       |
-| Convolution Layer 2 | 3 * 3       | 1      | 1       | 32                | Relu       |
-| Max Pooling         | 2 * 2       | 2      | 2       |                   | Relu       |
-| Convolution Layer 3 | 3 * 3       | 1      | 1       | 64                | Relu       |
-| Max Pooling         | 2 * 2       | 2      | 2       |                   | Relu       |
-| Flatten             |             |        |         |                   |            |
-| Dense/FC            |             |        |         |                   |            |
-| Dropout             |             |        |         |                   |            |
-| Dense/FC            |             |        |         |                   |            |
-| Dropout             |             |        |         |                   |            |
-| Output layer        |             |        |         |                   | Softmax    |
 
 ## [BP in CNN](https://github.com/sbhrwl/ComputerVision/blob/main/CNN_BP.md)
 
@@ -223,6 +223,7 @@ Decreasing feature maps/channels after a convolution
 - 1x1 with Decreasing Feature Maps mode
 
 ## [Networks](https://github.com/sbhrwl/ComputerVision/blob/main/Networks.md)
+## [Tasks](https://github.com/sbhrwl/ComputerVision/blob/main/Tasks.md)
 
 ## References
 - Kernels
