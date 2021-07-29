@@ -31,7 +31,7 @@ def start_training(model, X_train, y_train, X_test, y_test):
     # In the callbacks parameter we are using the Learning Rate Scheduler
 
     model.fit(X_train, y_train,
-              batch_size=128, epochs=1, verbose=1,
+              batch_size=128, epochs=2, verbose=1,
               validation_data=(X_test, y_test),
               callbacks=[LearningRateScheduler(scheduler, verbose=1)])
 
