@@ -49,7 +49,8 @@ def model_architecture():
     return model
 
 
-# Accuracy 96%, parameters 6340
+# Accuracy 96%, parameters 6340 with one epoch
+# Accuracy 98%, parameters 6340 with two epoch
 # 16 channels replaced with 8 channels
 def model_architecture_16_channels_replaced_with_8_channels():
     model = models.Sequential()
