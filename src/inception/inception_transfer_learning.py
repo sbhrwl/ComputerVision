@@ -16,7 +16,7 @@ def start_training(model, X_train, y_train, X_test, y_test):
                         validation_data=(X_test, y_test),
                         steps_per_epoch=10,
                         # steps_per_epoch=50000 // 64, epochs=2,
-                        epochs=50,
+                        epochs=1,
                         batch_size=32
                         )
 
