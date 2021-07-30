@@ -73,10 +73,10 @@
   | alternate_1conv_1max_pool | 3x3 | same | 282,250 | 1 | 32 | 50.64% | 56 sec |
 
 ## [Task 3 Basic CNN architectures for Flower datatset](https://colab.research.google.com/drive/1bxCs_T6PbcKh7v9FccGUEBj_rOjh861C?usp=sharing)
-  | Model | Parameters | Epochs | Accuracy | Training time |
-  | ----- | ---------- | -------| ---------| ------------- |
-  | Alternate 3 conv and Max pool | 2,534,885 | 10 | 58.75% | 20 mins |
-  | Data Augmentation with Rotation, Flipping and Zoom  | 4,032,101 | 10 | 66.16% | 30 mins |
+  | Model | kernel size | Padding | Parameters | Epochs | Accuracy | Training time |
+  | ----- | ----------- | ------- | ---------- | ------ | -------- | ------------- |
+  | Alternate 3 conv and Max pool |  3x3 | same | 2,534,885 | 10 | 58.75% | 20 mins |
+  | Data Augmentation with Rotation, Flipping and Zoom  |  3x3 | same | 4,032,101 | 10 | 66.16% | 30 mins |
   ```
   data_augmentation=Sequential([
     layers.experimental.preprocessing.RandomFlip('horizontal',input_shape=(180,180,3)),
