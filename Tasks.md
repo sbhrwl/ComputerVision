@@ -1,12 +1,12 @@
 # Tasks
 - [General Approach](#general-approach)
-- [Task 7 Inception architectures for CIFAR10 datatset](#task-7-inception-architectures-for-cifar10-datatset)
-- [Task 6 VGG architectures for CIFAR10 datatset](#task-6-vgg-architectures-for-cifar10-datatset)
-- [Task 5 Convnet architectures for MNIST datatset](#task-5-convnet-architectures-for-mnist-datatset)
-- [Task 4 Basic Image Classifier](#task-4-basic-image-classifier)
-- [Task 3 Basic CNN architectures for Flower datatset](#task-3-basic-cnn-architectures-for-flower-datatset)
-- [Task 2 Basic CNN architectures for CIFAR10 datatset](#task-2-basic-cnn-architectures-for-cifar10-datatset)
 - [Task 1 Basic CNN architectures for MNIST datatset](#task-1-basic-cnn-architectures-for-mnist-datatset)
+- [Task 2 Basic CNN architectures for CIFAR10 datatset](#task-2-basic-cnn-architectures-for-cifar10-datatset)
+- [Task 3 Basic CNN architectures for Flower datatset](#task-3-basic-cnn-architectures-for-flower-datatset)
+- [Task 4 Basic Image Classifier](#task-4-basic-image-classifier)
+- [Task 5 Convnet architectures for MNIST datatset](#task-5-convnet-architectures-for-mnist-datatset)
+- [Task 6 VGG architectures for CIFAR10 datatset](#task-6-vgg-architectures-for-cifar10-datatset)
+- [Task 7 Inception architectures for CIFAR10 datatset](#task-7-inception-architectures-for-cifar10-datatset)
 
 ## General Approach
 ### Step 1: Data Preparation
@@ -54,28 +54,16 @@
                     verbose=2,
                     shuffle=True)
   ```
-## [Task 7 Inception architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/inception/inception_model_training.py)  
-  | Inception Model | Parameters | Epochs | Batch size | Accuracy | Training time |
-  | ----------------| ---------- | -------| -----------| -------- | ------------- |
-  | [Transfer Learning](https://github.com/sbhrwl/ComputerVision/blob/cf04f951ec58b51f819d93f2a7090425ade7a85a/src/inception/inception_transfer_learning.py) | 31,214,954 | 1 | 32 | 10% | 19 mins
-  | Inception scratch |  | 1 |  | % |
+## [Task 1 Basic CNN architectures for MNIST datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/basic_cnn_mnist/model_training.py)
+  | Model | kernel size | Padding | Parameters | Epochs | Batch size | Accuracy | Training time |
+  | ----- | ----------- | --------| -----------| ------ | ---------- | -------- | ------------- |
+  | 1conv_1max_pool | 3x3 | same | 402,442 | 1 | 32 | 97.82% | 25 sec |
+  | 2conv_1max_pool | 3x3 | same | 822,346 | 1 | 32 | 98.08% | 2 min 6 sec |
+  | 3conv_1max_pool | 3x3 | same | 1,699,018 | 1 | 32 | 98.60% | 6 min 56 sec |
+  | 1conv_1max_pool_dropout | 3x3 | same | 201,498 | 1 | 32 | 96.06% | 17 sec |
+  | alternate_1conv_1max_pool | 3x3 | same | 220,234 | 1 | 32 | 98.10% | 44 sec |
 
-## [Task 6 VGG architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/vgg/vgg_model_training.py)
-  | VGG Model | Parameters | Epochs | Batch size | Accuracy | Training time |
-  | --------- | ---------- | -------| -----------| ---------| ------------- |
-  | Transfer Learning Custom Dataset | 50,178 | 1 | 1000 | 85% | 6 mins |
-  | VGG 16 scratch CIFAR10 Dataset | 33,638,218 | 1 | 1000 | 97.5% | 58 mins |
-  | VGG 19 scratch CIFAR10 Dataset | 38,947,914 | 1 | 1000 |  10% | 1 hour 17 mins |
-
-## [Task 5 Convnet architectures for MNIST datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/convnet_mnist/convnet_model_training.py)
-  | Changes to Existing Model | Parameters | Epochs | Batch size | Accuracy |
-  | ------------------------- | ---------- | -------| ---------- | -------- |
-  | max_pool_after_image_reduced_to_8 | 8k | 1 | 128 | 92% |
-  | one_more_1x1_conv_to_reduce_dimension_from_16_to_10 | 10k | 1 | 128 | 96% |
-  | 16_channels_replaced_with_8_channels | 6k | 2 | 128 | 98% |
-  | one_more_1x1_conv_to_reduce_dimension_from_16_to_10 and 16_channels_replaced_with_8_channels | 6k | 2 | 128 | 97% | 
-
-## [Task 4 Basic Image Classifier](https://github.com/sbhrwl/ComputerVision/blob/main/src/basic_image_classifier/model_training.py)
+## [Task 2 Basic CNN architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/basic_cnn_cifar10/model_training.py)
   | Model | Parameters | Epochs | Batch size | Accuracy | Training time |
   | ----- | ---------- | -------| -----------| ---------| ------------- |
   | Transfer Learning Custom Dataset | 50,178 | 1 | 1000 | 85% | 6 mins |
@@ -85,16 +73,28 @@
   | ----- | ---------- | -------| -----------| ---------| ------------- |
   | Transfer Learning Custom Dataset | 50,178 | 1 | 1000 | 85% | 6 mins |
 
-## [Task 2 Basic CNN architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/basic_cnn_cifar10/model_training.py)
+## [Task 4 Basic Image Classifier](https://github.com/sbhrwl/ComputerVision/blob/main/src/basic_image_classifier/model_training.py)
   | Model | Parameters | Epochs | Batch size | Accuracy | Training time |
   | ----- | ---------- | -------| -----------| ---------| ------------- |
   | Transfer Learning Custom Dataset | 50,178 | 1 | 1000 | 85% | 6 mins |
 
-## [Task 1 Basic CNN architectures for MNIST datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/basic_cnn_mnist/model_training.py)
-  | Model | kernel size | Padding | Parameters | Epochs | Batch size | Accuracy | Training time |
-  | ----- | ----------- | --------| -----------| ------ | ---------- | -------- | ------------- |
-  | 1conv_1max_pool | 3x3 | same | 402,442 | 1 | 32 | 97.82% | 25 sec |
-  | 2conv_1max_pool | 3x3 | same | 822,346 | 1 | 32 | 98.08% | 2 min 6 sec |
-  | 3conv_1max_pool | 3x3 | same | 1,699,018 | 1 | 32 | 98.60% | 6 min 56 sec |
-  | 1conv_1max_pool_dropout | 3x3 | same | 201,498 | 1 | 32 | 96.06% | 17 sec |
-  | alternate_1conv_1max_pool | 3x3 | same | 220,234 | 1 | 32 | 98.10% | 44 sec |
+## [Task 5 Convnet architectures for MNIST datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/convnet_mnist/convnet_model_training.py)
+  | Changes to Existing Model | Parameters | Epochs | Batch size | Accuracy |
+  | ------------------------- | ---------- | -------| ---------- | -------- |
+  | max_pool_after_image_reduced_to_8 | 8k | 1 | 128 | 92% |
+  | one_more_1x1_conv_to_reduce_dimension_from_16_to_10 | 10k | 1 | 128 | 96% |
+  | 16_channels_replaced_with_8_channels | 6k | 2 | 128 | 98% |
+  | one_more_1x1_conv_to_reduce_dimension_from_16_to_10 and 16_channels_replaced_with_8_channels | 6k | 2 | 128 | 97% | 
+  
+## [Task 6 VGG architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/vgg/vgg_model_training.py)
+  | VGG Model | Parameters | Epochs | Batch size | Accuracy | Training time |
+  | --------- | ---------- | -------| -----------| ---------| ------------- |
+  | Transfer Learning Custom Dataset | 50,178 | 1 | 1000 | 85% | 6 mins |
+  | VGG 16 scratch CIFAR10 Dataset | 33,638,218 | 1 | 1000 | 97.5% | 58 mins |
+  | VGG 19 scratch CIFAR10 Dataset | 38,947,914 | 1 | 1000 |  10% | 1 hour 17 mins |
+
+## [Task 7 Inception architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/inception/inception_model_training.py)  
+  | Inception Model | Parameters | Epochs | Batch size | Accuracy | Training time |
+  | ----------------| ---------- | -------| -----------| -------- | ------------- |
+  | [Transfer Learning](https://github.com/sbhrwl/ComputerVision/blob/cf04f951ec58b51f819d93f2a7090425ade7a85a/src/inception/inception_transfer_learning.py) | 31,214,954 | 1 | 32 | 10% | 19 mins
+  | Inception scratch |  | 1 |  | % |
