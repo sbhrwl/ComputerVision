@@ -120,7 +120,7 @@
   | --------- | ---------- | -------| -----------| ---------| ------------- |
   | Transfer Learning Custom Dataset | 50,178 out of 14,719,818 | 1 | 1000 | 53.08% | 7 mins 6 sec |
   | Transfer Learning CIFAR10 Dataset | 5,130 out of 14,719,818 | 1 | 1000 | 11.68% | 6 mins 51 sec |
-  | VGG 16 scratch CIFAR10 Dataset | 33,638,218 | 1 | 1000 | 97.5% | 58 mins |
+  | VGG 16 scratch CIFAR10 Dataset | 33,638,218 | 1 | 1000 | 10.5% | 58 mins |
   | VGG 19 scratch CIFAR10 Dataset | 38,947,914 | 1 | 1000 |  10% | 1 hour 17 mins |
 
   ```
