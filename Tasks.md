@@ -54,6 +54,8 @@
                     verbose=2,
                     shuffle=True)
   ```
+**Training time** are on Computer with 16GB RAM and 2 cores and 4 Logical processors
+
 ## [Task 1 Basic CNN architectures for MNIST datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/basic_cnn_mnist/model_training.py)
   | Model | kernel size | Padding | Parameters | Epochs | Batch size | Accuracy | Training time |
   | ----- | ----------- | --------| -----------| ------ | ---------- | -------- | ------------- |
