@@ -92,12 +92,28 @@
   | Alternate 3 conv and Max pool |  3x3 | same | 220,234 | 1 | 98.34% | 46 sec |
 
 ## [Task 5 Convnet architectures for MNIST datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/convnet_mnist/convnet_model_training.py)
-  | Changes to Existing Model | Parameters | Epochs | Batch size | Accuracy |
-  | ------------------------- | ---------- | -------| ---------- | -------- |
-  | max_pool_after_image_reduced_to_8 | 8k | 1 | 128 | 92% |
-  | one_more_1x1_conv_to_reduce_dimension_from_16_to_10 | 10k | 1 | 128 | 96% |
-  | 16_channels_replaced_with_8_channels | 6k | 2 | 128 | 98% |
-  | one_more_1x1_conv_to_reduce_dimension_from_16_to_10 and 16_channels_replaced_with_8_channels | 6k | 2 | 128 | 97% | 
+  | Changes to Existing Model | Parameters | Epochs | Batch size | Accuracy | Training time |
+  | ------------------------- | ---------- | -------| ---------- | -------- | ------------- |
+  | Original | 11,450 | 1 | 128 | 86.65% | 1 min 39 sec |
+  | Replaced 16 channels replaced with 8 channels in the Conv layers | 6,340 | 1 | 128 | 93.72% | 1 min 26 sec |
+  | Added a Max pool layer after image dimensions has been reduced to 8 | 8,298 | 1 | 128 | 95.88% | 1 min 33 sec |
+  | Added a 1x1 to reduce dimension from 16 to 10 | 6,332 | 1 | 128 | 95.45% | 1 min 21 sec |
+  | Added a 1x1 to reduce dimension from 16 to 10 | 6,332 | 2 | 128 | 98.14% | 2 min 20 sec |
+  
+  ### Callback: Learing Rate Scheduler
+  ```
+  from keras.callbacks import LearningRateScheduler
+  
+  def scheduler(epoch, lr):
+    # Learning rate = Learning rate * 1/(1 + decay * epoch)
+    # here decay is 0.319 and epoch is 10.
+    return round(0.003 * 1 / (1 + 0.319 * epoch), 10)
+  
+  model.fit(X_train, y_train,
+          batch_size=128, epochs=1, verbose=1,
+          validation_data=(X_test, y_test),
+          callbacks=[LearningRateScheduler(scheduler, verbose=1)])
+  ```
   
 ## [Task 6 VGG architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/vgg/vgg_model_training.py)
   | VGG Model | Parameters | Epochs | Batch size | Accuracy | Training time |
