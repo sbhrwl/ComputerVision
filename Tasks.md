@@ -58,7 +58,7 @@
   | Inception Model | Parameters | Epochs | Batch size | Accuracy | Training time |
   | ----------------| ---------- | -------| -----------| -------- | ------------- |
   | [Transfer Learning](https://github.com/sbhrwl/ComputerVision/blob/cf04f951ec58b51f819d93f2a7090425ade7a85a/src/inception/inception_transfer_learning.py) | 31,214,954 | 1 | 32 | 10% | 19 mins
-  | Inception scratch | 10k | 1 |  | % |
+  | Inception scratch |  | 1 |  | % |
 
 ## [Task 6 VGG architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/vgg/vgg_model_training.py)
   | VGG Model | Parameters | Epochs | Batch size | Accuracy | Training time |
