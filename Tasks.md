@@ -73,10 +73,24 @@
   | max_pool_after_image_reduced_to_8 | 8k | 1 | 128 | 92% |
   | one_more_1x1_conv_to_reduce_dimension_from_16_to_10 | 10k | 1 | 128 | 96% |
   | 16_channels_replaced_with_8_channels | 6k | 2 | 128 | 98% |
-  | one_more_1x1_conv_to_reduce_dimension_from_16_to_10 and 16_channels_replaced_with_8_channels | 6k | 2 | 128 | 97% |
-  
+  | one_more_1x1_conv_to_reduce_dimension_from_16_to_10 and 16_channels_replaced_with_8_channels | 6k | 2 | 128 | 97% | 
 
 ## [Task 4 Basic Image Classifier](https://github.com/sbhrwl/ComputerVision/blob/main/src/basic_image_classifier/model_training.py)
+  | Model | Parameters | Epochs | Batch size | Accuracy | Training time |
+  | ----- | ---------- | -------| -----------| ---------| ------------- |
+  | Transfer Learning Custom Dataset | 50,178 | 1 | 1000 | 85% | 6 mins |
+
 ## [Task 3 Basic CNN architectures for Flower datatset](https://colab.research.google.com/drive/1bxCs_T6PbcKh7v9FccGUEBj_rOjh861C?usp=sharing)
+  | Model | Parameters | Epochs | Batch size | Accuracy | Training time |
+  | ----- | ---------- | -------| -----------| ---------| ------------- |
+  | Transfer Learning Custom Dataset | 50,178 | 1 | 1000 | 85% | 6 mins |
+
 ## [Task 2 Basic CNN architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/basic_cnn_cifar10/model_training.py)
+  | Model | Parameters | Epochs | Batch size | Accuracy | Training time |
+  | ----- | ---------- | -------| -----------| ---------| ------------- |
+  | Transfer Learning Custom Dataset | 50,178 | 1 | 1000 | 85% | 6 mins |
+
 ## [Task 1 Basic CNN architectures for MNIST datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/basic_cnn_mnist/model_training.py)
+  | Model | Parameters | Epochs | Batch size | Accuracy | Training time |
+  | ----- | ---------- | -------| -----------| ---------| ------------- |
+  | Transfer Learning Custom Dataset | 50,178 | 1 | 1000 | 85% | 6 mins |
