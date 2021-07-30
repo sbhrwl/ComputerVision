@@ -65,7 +65,7 @@
   | --------- | ---------- | -------| -----------| ---------| ------------- |
   | Transfer Learning Custom Dataset | 50,178 | 1 | 1000 | 85% | 6 mins |
   | VGG 16 scratch CIFAR10 Dataset | 33,638,218 | 1 | 1000 | 97.5% | 58 mins |
-  | VGG 19 scratch CIFAR10 Dataset | 38,947,914 | 1 | 1000 |  % | |
+  | VGG 19 scratch CIFAR10 Dataset | 38,947,914 | 1 | 1000 |  10% | 1 hour 17 mins |
 
 ## [Task 5 Convnet architectures for MNIST datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/convnet_mnist/convnet_model_training.py)
   | Changes to Existing Model | Parameters | Epochs | Batch size | Accuracy |
