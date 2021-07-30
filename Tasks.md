@@ -76,7 +76,16 @@
   | Model | Parameters | Epochs | Accuracy | Training time |
   | ----- | ---------- | -------| ---------| ------------- |
   | Alternate 3 conv and Max pool | 2,534,885 | 10 | 58.75% | 20 mins |
-
+  | Data Augmentation with Rotation, Flipping and Zoom  | 4,032,101 | 10 | 66.16% | 30 mins |
+  ```
+  data_augmentation=Sequential([
+    layers.experimental.preprocessing.RandomFlip('horizontal',input_shape=(180,180,3)),
+    layers.experimental.preprocessing.RandomFlip('vertical',input_shape=(180,180,3)),
+    layers.experimental.preprocessing.RandomZoom(0.3),
+    layers.experimental.preprocessing.RandomRotation(0.4)
+  ])
+  ```
+  
 ## [Task 4 Basic Image Classifier](https://github.com/sbhrwl/ComputerVision/blob/main/src/basic_image_classifier/model_training.py)
   | Model | Parameters | Epochs | Batch size | Accuracy | Training time |
   | ----- | ---------- | -------| -----------| ---------| ------------- |
