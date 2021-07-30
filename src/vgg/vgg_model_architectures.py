@@ -5,7 +5,15 @@ from keras.applications.vgg16 import VGG16
 from glob import glob
 
 
-def build_vgg_model_transfer_leaning():
+def model_architecture():
+    # model = build_vgg_model_transfer_leaning_custom()
+    model = build_vgg_model_transfer_leaning_cifar()
+    # model = build_model_vgg_16()
+    # model = build_model_vgg_19()
+    return model
+
+
+def build_vgg_model_transfer_leaning_custom():
     IMAGE_SIZE = [224, 224]
     vgg = VGG16(input_shape=IMAGE_SIZE + [3], weights='imagenet', include_top=False)
 
@@ -19,6 +27,22 @@ def build_vgg_model_transfer_leaning():
 
     x = Flatten()(vgg.output)
     prediction = Dense(len(folders), activation='softmax')(x)
+    # prediction = Dense(10, activation='softmax')(x)
+    model = Model(inputs=vgg.input, outputs=prediction)
+    model.summary()
+    return model
+
+
+def build_vgg_model_transfer_leaning_cifar():
+    IMAGE_SIZE = [32, 32]
+    vgg = VGG16(input_shape=IMAGE_SIZE + [3], weights='imagenet', include_top=False)
+
+    # don't train existing weights
+    for layer in vgg.layers:
+        layer.trainable = False
+
+    x = Flatten()(vgg.output)
+    prediction = Dense(10, activation='softmax')(x)
     model = Model(inputs=vgg.input, outputs=prediction)
     model.summary()
     return model

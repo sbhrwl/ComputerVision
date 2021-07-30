@@ -12,6 +12,14 @@ def data_preparation(img_rows, img_cols):
     print(X_train.shape)
     print(X_test.shape)
 
+    # As Current system configuration does not support needed RAM, so take a subset of dataset
+    idx_train = np.arange(len(X_train))
+    idx_test = np.arange(len(X_test))
+    X_train = X_train[:int(.10*len(idx_train))]
+    y_train = y_train[:int(.10*len(idx_train))]
+    X_test = X_test[:int(.10*len(idx_test))]
+    y_test = y_test[:int(.10*len(idx_test))]
+
     # Resize training images
     X_train = np.array([cv2.resize(img, (img_rows, img_cols)) for img in X_train[:, :, :, :]])
     X_test = np.array([cv2.resize(img, (img_rows, img_cols)) for img in X_test[:, :, :, :]])

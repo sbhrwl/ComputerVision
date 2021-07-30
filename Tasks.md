@@ -116,6 +116,8 @@
   ```
   
 ## [Task 6 VGG architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/vgg/vgg_model_training.py)
+Read comments mentioned under "Usage" in the vgg_model_training.py
+
   | VGG Model | Parameters | Epochs | Batch size | Accuracy | Training time |
   | --------- | ---------- | -------| -----------| ---------| ------------- |
   | Transfer Learning Custom Dataset | 50,178 out of 14,719,818 | 1 | 1000 | 53.08% | 7 mins 6 sec |
