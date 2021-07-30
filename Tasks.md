@@ -91,6 +91,10 @@
   | Transfer Learning Custom Dataset | 50,178 | 1 | 1000 | 85% | 6 mins |
 
 ## [Task 1 Basic CNN architectures for MNIST datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/basic_cnn_mnist/model_training.py)
-  | Model | Parameters | Epochs | Batch size | Accuracy | Training time |
-  | ----- | ---------- | -------| -----------| ---------| ------------- |
-  | Transfer Learning Custom Dataset | 50,178 | 1 | 1000 | 85% | 6 mins |
+  | Model | kernel size | Padding | Parameters | Epochs | Batch size | Accuracy | Training time |
+  | ----- | ----------- | --------| -----------| ------ | ---------- | -------- | ------------- |
+  | 1conv_1max_pool | 3x3 | same | 402,442 | 1 | 32 | 97.82% | 25 sec |
+  | 2conv_1max_pool | 3x3 | same | 822,346 | 1 | 32 | 98.08% | 2 min 6 sec |
+  | 3conv_1max_pool | 3x3 | same | 1,699,018 | 1 | 32 | 98.60% | 6 min 56 sec |
+  | 1conv_1max_pool_dropout | 3x3 | same | 201,498 | 1 | 32 | 96.06% | 17 sec |
+  | alternate_1conv_1max_pool | 3x3 | same | 220,234 | 1 | 32 | 98.10% | 44 sec |
