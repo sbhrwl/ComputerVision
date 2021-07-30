@@ -1,3 +1,4 @@
+from datetime import datetime
 from src.basic_cnn_mnist.data_preparation import data_preparation
 from tensorflow.keras.callbacks import ModelCheckpoint, EarlyStopping
 from src.basic_cnn_mnist.model_architectures import model_architecture
@@ -29,6 +30,7 @@ def start_training(model, X_train, y_train):
     print(X_train.shape[0], 'train samples')
     print(X_validation.shape[0], 'validation samples')
 
+    start = datetime.now()
     history = model.fit(X_train, y_train,
                         batch_size=32,
                         epochs=1,
@@ -37,6 +39,8 @@ def start_training(model, X_train, y_train):
                         verbose=2,
                         shuffle=True)
 
+    duration = datetime.now() - start
+    print("Training completed in time: ", duration)
     print("Model saved to disk via ModelCheckpoint callback")
 
 
