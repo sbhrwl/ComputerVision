@@ -143,4 +143,4 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
   | Inception Model | Parameters | Epochs | Batch size | Accuracy | Training time |
   | ----------------| ---------- | -------| -----------| -------- | ------------- |
   | [Transfer Learning CIFAR10 Dataset](https://github.com/sbhrwl/ComputerVision/blob/cf04f951ec58b51f819d93f2a7090425ade7a85a/src/inception/inception_transfer_learning.py) | 31,214,954 | 1 | 32 | 10% | 19 mins
-  | Inception scratch |  | 1 |  | % |
+  | Inception scratch |  |  |  |  |
