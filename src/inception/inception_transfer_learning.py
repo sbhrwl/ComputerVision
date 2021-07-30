@@ -1,3 +1,4 @@
+from datetime import datetime
 from src.inception.data_preparation import data_preparation_transfer_learning
 from src.inception.inception_model_architectures import inception_transfer_learning
 
@@ -12,6 +13,7 @@ def compile_model(model):
 
 
 def start_training(model, X_train, y_train, X_test, y_test):
+    start = datetime.now()
     history = model.fit(X_train, y_train,
                         validation_data=(X_test, y_test),
                         steps_per_epoch=10,
@@ -19,6 +21,8 @@ def start_training(model, X_train, y_train, X_test, y_test):
                         epochs=1,
                         batch_size=32
                         )
+    duration = datetime.now() - start
+    print("Training completed in time: ", duration)
 
     model.save("artifacts/model/inception/transfer_learning_model_cifar10.h5")
     print("Model saved to disk")
