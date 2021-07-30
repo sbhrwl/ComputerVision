@@ -89,7 +89,7 @@
 ## [Task 4 Basic Image Classifier](https://github.com/sbhrwl/ComputerVision/blob/main/src/basic_image_classifier/model_training.py)
   | Model | kernel size | Padding | Parameters | Epochs | Accuracy | Training time |
   | ----- | ----------- | ------- | ---------- | ------ | -------- | ------------- |
-  | Alternate 3 conv and Max pool |  3x3 | same | 220,234 | 1 | 98.34% | 46 sec |
+  | Alternate 3 conv and Max pool |  3x3 | same | 646,273 | 1 | 50.00% | 13 sec |
 
 ## [Task 5 Convnet architectures for MNIST datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/convnet_mnist/convnet_model_training.py)
   | Changes to Existing Model | Parameters | Epochs | Batch size | Accuracy | Training time |
