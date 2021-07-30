@@ -64,14 +64,18 @@
   | alternate_1conv_1max_pool | 3x3 | same | 220,234 | 1 | 32 | 98.10% | 44 sec |
 
 ## [Task 2 Basic CNN architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/basic_cnn_cifar10/model_training.py)
-  | Model | Parameters | Epochs | Batch size | Accuracy | Training time |
-  | ----- | ---------- | -------| -----------| ---------| ------------- |
-  | Transfer Learning Custom Dataset | 50,178 | 1 | 1000 | 85% | 6 mins |
+  | Model | kernel size | Padding | Parameters | Epochs | Batch size | Accuracy | Training time |
+  | ----- | ----------- | --------| -----------| ------ | ---------- | -------- | ------------- |
+  | 1conv_1max_pool | 3x3 | same | 525,898 | 1 | 32 | 54.08% | 32 sec |
+  | 2conv_1max_pool | 3x3 | same | 1,068,682 | 1 | 32 | 60.42% | 2 min 9 sec |
+  | 3conv_1max_pool | 3x3 | same | 2,258,958 | 1 | 32 | 65.42% | 7 min 48 sec |
+  | 1conv_1max_pool_dropout | 3x3 | same | 263,066 | 1 | 32 | 46.30% | 20 sec |
+  | alternate_1conv_1max_pool | 3x3 | same | 282,250 | 1 | 32 | 50.64% | 56 sec |
 
 ## [Task 3 Basic CNN architectures for Flower datatset](https://colab.research.google.com/drive/1bxCs_T6PbcKh7v9FccGUEBj_rOjh861C?usp=sharing)
-  | Model | Parameters | Epochs | Batch size | Accuracy | Training time |
-  | ----- | ---------- | -------| -----------| ---------| ------------- |
-  | Transfer Learning Custom Dataset | 50,178 | 1 | 1000 | 85% | 6 mins |
+  | Model | Parameters | Epochs | Accuracy | Training time |
+  | ----- | ---------- | -------| ---------| ------------- |
+  | Alternate 3 conv and Max pool | 2,534,885 | 10 | 58.75% | 20 mins |
 
 ## [Task 4 Basic Image Classifier](https://github.com/sbhrwl/ComputerVision/blob/main/src/basic_image_classifier/model_training.py)
   | Model | Parameters | Epochs | Batch size | Accuracy | Training time |
