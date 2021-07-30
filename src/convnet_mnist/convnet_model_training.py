@@ -1,4 +1,5 @@
 from keras.callbacks import LearningRateScheduler
+from datetime import datetime
 # from keras.optimizers import adam
 from src.convnet_mnist.data_preparation import data_preparation
 from src.convnet_mnist.convnet_model_architectures import model_architecture
@@ -25,16 +26,16 @@ def compile_model(model):
 
 
 def start_training(model, X_train, y_train, X_test, y_test):
-    # Here we are training our model using the data and
-    # using batch size of 128,number of epochs are 20 and
-    # using verbose=1 for printing out all the results.
     # In the callbacks parameter we are using the Learning Rate Scheduler
 
+    start = datetime.now()
     model.fit(X_train, y_train,
-              batch_size=128, epochs=2, verbose=1,
+              batch_size=128, epochs=1, verbose=1,
               validation_data=(X_test, y_test),
               callbacks=[LearningRateScheduler(scheduler, verbose=1)])
 
+    duration = datetime.now() - start
+    print("Training completed in time: ", duration)
     model.save("artifacts/model/convnet_mnist/model.h5")
     print("Model saved to disk")
 
