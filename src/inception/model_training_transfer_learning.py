@@ -1,6 +1,6 @@
 from datetime import datetime
 from src.inception.data_preparation import data_preparation, data_preparation_32
-from src.inception.tf_inception_transfer_learning_model_architectures import *
+from src.inception.model_architectures_transfer_learning import *
 from src.core.plot_learning_curve import plot_learning_curve
 
 

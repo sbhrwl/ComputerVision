@@ -2,7 +2,7 @@ import math
 from datetime import datetime
 from keras.callbacks import ModelCheckpoint, LearningRateScheduler
 from src.inception.data_preparation import data_preparation
-from src.inception.inception_model_architectures import build_model_inception
+from src.inception.model_architectures import build_model_inception
 # from keras.optimizers import SGD
 
 

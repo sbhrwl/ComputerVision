@@ -2,7 +2,7 @@ from keras.callbacks import LearningRateScheduler
 from datetime import datetime
 # from keras.optimizers import adam
 from src.convnet_mnist.data_preparation import data_preparation
-from src.convnet_mnist.convnet_model_architectures import model_architecture
+from src.convnet_mnist.model_architectures import model_architecture
 
 
 def build_model():

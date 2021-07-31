@@ -2,7 +2,7 @@ import numpy as np
 from datetime import datetime
 from keras.callbacks import ModelCheckpoint, ReduceLROnPlateau
 from src.vgg.data_preparation import data_preparation_custom, data_preparation_cifar10
-from src.vgg.vgg_model_architectures import model_architecture
+from src.vgg.model_architectures import model_architecture
 
 
 def build_model():
