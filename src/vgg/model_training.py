@@ -2,11 +2,13 @@ import numpy as np
 from datetime import datetime
 from keras.callbacks import ModelCheckpoint, ReduceLROnPlateau
 from src.vgg.data_preparation import data_preparation_custom, data_preparation_cifar10
-from src.vgg.model_architectures import model_architecture
+from src.vgg.model_architectures import *
+from src.vgg.model_architectures_transfer_learning import *
 
 
 def build_model():
-    model = model_architecture()
+    # model = model_architecture()
+    model = build_vgg_model_vgg19_transfer_learning_cifar()
     return model
 
 

@@ -3,11 +3,13 @@ from datetime import datetime
 from keras.callbacks import ModelCheckpoint, LearningRateScheduler
 from src.inception.data_preparation import data_preparation
 from src.inception.model_architectures import build_model_inception
+from src.inception.model_architectures_transfer_learning import *
 # from keras.optimizers import SGD
 
 
 def build_model():
-    model = build_model_inception()
+    # model = build_model_inception()
+    model = inception_transfer_learning_starting_from_mixed_7_layer()
     return model
 
 
@@ -53,7 +55,8 @@ def start_training(model, X_train, y_train, X_test, y_test):
 
 def model_preparation():
     # train_features, train_labels, test_features, test_labels = data_preparation(32, 32)
-    train_features, train_labels, test_features, test_labels = data_preparation(224, 224)
+    train_features, train_labels, test_features, test_labels = data_preparation(128, 128)
+    # train_features, train_labels, test_features, test_labels = data_preparation(224, 224)
     model = build_model()
     compile_model(model)
     start_training(model, train_features, train_labels, test_features, test_labels)
