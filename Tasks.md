@@ -54,6 +54,8 @@
                     verbose=2,
                     shuffle=True)
   ```
+* Below **Training times** are on a Computer with 16GB RAM and 2 cores and 4 Logical processors
+
 ## [Task 1 Basic CNN architectures for MNIST datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/basic_cnn_mnist/model_training.py)
   | Model | kernel size | Padding | Parameters | Epochs | Batch size | Accuracy | Training time |
   | ----- | ----------- | --------| -----------| ------ | ---------- | -------- | ------------- |
@@ -142,5 +144,5 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
 ## [Task 7 Inception architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/inception/inception_model_training.py)  
   | Inception Model | Parameters | Epochs | Batch size | Accuracy | Training time |
   | ----------------| ---------- | -------| -----------| -------- | ------------- |
-  | [Transfer Learning](https://github.com/sbhrwl/ComputerVision/blob/cf04f951ec58b51f819d93f2a7090425ade7a85a/src/inception/inception_transfer_learning.py) | 31,214,954 | 1 | 32 | 10% | 19 mins
-  | Inception scratch |  | 1 |  | % |
+  | [Transfer Learning CIFAR10 Dataset](https://github.com/sbhrwl/ComputerVision/blob/cf04f951ec58b51f819d93f2a7090425ade7a85a/src/inception/inception_transfer_learning.py) | 31,214,954 | 1 | 32 | 10% | 19 mins
+  | [Inception scratch](https://colab.research.google.com/drive/10OMWzHiPGZA55PMUTJTFt8sn4T_p0hU5?usp=sharing) |  |  |  |  |
