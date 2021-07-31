@@ -93,7 +93,7 @@
   | ----- | ----------- | ------- | ---------- | ------ | -------- | ------------- |
   | Alternate 3 conv and Max pool |  3x3 | same | 646,273 | 1 | 50.00% | 13 sec |
 
-## [Task 5 Convnet architectures for MNIST datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/convnet_mnist/convnet_model_training.py)
+## [Task 5 Convnet architectures for MNIST datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/convnet_mnist/model_training.py)
   | Changes to Existing Model | Parameters | Epochs | Batch size | Accuracy | Training time |
   | ------------------------- | ---------- | -------| ---------- | -------- | ------------- |
   | Original | 11,450 | 1 | 128 | 86.65% | 1 min 39 sec |
@@ -117,7 +117,7 @@
           callbacks=[LearningRateScheduler(scheduler, verbose=1)])
   ```
   
-## [Task 6 VGG architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/vgg/vgg_model_training.py)
+## [Task 6 VGG architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/vgg/model_training.py)
 Read comments mentioned under "Usage" in the vgg_model_training.py
 
   | VGG Model | Parameters | Epochs | Batch size | Accuracy | Training time |
@@ -141,9 +141,9 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
   W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 12845056000 exceeds 10% of free system memory.
   ```
   
-## [Task 7 Inception architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/inception/inception_model_training.py)  
+## [Task 7 Inception architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/inception/model_training.py)  
   | Inception Model | Parameters | Epochs | Batch size | Accuracy | Training time |
   | ----------------| ---------- | -------| -----------| -------- | ------------- |
-  | [Transfer Learning CIFAR10 Dataset](https://github.com/sbhrwl/ComputerVision/blob/main/src/inception/inception_transfer_learning_model_training.py) | 31,214,954 | 1 | 32 | 10% | 19 mins |
-  | [Transfer Learning CIFAR10 Dataset Layers added after mixed 7 layer](https://github.com/sbhrwl/ComputerVision/blob/main/src/inception/inception_transfer_learning_model_training.py) | 28,322,826 | 1 | 32 | 54.60% | 29 sec |
+  | [Transfer Learning CIFAR10 Dataset](https://github.com/sbhrwl/ComputerVision/blob/main/src/inception/model_training_transfer_learning.py) | 31,214,954 | 1 | 32 | 10% | 19 mins |
+  | [Transfer Learning CIFAR10 Dataset Layers added after mixed 7 layer](https://github.com/sbhrwl/ComputerVision/blob/main/src/inception/model_training_transfer_learning.py) | 28,322,826 | 1 | 32 | 54.60% | 29 sec |
   | [Inception scratch](https://colab.research.google.com/drive/10OMWzHiPGZA55PMUTJTFt8sn4T_p0hU5?usp=sharing) |  |  |  |  |
