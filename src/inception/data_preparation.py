@@ -41,7 +41,7 @@ def data_preparation(img_rows, img_cols):
 
 
 # Dimension of CIFAR dataset remains same as 32*32*3
-def data_preparation_transfer_learning():
+def data_preparation_32():
     (X_train, y_train), (X_test, y_test) = cifar10.load_data()
 
     X_train = X_train / 255.0
