@@ -1,9 +1,6 @@
 import keras
-from keras.layers import Conv2D, Flatten, Dense, MaxPool2D, BatchNormalization, Dropout, Input, concatenate, \
-    UpSampling2D, AveragePooling2D, GlobalAveragePooling2D
-from tensorflow.keras import models
+from keras.layers import Conv2D, Flatten, Dense, MaxPool2D, Dropout, Input, concatenate, AveragePooling2D
 from keras.models import Model
-from tensorflow.keras.applications.inception_v3 import InceptionV3
 
 
 def inception_module(x,
@@ -163,32 +160,3 @@ def build_model_inception():
     model_with_classifiers = Model(input_layer, [x, classifier_1, classifier_2], name='googlenet_complete_architecture')
     model_with_classifiers.summary()
     return model_with_classifiers
-
-
-def inception_transfer_learning():
-    # @title Default title text
-    conv_base = InceptionV3(weights='imagenet', include_top=False, input_shape=(256, 256, 3))
-    conv_base.summary()
-
-    model = models.Sequential()
-    # UpSampling increase the row and column of the data.
-    # Sometimes if we have less data so we can try to increase the data in this way.
-    model.add(UpSampling2D((2, 2)))
-    model.add(UpSampling2D((2, 2)))
-    model.add(UpSampling2D((2, 2)))
-
-    # conv_base is the inception network
-    model.add(conv_base)
-    model.add(Flatten())
-    model.add(Dense(128, activation='relu'))
-    model.add(Dropout(0.5))
-    model.add(BatchNormalization())
-    model.add(Dense(64, activation='relu'))
-    model.add(Dropout(0.5))
-    model.add(BatchNormalization())
-    model.add(Dense(10, activation='softmax'))
-
-    input_shape = (None, 32, 32, 3)
-    model.build(input_shape)
-    model.summary()
-    return model

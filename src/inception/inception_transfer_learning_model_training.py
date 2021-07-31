@@ -1,10 +1,11 @@
 from datetime import datetime
-from src.inception.data_preparation import data_preparation_transfer_learning
-from src.inception.inception_model_architectures import inception_transfer_learning
+from src.inception.data_preparation import data_preparation, data_preparation_transfer_learning
+from src.inception.tf_inception_transfer_learning_model_architectures import *
 
 
 def build_model():
     model = inception_transfer_learning()
+    # model = inception_transfer_learning_starting_from_mixed_7_layer()
     return model
 
 
@@ -29,6 +30,7 @@ def start_training(model, X_train, y_train, X_test, y_test):
 
 
 def model_preparation():
+    # train_features, train_labels, test_features, test_labels = data_preparation(128, 128)
     train_features, train_labels, test_features, test_labels = data_preparation_transfer_learning()
     model = build_model()
     compile_model(model)
