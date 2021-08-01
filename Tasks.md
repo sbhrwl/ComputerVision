@@ -97,7 +97,7 @@
   | Changes to Existing Model | Parameters | Epochs | Batch size | Accuracy | Training time |
   | ------------------------- | ---------- | -------| ---------- | -------- | ------------- |
   | Original | 11,450 | 1 | 128 | 86.65% | 1 min 39 sec |
-  | Replaced 16 channels replaced with 8 channels in the Conv layers | 6,340 | 1 | 128 | 93.72% | 1 min 26 sec |
+  | Replaced 16 channels with 8 in the Conv layers | 6,340 | 1 | 128 | 93.72% | 1 min 26 sec |
   | Added a Max pool layer after image dimensions has been reduced to 8 | 8,298 | 1 | 128 | 95.88% | 1 min 33 sec |
   | Added a 1x1 to reduce dimension from 16 to 10 | 6,332 | 1 | 128 | 95.45% | 1 min 21 sec |
   | Added a 1x1 to reduce dimension from 16 to 10 | 6,332 | 2 | 128 | 98.14% | 2 min 20 sec |
@@ -144,6 +144,6 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
 ## [Task 7 Inception architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/inception/model_training.py)  
   | Inception Model | Parameters | Epochs | Batch size | Accuracy | Training time |
   | ----------------| ---------- | -------| -----------| -------- | ------------- |
-  | [Transfer Learning CIFAR10 Dataset](https://github.com/sbhrwl/ComputerVision/blob/main/src/inception/model_training_transfer_learning.py) | 31,214,954 | 1 | 32 | 10% | 19 mins |
-  | [Transfer Learning CIFAR10 Dataset Layers added after mixed 7 layer](https://github.com/sbhrwl/ComputerVision/blob/main/src/inception/model_training_transfer_learning.py) | 28,322,826 | 1 | 32 | 54.60% | 29 sec |
+  | Transfer Learning CIFAR10 Dataset | 31,214,954 | 1 | 32 | 10% | 19 mins |
+  | Transfer Learning CIFAR10 Dataset Layers added after mixed 7 layer | 28,322,826 | 1 | 32 | 54.60% | 29 sec |
   | [Inception scratch](https://colab.research.google.com/drive/10OMWzHiPGZA55PMUTJTFt8sn4T_p0hU5?usp=sharing) |  |  |  |  |
