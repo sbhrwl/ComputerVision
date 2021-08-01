@@ -1,14 +1,14 @@
 import numpy as np
 from datetime import datetime
 from keras.callbacks import ModelCheckpoint, ReduceLROnPlateau
-from src.vgg.data_preparation import data_preparation_custom, data_preparation_cifar10
+from src.core.data_preparation import *
 from src.vgg.model_architectures import *
 from src.vgg.model_architectures_transfer_learning import *
 
 
 def build_model():
     # model = model_architecture()
-    model = build_vgg_model_vgg19_transfer_learning_cifar()
+    model = model_architecture_tf()
     return model
 
 
@@ -67,25 +67,24 @@ def start_training_cifar(model, X_train, y_train, X_test, y_test):
 
 # Usage:
 # Option 1: For Transfer Learning on custom dataset
-#   i. Enable "build_vgg_model_transfer_leaning_custom" in vgg_model_architectures
+#   i. Enable "build_vgg_model_transfer_leaning_custom" in model_architectures_transfer_learning
 #   ii. Uncomment calls for data_preparation_custom and start_training_custom
 
 # Option 2: For Transfer Learning on CIFAR10 dataset
-#   i. Enable "build_vgg_model_transfer_leaning_cifar" in vgg_model_architectures
+#   i. Enable "build_vgg_model_transfer_leaning_cifar" in model_architectures_transfer_learning
 #   ii. Add prediction = Dense(10, activation='softmax')(x)
 #   ii. Uncomment calls for data_preparation_cifar10 and start_training_cifar
 
 # Option 3: For Scratch Training on CIFAR10 dataset with image size of 32
-#   i. Enable "build_model_vgg_16 or build_model_vgg_19" in vgg_model_architectures
+#   i. Enable "build_model_vgg_16 or build_model_vgg_19" in model_architectures
 #   ii. Uncomment calls for data_preparation_cifar10_32 and start_training_cifar
 def model_preparation():
-    # train_dataset, test_dataset = data_preparation_custom()
-    train_features, train_labels, test_features, test_labels = data_preparation_cifar10()
-
+    train_dataset, test_dataset = data_preparation_custom()
+    # train_features, train_labels, test_features, test_labels = data_preparation_cifar10()
     model = build_model()
     compile_model(model)
-    # start_training_custom(model, train_dataset, test_dataset)
-    start_training_cifar(model, train_features, train_labels, test_features, test_labels)
+    start_training_custom(model, train_dataset, test_dataset)
+    # start_training_cifar(model, train_features, train_labels, test_features, test_labels)
 
 
 if __name__ == '__main__':

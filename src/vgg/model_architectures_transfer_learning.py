@@ -6,10 +6,10 @@ from keras.applications.vgg19 import VGG19
 from glob import glob
 
 
-def model_architecture():
-    # model = build_vgg_model_transfer_leaning_custom()
+def model_architecture_tf():
+    model = build_vgg_model_transfer_leaning_custom()
     # model = build_vgg_model_vgg16_transfer_learning_cifar()
-    model = build_vgg_model_vgg19_transfer_learning_cifar()
+    # model = build_vgg_model_vgg19_transfer_learning_cifar()
     return model
 
 
