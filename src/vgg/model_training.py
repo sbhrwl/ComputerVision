@@ -79,12 +79,13 @@ def start_training_cifar(model, X_train, y_train, X_test, y_test):
 #   i. Enable "build_model_vgg_16 or build_model_vgg_19" in model_architectures
 #   ii. Uncomment calls for data_preparation_cifar10_32 and start_training_cifar
 def model_preparation():
-    train_dataset, test_dataset = data_preparation_custom()
-    # train_features, train_labels, test_features, test_labels = data_preparation_cifar10()
+    # train_dataset, test_dataset = data_preparation_custom()
+    train_features, train_labels, validation_features, validation_labels, test_features, test_labels = \
+        data_preparation_cifar_original()
     model = build_model()
     compile_model(model)
-    start_training_custom(model, train_dataset, test_dataset)
-    # start_training_cifar(model, train_features, train_labels, test_features, test_labels)
+    # start_training_custom(model, train_dataset, test_dataset)
+    start_training_cifar(model, train_features, train_labels, validation_features, validation_labels)
 
 
 if __name__ == '__main__':
