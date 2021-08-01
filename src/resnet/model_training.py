@@ -50,7 +50,7 @@ def start_training(model, X_train, y_train, X_validation, y_validation):
                                  save_best_only=True)
     lr_sc = LearningRateScheduler(decay, verbose=1)
     lrr = ReduceLROnPlateau(
-        monitor='val_acc',  # Metric to be measured
+        monitor='val_accuracy',  # Metric to be measured
         factor=.01,  # Factor by which learning rate will be reduced
         patience=3,  # No. of epochs after which if there is no improvement in the val_acc, the learning rate is reduced
         min_lr=1e-5)  # The minimum learning rate

@@ -28,7 +28,7 @@ def plot_training_history(model):
     ax[0].plot(model.history.history['val_loss'], color='r', label='Validation Loss')
 
     # Next lets plot the training accuracy and validation accuracy
-    ax[1].plot(model.history.history['acc'], color='b', label='Training  Accuracy')
-    ax[1].plot(model.history.history['val_acc'], color='r', label='Validation Accuracy')
+    ax[1].plot(model.history.history['accuracy'], color='b', label='Training  Accuracy')
+    ax[1].plot(model.history.history['val_accuracy'], color='r', label='Validation Accuracy')
     plt.savefig("artifacts/model/resnet/learning_curve.png")
     plt.show()
