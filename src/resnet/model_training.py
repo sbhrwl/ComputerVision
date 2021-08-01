@@ -4,7 +4,7 @@ from keras.preprocessing.image import ImageDataGenerator
 from keras.callbacks import ModelCheckpoint, LearningRateScheduler
 from keras.callbacks import ReduceLROnPlateau
 # from keras.optimizers import SGD, Adam
-from src.core.data_preparation import data_preparation_cifar_32
+from src.core.data_preparation import *
 from src.resnet.model_architectures import resnet_transfer_learning
 from src.core.plot_learning_curve import plot_training_history
 
@@ -77,7 +77,7 @@ def start_training(model, X_train, y_train, X_validation, y_validation):
 
 def model_preparation():
     train_features, train_labels, validation_features, validation_labels, test_features, test_labels = \
-        data_preparation_cifar_32()
+        data_preparation_cifar_original()
     model = build_model(train_labels)
     compile_model(model)
     start_training(model, train_features, train_labels, validation_features, validation_labels)

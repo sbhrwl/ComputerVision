@@ -3,8 +3,15 @@ from keras import layers, models
 
 # Create a pure CNN with less than 10K training parameters for MNIST dataset having an accuracy>99.40%
 
+def model_architecture():
+    model = model_architecture_original()
+    # model = model_architecture_16_channels_replaced_with_8_channels()
+    # model = model_architecture_max_pool_after_image_reduced_to_8()
+    # model = model_architecture_one_more_11_conv_to_reduce_dimension_from_16_to_10_with_conv_size_8()
+    return model
+
+
 # Accuracy 86%, parameters 11.5K
-# def model_architecture():
 def model_architecture_original():
     model = models.Sequential()
 
@@ -55,7 +62,6 @@ def model_architecture_original():
 
 
 # Accuracy 93.72%, parameters 6340
-# def model_architecture():
 def model_architecture_16_channels_replaced_with_8_channels():
     model = models.Sequential()
 
@@ -87,7 +93,6 @@ def model_architecture_16_channels_replaced_with_8_channels():
 
 
 # Accuracy 95.88%, parameters 8K
-# def model_architecture():
 def model_architecture_max_pool_after_image_reduced_to_8():
     model = models.Sequential()
 
@@ -123,8 +128,7 @@ def model_architecture_max_pool_after_image_reduced_to_8():
 
 # Accuracy 95.45%, parameters 6332, epoch 1
 # Accuracy 98.14%, parameters 6332, epoch 2
-def model_architecture():
-# def model_architecture_one_more_11_conv_to_reduce_dimension_from_16_to_10_with_conv_size_8():
+def model_architecture_one_more_11_conv_to_reduce_dimension_from_16_to_10_with_conv_size_8():
     model = models.Sequential()
 
     model.add(layers.Conv2D(10, (3, 3), activation='relu', input_shape=(28, 28, 1)))

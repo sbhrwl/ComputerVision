@@ -1,10 +1,42 @@
 import cv2
 import numpy as np
-from keras.datasets import cifar10
+from matplotlib import pyplot as plt
+from keras.datasets import mnist, cifar10
 from keras.utils import np_utils
 from sklearn.model_selection import train_test_split
 from keras.preprocessing.image import ImageDataGenerator
 from keras.applications.vgg16 import preprocess_input
+
+
+def data_preparation_mnist():
+    (X_train, y_train), (X_test, y_test) = mnist.load_data()
+    # print(X_train.shape)
+    # plotting the first image or the image at index zero in the training dataset
+    plt.imshow(X_train[0])
+
+    # Reshaping our training and testing dataset using numpy's reshape function which we will feed to the model
+    X_train = X_train.reshape(X_train.shape[0], 28, 28, 1)
+    X_test = X_test.reshape(X_test.shape[0], 28, 28, 1)
+
+    # Doing type conversion or changing the datatype to float32 for the data
+    X_train = X_train.astype('float32')
+    X_test = X_test.astype('float32')
+
+    # Doing standardization or normalization here dividing each pixel by 255 in the train and test data
+    X_train /= 255
+    X_test /= 255
+
+    # Checking first 10 image labels
+    # print(y_train[:10])
+
+    # Convert 1-dimensional class arrays to 10-dimensional class matrices
+    # simply we can say we are doing sort of one hot encoding
+    Y_train = np_utils.to_categorical(y_train, 10)
+    Y_test = np_utils.to_categorical(y_test, 10)
+    # having a look in the first 10 data points after one hot encoding
+    print(Y_train[:10])
+
+    return X_train, Y_train, X_test, Y_test
 
 
 def data_preparation_cifar_original():
@@ -13,6 +45,10 @@ def data_preparation_cifar_original():
     print('Train set', (X_train.shape, y_train.shape))
     print('Validation set', (X_validation.shape, y_validation.shape))
     print('Test set', (X_test.shape, y_test.shape))
+
+    X_train = X_train / 255.0
+    X_validation = X_validation / 255.0
+    X_test = X_test / 255.0
 
     # OHE labels
     y_train = np_utils.to_categorical(y_train)
@@ -53,6 +89,11 @@ def data_preparation_cifar_resize(img_rows, img_cols):
     print(X_train.shape)
     print(X_test.shape)
 
+    # Preprocess training data
+    X_train = X_train / 255.0
+    X_validation = X_validation / 255.0
+    X_test = X_test / 255.0
+
     # Transform targets to keras compatible format
     y_train = np_utils.to_categorical(y_train, num_classes)
     y_validation = np_utils.to_categorical(y_validation, num_classes)
@@ -61,11 +102,6 @@ def data_preparation_cifar_resize(img_rows, img_cols):
     X_train = X_train.astype('float32')
     X_validation = X_validation.astype('float32')
     X_test = X_test.astype('float32')
-
-    # preprocess data
-    X_train = X_train / 255.0
-    X_validation = X_validation / 255.0
-    X_test = X_test / 255.0
 
     return X_train, y_train, X_validation, y_validation, X_test, y_test
 
