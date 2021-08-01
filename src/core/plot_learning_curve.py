@@ -17,3 +17,18 @@ def plot_learning_curve(history):
     plt.legend(loc=0)
     plt.savefig("artifacts/model/inception/learning_curve.png")
     # plt.show()
+
+
+def plot_training_history(model):
+    # Plot Training history
+    f, ax = plt.subplots(2, 1)  # Creates 2 subplots under 1 column
+
+    # Assign the first subplot to graph training loss and validation loss
+    ax[0].plot(model.history.history['loss'], color='b', label='Training Loss')
+    ax[0].plot(model.history.history['val_loss'], color='r', label='Validation Loss')
+
+    # Next lets plot the training accuracy and validation accuracy
+    ax[1].plot(model.history.history['acc'], color='b', label='Training  Accuracy')
+    ax[1].plot(model.history.history['val_acc'], color='r', label='Validation Accuracy')
+    plt.savefig("artifacts/model/resnet/learning_curve.png")
+    plt.show()

@@ -50,9 +50,12 @@ def build_vgg_model_vgg16_transfer_learning_cifar():
 
 def build_vgg_model_vgg19_transfer_learning_cifar():
     base_model = VGG19(include_top=False, weights='imagenet', input_shape=(32, 32, 3), classes=10)
+    # don't train existing weights
+    for layer in base_model.layers:
+        layer.trainable = False
+
     model = Sequential()
     model.add(base_model)  # Adds the base model (in this case vgg19 to model)
-
     model.add(Flatten())
     model.summary()
     model.add(Dense(1024, activation='relu', input_dim=512))
