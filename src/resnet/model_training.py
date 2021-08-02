@@ -1,6 +1,8 @@
 import math
 from datetime import datetime
+import time
 from keras.preprocessing.image import ImageDataGenerator
+from src.core.utils import get_random_eraser
 from keras.callbacks import ModelCheckpoint, LearningRateScheduler
 from keras.callbacks import ReduceLROnPlateau
 # from keras.optimizers import SGD, Adam
@@ -71,6 +73,48 @@ def start_training(model, X_train, y_train, X_validation, y_validation):
 
     duration = datetime.now() - start
     print("Training completed in time: ", duration)
+
+    # Step 5: Save Model
+    print("Model saved to disk via ModelCheckpoint callback")
+
+    # Step 6: Plot Training history
+    plot_training_history(model)
+
+
+def start_training_random_eraser_skip_connection(model, X_train, y_train, X_validation, y_validation):
+    nb_epochs = 10
+
+    data_generator = ImageDataGenerator(preprocessing_function=get_random_eraser(v_l=0, v_h=1, pixel_level=True))
+    data_generator.fit(X_train)
+
+    # Step 1: Compile model
+    model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+
+    # Step 2: Setup Callbacks
+    checkpoint = ModelCheckpoint(filepath='artifacts/model/resnet/my_model.h5',
+                                 verbose=1,
+                                 save_best_only=True)
+    lr_sc = LearningRateScheduler(decay, verbose=1)
+    lrr = ReduceLROnPlateau(
+        monitor='val_accuracy',  # Metric to be measured
+        factor=.01,  # Factor by which learning rate will be reduced
+        patience=3,  # No. of epochs after which if there is no improvement in the val_acc, the learning rate is reduced
+        min_lr=1e-5)  # The minimum learning rate
+    callbacks = [checkpoint, lr_sc, lrr]
+
+    # Step 3: Setup Training parameters
+    steps_per_epoch = 1
+    epochs = 1  # 50
+
+    # Step 4: Start Training
+    t = time.time()
+    # x_train.shape[0] // 64
+    history = model.fit_generator(data_generator.flow(X_train, y_train, batch_size=1),
+                                  validation_data=(X_validation, y_validation),
+                                  steps_per_epoch=steps_per_epoch,
+                                  epochs=epochs,
+                                  )
+    print('Training time: %s' % (t - time.time()))
 
     # Step 5: Save Model
     print("Model saved to disk via ModelCheckpoint callback")

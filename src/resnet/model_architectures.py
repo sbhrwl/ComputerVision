@@ -1,6 +1,6 @@
 from keras import Sequential
 from keras.applications.resnet import ResNet50
-from keras.layers import Flatten, Dense, Dropout
+from keras.layers import Flatten, Dense, Dropout, UpSampling2D, GlobalAveragePooling2D, BatchNormalization
 
 
 def resnet_transfer_learning(y_train):
@@ -20,4 +20,27 @@ def resnet_transfer_learning(y_train):
     model.add(Dropout(.2))
     model.add(Dense(10, activation='softmax'))  # This is the classification layer
     model.summary()
+    return model
+
+
+def resnet_transfer_learning_skip_connection(y_train):
+    resnet_model = ResNet50(weights='imagenet', include_top=False, input_shape=(256, 256, 3))
+    num_classes = 100
+
+    for layer in resnet_model.layers:
+        if isinstance(layer, BatchNormalization):
+            layer.trainable = True
+        else:
+            layer.trainable = False
+
+    model = Sequential()
+    model.add(UpSampling2D())
+    model.add(UpSampling2D())
+    model.add(UpSampling2D())
+    model.add(resnet_model)
+    model.add(GlobalAveragePooling2D())
+    model.add(Dense(256, activation='relu'))
+    model.add(Dropout(.25))
+    model.add(BatchNormalization())
+    model.add(Dense(num_classes, activation='softmax'))
     return model

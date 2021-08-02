@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 from matplotlib import pyplot as plt
-from keras.datasets import mnist, cifar10
+from keras.datasets import mnist, cifar10, cifar100
 from keras.utils import np_utils
 from sklearn.model_selection import train_test_split
 from keras.preprocessing.image import ImageDataGenerator
@@ -104,6 +104,18 @@ def data_preparation_cifar_resize(img_rows, img_cols):
     X_test = X_test.astype('float32')
 
     return X_train, y_train, X_validation, y_validation, X_test, y_test
+
+
+def data_preparation_cifar100_eraser():
+    (X_train, y_train), (X_test, y_test) = cifar100.load_data()
+    num_classes = 100
+    # Pre-process the data
+    X_train = preprocess_input(X_train)
+    X_test = preprocess_input(X_test)
+
+    y_train = np_utils.to_categorical(y_train, num_classes)
+    y_test = np_utils.to_categorical(y_test, num_classes)
+    return X_train, y_train, X_test, y_test
 
 
 def data_preparation_custom():
