@@ -3,12 +3,10 @@ from datetime import datetime
 from keras.callbacks import ModelCheckpoint, ReduceLROnPlateau
 from src.core.data_preparation import *
 from src.vgg.model_architectures import *
-from src.vgg.model_architectures_transfer_learning import *
 
 
 def build_model():
-    # model = model_architecture()
-    model = model_architecture_tf()
+    model = model_architecture()
     return model
 
 

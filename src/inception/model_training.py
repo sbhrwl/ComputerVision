@@ -3,13 +3,11 @@ from datetime import datetime
 from keras.callbacks import ModelCheckpoint, LearningRateScheduler
 # from keras.optimizers import SGD
 from src.core.data_preparation import *
-from src.inception.model_architectures import build_model_inception
-from src.inception.model_architectures_transfer_learning import *
+from src.inception.model_architectures import model_architectures
 
 
 def build_model():
-    # model = build_model_inception()
-    model = inception_transfer_learning()
+    model = model_architectures()
     return model
 
 
