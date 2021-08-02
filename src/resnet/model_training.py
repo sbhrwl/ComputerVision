@@ -22,13 +22,6 @@ def decay(epoch):
     return learning_rate
 
 
-def compile_model(model):
-    # learn_rate = .001
-    # sgd = SGD(lr=learn_rate, momentum=.9, nesterov=False)
-    # adam = Adam(lr=learn_rate, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
-    model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
-
-
 def start_training(model, X_train, y_train, X_validation, y_validation):
     # Setup Train and Validation data
     train_generator = ImageDataGenerator(
@@ -44,7 +37,13 @@ def start_training(model, X_train, y_train, X_validation, y_validation):
     train_generator.fit(X_train)
     validation_generator.fit(X_validation)
 
-    # Setup Checkpoints
+    # Step 1: Compile model
+    # learn_rate = .001
+    # sgd = SGD(lr=learn_rate, momentum=.9, nesterov=False)
+    # adam = Adam(lr=learn_rate, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
+    model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+
+    # Step 2: Setup Checkpoints
     checkpoint = ModelCheckpoint(filepath='artifacts/model/resnet/my_model.h5',
                                  verbose=1,
                                  save_best_only=True)
@@ -56,10 +55,11 @@ def start_training(model, X_train, y_train, X_validation, y_validation):
         min_lr=1e-5)  # The minimum learning rate
     callbacks = [checkpoint, lr_sc, lrr]
 
-    # Setup Training parameters
+    # Step 3: Setup Training parameters
     batch_size = 100
     epochs = 1  # 50
 
+    # Step 4: Start Training
     start = datetime.now()
     model.fit(train_generator.flow(X_train, y_train, batch_size=batch_size),
               epochs=epochs,
@@ -71,7 +71,11 @@ def start_training(model, X_train, y_train, X_validation, y_validation):
 
     duration = datetime.now() - start
     print("Training completed in time: ", duration)
+
+    # Step 5: Save Model
     print("Model saved to disk via ModelCheckpoint callback")
+
+    # Step 6: Plot Training history
     plot_training_history(model)
 
 
@@ -79,7 +83,6 @@ def model_preparation():
     train_features, train_labels, validation_features, validation_labels, test_features, test_labels = \
         data_preparation_cifar_original()
     model = build_model(train_labels)
-    compile_model(model)
     start_training(model, train_features, train_labels, validation_features, validation_labels)
 
 

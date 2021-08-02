@@ -22,21 +22,33 @@ def scheduler(epoch):
 
 
 def start_training(model, X_train, y_train, X_validation, y_validation):
+    # Step 1: Compile model
     # optimizer = adam(lr=0.003, decay=1e-6)
     model.compile(loss='categorical_crossentropy',
                   optimizer='adam',
                   metrics=['accuracy'])
 
+    # Step 2: Setup Checkpoints
+    lr_sc = LearningRateScheduler(scheduler, verbose=1)
+    callbacks = [lr_sc]
+
+    # Step 3: Setup Training parameters
+    batch_size = 128
+    epochs = 1  # 50
+
+    # Step 4: Start Training
     start = datetime.now()
     model.fit(X_train, y_train,
               validation_data=(X_validation, y_validation),
-              batch_size=128,
-              epochs=1,
+              batch_size=batch_size,
+              epochs=epochs,
               verbose=1,
-              callbacks=[LearningRateScheduler(scheduler, verbose=1)])
+              callbacks=callbacks)
 
     duration = datetime.now() - start
     print("Training completed in time: ", duration)
+
+    # Step 5: Save Model
     model.save("artifacts/model/convnet_mnist/model.h5")
     print("Model saved to disk")
 

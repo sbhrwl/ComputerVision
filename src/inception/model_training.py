@@ -22,31 +22,40 @@ def decay(epoch):
 
 
 def start_scratch_training(model, X_train, y_train, X_validation, y_validation):
+    # Step 1: Compile model
     model.compile(
         loss=['categorical_crossentropy', 'categorical_crossentropy', 'categorical_crossentropy'],
         loss_weights=[1, 0.3, 0.3],
         optimizer='sgd',
         metrics=['accuracy'])
 
+    # Step 2: Setup Checkpoints
     lr_sc = LearningRateScheduler(decay, verbose=1)
     checkpoint = ModelCheckpoint(filepath='artifacts/model/inception/my_model.h5',
                                  verbose=1, save_best_only=True)
     callbacks = [checkpoint, lr_sc]
 
+    # Step 3: Setup Training parameters
+    batch_size = 256
+    epochs = 1  # 50
+
     start = datetime.now()
     history = model.fit(X_train,
                         [y_train, y_train, y_train],
                         validation_data=(X_validation, [y_validation, y_validation, y_validation]),
-                        epochs=1,
-                        batch_size=256,
+                        epochs=epochs,
+                        batch_size=batch_size,
                         callbacks=callbacks)
 
     duration = datetime.now() - start
     print("Training completed in time: ", duration)
+
+    # Step 5: Save Model
     print("Model saved to disk via ModelCheckpoint callback")
 
 
 def start_training(model, X_train, y_train, X_validation, y_validation):
+    # Step 1: Compile model
     # initial_learning_rate = 0.01
     # sgd = SGD(lr=initial_learning_rate, momentum=0.9, nesterov=False)
     model.compile(
@@ -55,11 +64,17 @@ def start_training(model, X_train, y_train, X_validation, y_validation):
         optimizer='sgd',
         metrics=['accuracy'])
 
+    # Step 2: Setup Checkpoints
     lr_sc = LearningRateScheduler(decay, verbose=1)
     checkpoint = ModelCheckpoint(filepath='artifacts/model/inception/my_model.h5',
                                  verbose=1, save_best_only=True)
     callbacks = [checkpoint, lr_sc]
 
+    # Step 3: Setup Training parameters
+    batch_size = 256
+    epochs = 1  # 50
+
+    # Step 4: Start Training
     start = datetime.now()
     history = model.fit(X_train, y_train,
                         validation_data=(X_validation, y_validation),
@@ -69,6 +84,8 @@ def start_training(model, X_train, y_train, X_validation, y_validation):
 
     duration = datetime.now() - start
     print("Training completed in time: ", duration)
+
+    # Step 5: Save Model
     print("Model saved to disk via ModelCheckpoint callback")
 
 

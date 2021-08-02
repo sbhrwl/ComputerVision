@@ -12,14 +12,12 @@ def build_model():
     return model
 
 
-def compile_model(model):
+def start_training_custom(model, train_set, test_set):
     # sgd = optimizers.SGD(lr=0.01, decay=1e-6, momentum=0.9)
     model.compile(loss='binary_crossentropy',
                   optimizer='sgd',
                   metrics=['accuracy'])
 
-
-def start_training_custom(model, train_set, test_set):
     lr_reducer = ReduceLROnPlateau(factor=np.sqrt(0.1),
                                    cooldown=0,
                                    patience=5,
@@ -41,10 +39,19 @@ def start_training_custom(model, train_set, test_set):
 
     duration = datetime.now() - start
     print("Training completed in time: ", duration)
+
+    # Step 5: Save Model
     print("Model saved to disk via ModelCheckpoint callback")
 
 
 def start_training_cifar(model, X_train, y_train, X_test, y_test):
+    # Step 1: Compile model
+    # sgd = optimizers.SGD(lr=0.01, decay=1e-6, momentum=0.9)
+    model.compile(loss='binary_crossentropy',
+                  optimizer='sgd',
+                  metrics=['accuracy'])
+
+    # Step 2: Setup Checkpoints
     lr_reducer = ReduceLROnPlateau(factor=np.sqrt(0.1),
                                    cooldown=0,
                                    patience=5,
@@ -54,14 +61,21 @@ def start_training_cifar(model, X_train, y_train, X_test, y_test):
                                  verbose=1, save_best_only=True)
     callbacks = [checkpoint, lr_reducer]
 
+    # Step 3: Setup Training parameters
+    batch_size = 1000
+    epochs = 1  # 50
+
+    # Step 4: Start Training
     start = datetime.now()
     history = model.fit(X_train, y_train,
                         validation_data=(X_test, y_test),
-                        epochs=1,
-                        batch_size=1000,
+                        epochs=epochs,
+                        batch_size=batch_size,
                         callbacks=callbacks)
     duration = datetime.now() - start
     print("Training completed in time: ", duration)
+
+    # Step 5: Save Model
     print("Model saved to disk via ModelCheckpoint callback")
 
 
@@ -83,7 +97,6 @@ def model_preparation():
     train_features, train_labels, validation_features, validation_labels, test_features, test_labels = \
         data_preparation_cifar_original()
     model = build_model()
-    compile_model(model)
     # start_training_custom(model, train_dataset, test_dataset)
     start_training_cifar(model, train_features, train_labels, validation_features, validation_labels)
 
