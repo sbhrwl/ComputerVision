@@ -7,6 +7,7 @@
 - [Task 5 Convnet architectures for MNIST datatset](#task-5-convnet-architectures-for-mnist-datatset)
 - [Task 6 VGG architectures for CIFAR10 datatset](#task-6-vgg-architectures-for-cifar10-datatset)
 - [Task 7 Inception architectures for CIFAR10 datatset](#task-7-inception-architectures-for-cifar10-datatset)
+- [Task 8 Resnet architectures for CIFAR10 datatset](#task-8-resnet-architectures-for-cifar10-datatset)
 
 ## General Approach
 ### Step 1: Data Preparation
@@ -147,3 +148,9 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
   | Transfer Learning CIFAR10 Dataset | 31,214,954 | 1 | 32 | 10% | 19 mins |
   | Transfer Learning CIFAR10 Dataset Layers added after mixed 7 layer | 28,322,826 | 1 | 32 | 54.60% | 29 sec |
   | [Inception scratch](https://colab.research.google.com/drive/10OMWzHiPGZA55PMUTJTFt8sn4T_p0hU5?usp=sharing) |  |  |  |  |
+  
+## [Task 8 Resnet architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/resnetl_training.py)
+  | Resnetl | Parameters | Epochs | Batch size | Accuracy | Training time |
+  | ----------------| ---------- | -------| -----------| -------- | ------------- |
+  | Transfer Learning CIFAR10 Dataset | 42,239,102 out of 42,292,222| 1 | 100 | 10.20% | 28 mins 36 sec |
+  | Transfer Learning CIFAR100 Dataset | 603,876 out of 24,138,980 | 1 | 100 | - | - |
