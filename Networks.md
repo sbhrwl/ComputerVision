@@ -12,6 +12,7 @@
     - [Inception Network Design](#inception-network-design)
   - [InceptionV2](#inceptionv2)
   - [InceptionV3](#inceptionv3)
+  - [ResNet](#resnet)
   - [Model available in Keras](#model-available-in-keras)
 
 ## [LeNet](https://colab.research.google.com/drive/1N29L05F972fB97JL0mdqQwc3os2OB-Me?usp=sharing)
@@ -197,6 +198,67 @@
   - Fit of weak GPUs
   - Faster training of network
   - Enables use to deploy our model in weak systems (poor hardware)
+
+## ResNet
+- ResNet, also known as residual neural network, refers to the idea of **​​adding residual learning** to the traditional convolutional neural network, 
+- Residual learning solves the problem of 
+  - Gradient dispersion and 
+  - Accuracy degradation (training set) in deep networks, 
+
+### Challenges faced by increasing depth
+* The first problem brought by increasing depth is the problem of **Exploding gradient or Vanishing Gradient also referred as Gradient dissipation**
+  - This is because as the number of layers increases, the gradient of backpropagation in the network will become **unstable with continuous multiplication**, and becomes either very high or negligibly smaller
+  - This results in problem of Exploding gradient or Vanishing Gradient also referred as Gradient dissipation
+  - Usually Vanishing Gradient is the case
+* In order to overcome gradient dissipation, many solutions have been devised, such as 
+  - Using BatchNorm, 
+  - Replacing the activation function with ReLu, 
+  - Using Xaiver initialization 
+* Another problem of increasing depth is the problem of **network degradation**
+  - As the depth increases, the performance of the network will become worse and worse, which is directly reflected in the decrease in accuracy on the training set. 
+  - The residual network article solves this problem. 
+  - And after this problem is solved, the depth of the network has increased by several orders of magnitude.
+
+### Residual Block
+- Convolution layer followed by Relu and BN
+- [Paper](https://arxiv.org/pdf/1512.03385.pdf)
+- A building block of a ResNet is called a residual block or identity block. 
+- A residual block is simply when the activation of a layer is fast-forwarded to a deeper layer in the neural network
+<img src="https://github.com/sbhrwl/ComputerVision/blob/main/artifacts/images/ResidualBlock.png" width=400>
+
+- This is also termed as **Skip Connection**
+  - Advantages of Skip connection
+    - Output from Residual block is concatenated with Input
+    - Amplification of Gradients (amplification of gradients overcomes vanishing gradient problem)
+    - During BP, we do not update weights of skipped layer
+      - Advantage: Lesser parameters to train
+  - Skip is not happening everytime, in keras implementation, skip connection takes place for every BN layer
+    - [keras implementation](https://github.com/keras-team/keras-applications/blob/master/keras_applications/resnet_common.py)
+    ```
+    if conv_shortcut is True:
+    shortcut = layers.Conv2D((64 // groups) * filters, 1, strides=stride,
+                             use_bias=False, name=name + '_0_conv')(x)
+    shortcut = layers.BatchNormalization(axis=bn_axis, epsilon=1.001e-5,
+                                         name=name + '_0_bn')(shortcut)
+    ```
+#### How are 1x1 used in ResNet
+<img src="https://cdn-5f733ed3c1ac190fbc56ef88.closte.com/wp-content/uploads/2019/07/ResNet50_architecture-1.png">
+
+
+- In ResNet, Residual Block (Conv+Relu+BN) is amplifying Gradients whereas in inception Auxillary block was amplifying the gradients
+- When training network, check for supported default and minimum size of input image
+  ```
+  # Determine proper input shape
+  input_shape = _obtain_input_shape(input_shape,
+                                    default_size=224,
+                                    min_size=32,
+                                    data_format=backend.image_data_format(),
+                                    require_flatten=include_top,
+                                    weights=weights)
+  ```
+- Smaller resnet (<50) are not in keras
+
+
 
 ## [Model available in Keras](https://keras.io/api/applications/)
 
