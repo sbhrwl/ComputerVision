@@ -222,6 +222,8 @@
 ### Residual Block
 - Convolution layer followed by Relu and BN
 - [Paper](https://arxiv.org/pdf/1512.03385.pdf)
+- [ResNet](https://www.youtube.com/watch?v=ZILIbUvp5lk)
+- [Why ResNet works](https://www.youtube.com/watch?v=RYth6EbBUqM)
 - A building block of a ResNet is called a residual block or identity block. 
 - A residual block is simply when the activation of a layer is fast-forwarded to a deeper layer in the neural network
 <img src="https://github.com/sbhrwl/ComputerVision/blob/main/artifacts/images/ResidualBlock.png" width=400>
