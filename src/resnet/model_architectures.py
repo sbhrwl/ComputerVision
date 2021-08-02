@@ -1,11 +1,11 @@
-from keras import Sequential
-from keras.applications.resnet import ResNet50
-from keras.layers import Flatten, Dense, Dropout, UpSampling2D, GlobalAveragePooling2D, BatchNormalization
+from tensorflow.keras import Sequential
+from tensorflow.keras.applications.resnet import ResNet50
+from tensorflow.keras.layers import Flatten, Dense, Dropout, UpSampling2D, GlobalAveragePooling2D, BatchNormalization
 
 
 def model_architectures():
-    # model = resnet_transfer_learning()
-    model = resnet_transfer_learning_skip_connection()
+    model = resnet_transfer_learning()
+    # model = resnet_transfer_learning_skip_connection()
     return model
 
 
@@ -50,5 +50,8 @@ def resnet_transfer_learning_skip_connection():
     model.add(Dropout(.25))
     model.add(BatchNormalization())
     model.add(Dense(num_classes, activation='softmax'))
+
+    input_shape = (None, 32, 32, 3)
+    model.build(input_shape)
     model.summary()
     return model
