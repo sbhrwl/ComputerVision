@@ -50,4 +50,5 @@ def resnet_transfer_learning_skip_connection():
     model.add(Dropout(.25))
     model.add(BatchNormalization())
     model.add(Dense(num_classes, activation='softmax'))
+    model.summary()
     return model

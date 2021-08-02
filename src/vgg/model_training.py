@@ -10,39 +10,7 @@ def build_model():
     return model
 
 
-def start_training_custom(model, train_set, test_set):
-    # sgd = optimizers.SGD(lr=0.01, decay=1e-6, momentum=0.9)
-    model.compile(loss='binary_crossentropy',
-                  optimizer='sgd',
-                  metrics=['accuracy'])
-
-    lr_reducer = ReduceLROnPlateau(factor=np.sqrt(0.1),
-                                   cooldown=0,
-                                   patience=5,
-                                   min_lr=0.5e-6)
-
-    checkpoint = ModelCheckpoint(filepath='artifacts/model/vgg/custom_model.h5',
-                                 verbose=1, save_best_only=True)
-    callbacks = [checkpoint, lr_reducer]
-
-    start = datetime.now()
-    model.fit(
-        train_set,
-        validation_data=test_set,
-        epochs=1,
-        steps_per_epoch=5,
-        validation_steps=32,
-        verbose=1,
-        callbacks=callbacks)
-
-    duration = datetime.now() - start
-    print("Training completed in time: ", duration)
-
-    # Step 5: Save Model
-    print("Model saved to disk via ModelCheckpoint callback")
-
-
-def start_training_cifar(model, X_train, y_train, X_test, y_test):
+def start_training(model, X_train, y_train, X_test, y_test, custom, train_set, test_set):
     # Step 1: Compile model
     # sgd = optimizers.SGD(lr=0.01, decay=1e-6, momentum=0.9)
     model.compile(loss='binary_crossentropy',
@@ -62,14 +30,26 @@ def start_training_cifar(model, X_train, y_train, X_test, y_test):
     # Step 3: Setup Training parameters
     batch_size = 1000
     epochs = 1  # 50
+    steps_per_epoch = 5
+    validation_steps = 32
 
     # Step 4: Start Training
     start = datetime.now()
-    history = model.fit(X_train, y_train,
-                        validation_data=(X_test, y_test),
-                        epochs=epochs,
-                        batch_size=batch_size,
-                        callbacks=callbacks)
+    if custom == "Y":
+        print("Start training on Custom dataset")
+        history = model.fit(train_set,
+                            validation_data=test_set,
+                            epochs=epochs,
+                            steps_per_epoch=steps_per_epoch,
+                            validation_steps=validation_steps,
+                            verbose=1,
+                            callbacks=callbacks)
+    else:
+        history = model.fit(X_train, y_train,
+                            validation_data=(X_test, y_test),
+                            epochs=epochs,
+                            batch_size=batch_size,
+                            callbacks=callbacks)
     duration = datetime.now() - start
     print("Training completed in time: ", duration)
 
@@ -79,24 +59,14 @@ def start_training_cifar(model, X_train, y_train, X_test, y_test):
 
 # Usage:
 # Option 1: For Transfer Learning on custom dataset
-#   i. Enable "build_vgg_model_transfer_leaning_custom" in model_architectures_transfer_learning
-#   ii. Uncomment calls for data_preparation_custom and start_training_custom
-
 # Option 2: For Transfer Learning on CIFAR10 dataset
-#   i. Enable "build_vgg_model_transfer_leaning_cifar" in model_architectures_transfer_learning
-#   ii. Add prediction = Dense(10, activation='softmax')(x)
-#   ii. Uncomment calls for data_preparation_cifar10 and start_training_cifar
-
-# Option 3: For Scratch Training on CIFAR10 dataset with image size of 32
-#   i. Enable "build_model_vgg_16 or build_model_vgg_19" in model_architectures
-#   ii. Uncomment calls for data_preparation_cifar10_32 and start_training_cifar
 def model_preparation():
-    # train_dataset, test_dataset = data_preparation_custom()
+    train_dataset, test_dataset = data_preparation_custom()
     train_features, train_labels, validation_features, validation_labels, test_features, test_labels = \
         data_preparation_cifar_original()
     model = build_model()
-    # start_training_custom(model, train_dataset, test_dataset)
-    start_training_cifar(model, train_features, train_labels, validation_features, validation_labels)
+    start_training(model, train_features, train_labels, validation_features, validation_labels,
+                   'Y', train_dataset, test_dataset)
 
 
 if __name__ == '__main__':

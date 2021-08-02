@@ -9,8 +9,9 @@ from glob import glob
 def model_architecture():
     # model = build_model_vgg_16()
     # model = build_model_vgg_19()
-    # model = build_vgg_model_transfer_leaning_custom()
-    model = build_vgg_model_vgg16_transfer_learning_cifar()
+    model = build_vgg_model_transfer_leaning_custom()
+    # model = build_vgg_model_vgg16_transfer_learning_cifar()
+    # model = build_vgg_model_vgg19_transfer_learning_cifar()
     return model
 
 
