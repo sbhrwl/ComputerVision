@@ -241,7 +241,25 @@
     shortcut = layers.BatchNormalization(axis=bn_axis, epsilon=1.001e-5,
                                          name=name + '_0_bn')(shortcut)
     ```
+  - Pathways for Gradient Traversal
+  <img src="https://github.com/sbhrwl/ComputerVision/blob/main/artifacts/images/ResnetGradientTraversal.jpg" width=600>
+   
+    - Pathway 1 is with Skip connection
+    - Pathway 2 is normal FP
+
 #### How are 1x1 used in ResNet
+- For deeper networks, 
+  - we all use the bottleneck structure on the right side of below figure
+  - first using a 1x1 convolution for dimensionality reduction, 
+  - then 3x3 convolution, and 
+  - finally using 1x1 dimensionality to restore the original dimension.
+- How is **cost of the calculation** of the residual block is optimized?
+  - The two 3x3 convolution layers are replaced with 1x1 + 3x3 + 1x1 , as shown below. 
+  - The middle 3x3 convolutional layer in the new structure first reduces the calculation under one dimensionality-reduced 1x1 convolutional layer , and 
+  - then restores it under another 1x1 convolutional layer , both **maintaining accuracy and reducing the amount of calculation**.
+<img src='https://github.com/sbhrwl/ComputerVision/blob/main/artifacts/images/ResnetCostOptimization.png'>
+
+- 1x1 implementation in whole network
 <img src="https://cdn-5f733ed3c1ac190fbc56ef88.closte.com/wp-content/uploads/2019/07/ResNet50_architecture-1.png">
 
 
