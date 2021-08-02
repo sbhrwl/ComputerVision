@@ -3,8 +3,15 @@ from keras.applications.resnet import ResNet50
 from keras.layers import Flatten, Dense, Dropout, UpSampling2D, GlobalAveragePooling2D, BatchNormalization
 
 
-def resnet_transfer_learning(y_train):
-    base_model = ResNet50(include_top=False, weights='imagenet', input_shape=(32, 32, 3), classes=y_train.shape[1])
+def model_architectures():
+    # model = resnet_transfer_learning()
+    model = resnet_transfer_learning_skip_connection()
+    return model
+
+
+def resnet_transfer_learning():
+    num_classes = 100  # y_train.shape[1]
+    base_model = ResNet50(include_top=False, weights='imagenet', input_shape=(32, 32, 3), classes=num_classes)
     model = Sequential()
     # Add the Dense layers along with activation and batch normalization
     model.add(base_model)
@@ -23,7 +30,7 @@ def resnet_transfer_learning(y_train):
     return model
 
 
-def resnet_transfer_learning_skip_connection(y_train):
+def resnet_transfer_learning_skip_connection():
     resnet_model = ResNet50(weights='imagenet', include_top=False, input_shape=(256, 256, 3))
     num_classes = 100
 

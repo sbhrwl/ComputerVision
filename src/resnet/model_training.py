@@ -1,18 +1,17 @@
 import math
 from datetime import datetime
 import time
-from keras.preprocessing.image import ImageDataGenerator
 from src.core.utils import get_random_eraser
 from keras.callbacks import ModelCheckpoint, LearningRateScheduler
 from keras.callbacks import ReduceLROnPlateau
 # from keras.optimizers import SGD, Adam
 from src.core.data_preparation import *
-from src.resnet.model_architectures import resnet_transfer_learning
+from src.resnet.model_architectures import model_architectures
 from src.core.plot_learning_curve import plot_training_history
 
 
-def build_model(y_train):
-    model = resnet_transfer_learning(y_train)
+def build_model():
+    model = model_architectures()
     return model
 
 
@@ -42,7 +41,7 @@ def start_training(model, X_train, y_train, X_validation, y_validation):
     # Step 1: Compile model
     # learn_rate = .001
     # sgd = SGD(lr=learn_rate, momentum=.9, nesterov=False)
-    # adam = Adam(lr=learn_rate, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
+    # adam = Adam(lr=learn_rate, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, rmsgrad=False)
     model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
     # Step 2: Setup Checkpoints
@@ -82,8 +81,6 @@ def start_training(model, X_train, y_train, X_validation, y_validation):
 
 
 def start_training_random_eraser_skip_connection(model, X_train, y_train, X_validation, y_validation):
-    nb_epochs = 10
-
     data_generator = ImageDataGenerator(preprocessing_function=get_random_eraser(v_l=0, v_h=1, pixel_level=True))
     data_generator.fit(X_train)
 
@@ -103,17 +100,19 @@ def start_training_random_eraser_skip_connection(model, X_train, y_train, X_vali
     callbacks = [checkpoint, lr_sc, lrr]
 
     # Step 3: Setup Training parameters
+    batch_size = 1
     steps_per_epoch = 1
     epochs = 1  # 50
 
     # Step 4: Start Training
     t = time.time()
     # x_train.shape[0] // 64
-    history = model.fit_generator(data_generator.flow(X_train, y_train, batch_size=1),
-                                  validation_data=(X_validation, y_validation),
-                                  steps_per_epoch=steps_per_epoch,
-                                  epochs=epochs,
-                                  )
+    history = model.fit(data_generator.flow(X_train, y_train, batch_size=batch_size),
+                        validation_data=(X_validation, y_validation),
+                        steps_per_epoch=steps_per_epoch,
+                        epochs=epochs,
+                        callbacks=callbacks
+                        )
     print('Training time: %s' % (t - time.time()))
 
     # Step 5: Save Model
@@ -124,10 +123,15 @@ def start_training_random_eraser_skip_connection(model, X_train, y_train, X_vali
 
 
 def model_preparation():
+    model = build_model()
+    # train_features, train_labels, validation_features, validation_labels, test_features, test_labels = \
+    #     data_preparation_cifar_original()
+    # start_training(model, train_features, train_labels, validation_features, validation_labels)
+
     train_features, train_labels, validation_features, validation_labels, test_features, test_labels = \
-        data_preparation_cifar_original()
-    model = build_model(train_labels)
-    start_training(model, train_features, train_labels, validation_features, validation_labels)
+        data_preparation_cifar100_eraser()
+    start_training_random_eraser_skip_connection(model, train_features, train_labels, validation_features,
+                                                 validation_labels)
 
 
 if __name__ == '__main__':

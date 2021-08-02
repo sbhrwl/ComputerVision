@@ -108,14 +108,21 @@ def data_preparation_cifar_resize(img_rows, img_cols):
 
 def data_preparation_cifar100_eraser():
     (X_train, y_train), (X_test, y_test) = cifar100.load_data()
+    X_train, X_validation, y_train, y_validation = train_test_split(X_train, y_train, test_size=.3)
+    print('Train set', (X_train.shape, y_train.shape))
+    print('Validation set', (X_validation.shape, y_validation.shape))
+    print('Test set', (X_test.shape, y_test.shape))
+
     num_classes = 100
     # Pre-process the data
     X_train = preprocess_input(X_train)
+    X_validation = preprocess_input(X_validation)
     X_test = preprocess_input(X_test)
 
     y_train = np_utils.to_categorical(y_train, num_classes)
+    y_validation = np_utils.to_categorical(y_validation, num_classes)
     y_test = np_utils.to_categorical(y_test, num_classes)
-    return X_train, y_train, X_test, y_test
+    return X_train, y_train, X_validation, y_validation, X_test, y_test
 
 
 def data_preparation_custom():
