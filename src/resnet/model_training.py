@@ -91,7 +91,7 @@ def start_training(model, X_train, y_train, X_validation, y_validation, erasure_
 
 def model_preparation():
     train_features, train_labels, validation_features, validation_labels, test_features, test_labels = \
-        data_preparation_cifar_original()  # data_preparation_cifar_original, data_preparation_cifar100_eraser
+        data_preparation_cifar100_eraser()  # data_preparation_cifar_original, data_preparation_cifar100_eraser
     model = build_model()
     start_training(model, train_features, train_labels, validation_features, validation_labels, 'N')
 

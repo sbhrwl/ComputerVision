@@ -1,8 +1,8 @@
-from keras.models import Sequential
-from keras.layers import Conv2D, Flatten, Dense, MaxPool2D, Dropout
+from keras import models
+from keras.models import Sequential, Model
+from keras.layers import Conv2D, Flatten, Dense, MaxPool2D, Dropout, UpSampling2D
 from keras.applications.vgg16 import VGG16
 from keras.applications.vgg19 import VGG19
-from keras.models import Model
 from glob import glob
 
 

@@ -4,8 +4,8 @@ from tensorflow.keras.layers import Flatten, Dense, Dropout, UpSampling2D, Globa
 
 
 def model_architectures():
-    model = resnet_transfer_learning()
-    # model = resnet_transfer_learning_skip_connection()
+    # model = resnet_transfer_learning()
+    model = resnet_transfer_learning_skip_connection()
     return model
 
 
