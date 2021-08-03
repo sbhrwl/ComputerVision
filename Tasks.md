@@ -149,7 +149,7 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
   | Transfer Learning CIFAR10 Dataset Layers added after mixed 7 layer | 28,322,826 | 1 | 32 | 54.60% | 29 sec |
   | [Inception scratch](https://colab.research.google.com/drive/10OMWzHiPGZA55PMUTJTFt8sn4T_p0hU5?usp=sharing) |  |  |  |  |
   
-## [Task 8 Resnet architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/resnetl_training.py)
+## [Task 8 Resnet architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/resnet/model_training.py)
   | Resnetl | Parameters | Epochs | Batch size | Accuracy | Training time |
   | ----------------| ---------- | -------| -----------| -------- | ------------- |
   | Transfer Learning CIFAR10 Dataset | 42,239,102 out of 42,292,222| 1 | 100 | 10.20% | 28 mins 36 sec |
