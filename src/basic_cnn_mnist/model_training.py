@@ -2,6 +2,7 @@ from datetime import datetime
 from src.basic_cnn_mnist.data_preparation import data_preparation
 from tensorflow.keras.callbacks import ModelCheckpoint, EarlyStopping
 from src.basic_cnn_mnist.model_architectures import model_architecture
+from src.core.plot_losses import PlotLosses
 
 
 def build_model():
@@ -24,6 +25,7 @@ def start_training(model, X_train, y_train):
                                     verbose=1,
                                     save_best_only=True)
     # tensorboard_cb = TensorBoard(log_dir="logs")
+    plot_losses = PlotLosses()
 
     (X_train, X_validation) = X_train[5000:], X_train[:5000]
     (y_train, y_validation) = y_train[5000:], y_train[:5000]
@@ -33,9 +35,9 @@ def start_training(model, X_train, y_train):
     start = datetime.now()
     history = model.fit(X_train, y_train,
                         batch_size=32,
-                        epochs=1,
+                        epochs=10,
                         validation_data=(X_validation, y_validation),
-                        callbacks=[early_stopping_cb, check_pointer],
+                        callbacks=[early_stopping_cb, check_pointer, plot_losses],
                         verbose=2,
                         shuffle=True)
 
