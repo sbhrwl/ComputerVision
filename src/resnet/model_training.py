@@ -1,6 +1,8 @@
 import math
 from datetime import datetime
 import time
+
+from src.core.plot_losses import PlotLosses
 from src.core.utils import get_random_eraser
 from keras.callbacks import ModelCheckpoint, LearningRateScheduler
 from keras.callbacks import ReduceLROnPlateau
@@ -61,7 +63,8 @@ def start_training(model, X_train, y_train, X_validation, y_validation, erasure_
         factor=.01,  # Factor by which learning rate will be reduced
         patience=3,  # No. of epochs after which if there is no improvement in the val_acc, the learning rate is reduced
         min_lr=1e-5)  # The minimum learning rate
-    callbacks = [checkpoint, lr_sc, lrr]
+    plot_losses = PlotLosses()
+    callbacks = [checkpoint, lr_sc, lrr, plot_losses]
 
     # Step 3: Setup Training parameters
     batch_size = 100
@@ -91,7 +94,7 @@ def start_training(model, X_train, y_train, X_validation, y_validation, erasure_
 
 def model_preparation():
     train_features, train_labels, validation_features, validation_labels, test_features, test_labels = \
-        data_preparation_cifar100_eraser()  # data_preparation_cifar_original, data_preparation_cifar100_eraser
+        data_preparation_cifar_original()  # data_preparation_cifar_original, data_preparation_cifar100_eraser
     model = build_model()
     start_training(model, train_features, train_labels, validation_features, validation_labels, 'N')
 
