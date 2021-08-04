@@ -260,5 +260,5 @@ Decreasing feature maps/channels after a convolution
   - [Research paper- Cutout](https://arxiv.org/pdf/1708.04552.pdf)
   - [Research paper- Image Cropping and Patching](https://arxiv.org/pdf/1811.09030.pdf)
   - [Library Albumentations](https://github.com/albumentations-team/albumentations)
-  
+- [Callbacks](https://github.com/niconielsen32/NeuralNetworks/blob/main/CustomCallbacks.ipynb)
   
