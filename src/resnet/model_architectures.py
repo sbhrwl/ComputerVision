@@ -8,6 +8,7 @@ from tensorflow.keras.models import Model
 
 def model_architectures():
     # model = resnet_transfer_learning()
+    # model = resnet_convnet_transfer_learning()
     # model = resnet_transfer_learning_skip_connection()
     model = resNet50_scratch()
     return model
@@ -30,6 +31,20 @@ def resnet_transfer_learning():
     model.add(Dense(500, activation='relu'))
     model.add(Dropout(.2))
     model.add(Dense(10, activation='softmax'))  # This is the classification layer
+    model.summary()
+    return model
+
+
+def resnet_convnet_transfer_learning():
+    num_classes = 100  # y_train.shape[1]
+    base_model = ResNet50(include_top=False, weights='imagenet', input_shape=(32, 32, 3), classes=num_classes)
+    base_model.trainable = False
+    model = Sequential()
+    # Add the Dense layers along with activation and batch normalization
+    model.add(base_model)
+    model.add(GlobalAveragePooling2D())
+    model.add(Dropout(0.2))  # Regularize with dropout
+    model.add(Dense(10, activation='softmax'))
     model.summary()
     return model
 
