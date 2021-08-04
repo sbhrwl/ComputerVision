@@ -262,4 +262,5 @@ Decreasing feature maps/channels after a convolution
   - [Library Albumentations](https://github.com/albumentations-team/albumentations)
 - [Callbacks](https://github.com/niconielsen32/NeuralNetworks/blob/main/CustomCallbacks.ipynb)
 - [Neural networks repository](https://github.com/niconielsen32/NeuralNetworks)
+- [Computer Vision repository](https://github.com/niconielsen32/ComputerVision)
   
