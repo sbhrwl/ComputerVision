@@ -153,6 +153,8 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
   | Resnetl | Parameters | Epochs | Batch size | Accuracy | Training time |
   | ----------------| ---------- | -------| -----------| -------- | ------------- |
   | Transfer Learning CIFAR10 Dataset | 42,239,102 out of 42,292,222| 1 | 100 | 10.20% | 28 mins 36 sec |
+  | Transfer Learning (convnet) CIFAR10 Dataset | 20,490 out of 23,608,202| 1 | 100 | 26.38% | 10 mins 12 sec |
+  | [Scratch training CIFAR10 Dataset](https://pylessons.com/Keras-ResNet-tutorial/) | 23,555,082 | 1 | 100 | 10.47% | 10 min 11 sec |
   | Transfer Learning CIFAR100 Dataset | 603,876 out of 24,138,980 | 1 | 100 | 59.13% | 5 hours 42 min 44 sec |
-  
+  - Longest Training 
   <img src="https://github.com/sbhrwl/ComputerVision/blob/main/artifacts/images/resnet_cifar100_training.png">
