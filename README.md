@@ -261,6 +261,7 @@ Decreasing feature maps/channels after a convolution
   - [Research paper- Image Cropping and Patching](https://arxiv.org/pdf/1811.09030.pdf)
   - [Library Albumentations](https://github.com/albumentations-team/albumentations)
 - [Callbacks](https://github.com/niconielsen32/NeuralNetworks/blob/main/CustomCallbacks.ipynb)
+- [Train VGG, Inception and ResNet from scratch](https://machinelearningmastery.com/how-to-implement-major-architecture-innovations-for-convolutional-neural-networks/)
 - [Neural networks repository](https://github.com/niconielsen32/NeuralNetworks)
 - [Computer Vision repository](https://github.com/niconielsen32/ComputerVision)
   
