@@ -149,6 +149,24 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
   | Transfer Learning CIFAR10 Dataset Layers added after mixed 7 layer | 28,322,826 | 1 | 32 | 54.60% | 29 sec |
   | [Inception scratch](https://www.analyticsvidhya.com/blog/2018/10/understanding-inception-network-from-scratch/) | 7,188,302 | 1 | 256 | 10.43% | 4 min 41 sec |
   
+  - [Inception scratch training](https://colab.research.google.com/drive/10OMWzHiPGZA55PMUTJTFt8sn4T_p0hU5?usp=sharing)
+    - Change 1:
+      ```
+      x = AveragePooling2D(pool_size=(7,7), strides=1, padding='valid',name='avg_pool_5_3x3/1')(x)
+      ```
+      To
+      ```
+      x = GlobalAveragePooling2D(name='avg_pool_5_3x3/1')(x)
+      ```
+    - Change 2: As colab crashes with CIFAR 10 resized to 224x224x3
+      ```
+      input_layer = Input(shape=(224, 224, 3))
+      ```
+      To
+      ```
+      input_layer = Input(shape=(128, 128, 3))
+      ```
+  
 ## [Task 8 Resnet architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/resnet/model_training.py)
   | Resnetl | Parameters | Epochs | Batch size | Accuracy | Training time |
   | ----------------| ---------- | -------| -----------| -------- | ------------- |
