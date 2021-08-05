@@ -1,13 +1,13 @@
-import keras
-from keras.layers import Conv2D, Flatten, Dense, MaxPool2D, Dropout, Input, concatenate, AveragePooling2D
-from keras.models import Model
+from tensorflow import keras
+from tensorflow.keras.layers import Conv2D, Flatten, Dense, MaxPool2D, Dropout, Input, concatenate, AveragePooling2D, GlobalAveragePooling2D
+from tensorflow.keras.models import Model
 from src.inception.model_architectures_tf import *
 
 
 def model_architectures():
-    # model = build_model_inception()
+    model = build_model_inception()
     # model = inception_transfer_learning()
-    model = inception_transfer_learning_starting_from_mixed_7_layer()
+    # model = inception_transfer_learning_starting_from_mixed_7_layer()
     return model
 
 
@@ -21,7 +21,6 @@ def inception_module(x,
                      name=None):
     kernel_init = keras.initializers.glorot_uniform()
     bias_init = keras.initializers.Constant(value=0.2)
-
     conv_1x1 = Conv2D(filters_1x1, (1, 1), padding='same', activation='relu', kernel_initializer=kernel_init,
                       bias_initializer=bias_init)(x)
 
@@ -47,12 +46,12 @@ def inception_module(x,
 def build_model_inception():
     kernel_init = keras.initializers.glorot_uniform()
     bias_init = keras.initializers.Constant(value=0.2)
-    input_layer = Input(shape=(224, 224, 3))
+    input_layer = Input(shape=(128, 128, 3))
 
     x = Conv2D(64, (7, 7), padding='same', strides=(2, 2), activation='relu', name='conv_1_7x7/2',
                kernel_initializer=kernel_init, bias_initializer=bias_init)(input_layer)
     x = MaxPool2D((3, 3), padding='same', strides=(2, 2), name='max_pool_1_3x3/2')(x)
-    # x = Conv2D(64, (1, 1), padding='same', strides=(1, 1), activation='relu', name='conv_2a_3x3/1')(x)
+    x = Conv2D(64, (1, 1), padding='same', strides=(1, 1), activation='relu', name='conv_2a_3x3/1')(x)
     x = Conv2D(192, (3, 3), padding='same', strides=(1, 1), activation='relu', name='conv_2b_3x3/1')(x)
     x = MaxPool2D((3, 3), padding='same', strides=(2, 2), name='max_pool_2_3x3/2')(x)
 
@@ -85,12 +84,12 @@ def build_model_inception():
                          filters_pool_proj=64,
                          name='inception_4a')
 
-    classifier_1 = AveragePooling2D((5, 5), strides=3)(x)
-    classifier_1 = Conv2D(128, (1, 1), padding='same', activation='relu')(classifier_1)
-    classifier_1 = Flatten()(classifier_1)
-    classifier_1 = Dense(1024, activation='relu')(classifier_1)
-    classifier_1 = Dropout(0.7)(classifier_1)
-    classifier_1 = Dense(10, activation='softmax', name='auxiliary_output_1')(classifier_1)
+    x1 = AveragePooling2D((5, 5), strides=3)(x)
+    x1 = Conv2D(128, (1, 1), padding='same', activation='relu')(x1)
+    x1 = Flatten()(x1)
+    x1 = Dense(1024, activation='relu')(x1)
+    x1 = Dropout(0.7)(x1)
+    x1 = Dense(10, activation='softmax', name='auxilliary_output_1')(x1)
 
     x = inception_module(x,
                          filters_1x1=160,
@@ -119,12 +118,12 @@ def build_model_inception():
                          filters_pool_proj=64,
                          name='inception_4d')
 
-    classifier_2 = AveragePooling2D((5, 5), strides=3)(x)
-    classifier_2 = Conv2D(128, (1, 1), padding='same', activation='relu')(classifier_2)
-    classifier_2 = Flatten()(classifier_2)
-    classifier_2 = Dense(1024, activation='relu')(classifier_2)
-    classifier_2 = Dropout(0.7)(classifier_2)
-    classifier_2 = Dense(10, activation='softmax', name='auxiliary_output_2')(classifier_2)
+    x2 = AveragePooling2D((5, 5), strides=3)(x)
+    x2 = Conv2D(128, (1, 1), padding='same', activation='relu')(x2)
+    x2 = Flatten()(x2)
+    x2 = Dense(1024, activation='relu')(x2)
+    x2 = Dropout(0.7)(x2)
+    x2 = Dense(10, activation='softmax', name='auxilliary_output_2')(x2)
 
     x = inception_module(x,
                          filters_1x1=256,
@@ -155,16 +154,11 @@ def build_model_inception():
                          filters_pool_proj=128,
                          name='inception_5b')
 
-    x = AveragePooling2D(pool_size=(7, 7), strides=1, padding='valid', name='avg_pool_5_3x3/1')(x)
+    x = GlobalAveragePooling2D(name='avg_pool_5_3x3/1')(x)
 
     x = Dropout(0.4)(x)
-    x = Dense(1000, activation='relu', name='linear')(x)
-    x = Dense(1000, activation='softmax', name='output')(x)
 
-    model = Model(input_layer, [x], name='googlenet')
+    x = Dense(10, activation='softmax', name='output')(x)
+    model = Model(input_layer, [x, x1, x2], name='inception_v1')
     model.summary()
-
-    # GoogleNet model after adding classifiers 1 and 2
-    model_with_classifiers = Model(input_layer, [x, classifier_1, classifier_2], name='googlenet_complete_architecture')
-    model_with_classifiers.summary()
-    return model_with_classifiers
+    return model
