@@ -147,7 +147,7 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
   | ----------------| ---------- | -------| -----------| -------- | ------------- |
   | Transfer Learning CIFAR10 Dataset | 31,214,954 | 1 | 32 | 10% | 19 mins |
   | Transfer Learning CIFAR10 Dataset Layers added after mixed 7 layer | 28,322,826 | 1 | 32 | 54.60% | 29 sec |
-  | [Inception scratch](https://colab.research.google.com/drive/10OMWzHiPGZA55PMUTJTFt8sn4T_p0hU5?usp=sharing) |  |  |  |  |
+  | [Inception scratch](https://www.analyticsvidhya.com/blog/2018/10/understanding-inception-network-from-scratch/) | 7,188,302 | 1 | 256 | 10.43% | 4 min 41 sec |
   
 ## [Task 8 Resnet architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/resnet/model_training.py)
   | Resnetl | Parameters | Epochs | Batch size | Accuracy | Training time |
