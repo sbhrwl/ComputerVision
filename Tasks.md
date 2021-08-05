@@ -166,6 +166,10 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
       ```
       input_layer = Input(shape=(128, 128, 3))
       ```
+      
+      - Another option would to use CIFAR10(32, 32, 3)
+        - Use model.add(UpSampling2D()) to increase image size to 256
+        - Followed by using repeated Conv2d block with kernel size of 3x3 to reduce image to 224x224
   
 ## [Task 8 Resnet architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/resnet/model_training.py)
   | Resnetl | Parameters | Epochs | Batch size | Accuracy | Training time |
