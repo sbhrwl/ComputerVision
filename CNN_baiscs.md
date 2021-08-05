@@ -1,3 +1,5 @@
+# CNN Basics
+
 - [Drawbacks of ANN](#drawbacks-of-ann)
 - [Convolution Neural Network](#convolution-neural-network)
   - [Principals](#principals)
@@ -17,9 +19,6 @@
 - [BP in CNN](#bp-in-cnn)
 - [1x1 conv](#1x1-conv)
 - [Common Operations when building a network](#common-operations-when-building-a-network)
-- [Networks](#networks)
-- [Tasks](#tasks)
-- [References](#references)
 
 ## Drawbacks of ANN
 - Loss of features
