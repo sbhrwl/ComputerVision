@@ -1,13 +1,8 @@
 # Computer Vision
 
-- [CNN Basics](#cnn-basics)
-- [Networks](#networks)
-- [Tasks](#tasks)
-- [References](#references)
-
-## [CNN Basics](https://github.com/sbhrwl/ComputerVision/blob/main/CNN_baiscs.md)
-## [Networks](https://github.com/sbhrwl/ComputerVision/blob/main/Networks.md)
-## [Tasks](https://github.com/sbhrwl/ComputerVision/blob/main/Tasks.md)
+- [CNN Basics](https://github.com/sbhrwl/ComputerVision/blob/main/CNN_baiscs.md)
+- [Networks](https://github.com/sbhrwl/ComputerVision/blob/main/Networks.md)
+- [Tasks](https://github.com/sbhrwl/ComputerVision/blob/main/Tasks.md)
 
 ## References
 - Kernels
