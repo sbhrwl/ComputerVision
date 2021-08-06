@@ -12,8 +12,9 @@
 - [Features extracted at different layers](#features-extracted-at-different-layers)
 - [Receptive field](#receptive-field)
 - [Dropout](#dropout)
-- [Weight Decay](#weight-decay)
-- [LR scheduler](#lr-scheduler)
+- [Callbacks](#callbacks)
+  - [Weight Decay](#weight-decay)
+  - [LR scheduler](#lr-scheduler)
 - [Data Augmentation](#data-augmentation)
 - [Hyper parameter Tuning](#hyper-parameter-tuning)
 - [BP in CNN](#bp-in-cnn)
@@ -130,7 +131,8 @@ Dropout layer makes Pixels black (CNN)
   and Last Convolution block (we have all extracted features we would not want to loose them)
 - Do not use Convolution layer in transition block (MP layer)
 
-## Weight Decay
+## Callbacks
+### Weight Decay
 - Weight Decay is a regularisation technique (~L2 regularisation)
 - As when working with deep networks, during BP there is an issue of vanishing gradient
 - To handle Vanishing gradient, when applyin GD introduce new term: Weight Decay term (lambda)
@@ -141,7 +143,7 @@ Dropout layer makes Pixels black (CNN)
 - Lambda is very small number close to ZERO but not zero
 - Keras Implementation: sgd = optimizers.SGD(lr=0.01, **decay=1e-6**, momentum=0.9)
 
-## LR scheduler
+### LR scheduler
 ```
 # Creating the "scheduler" function with two arguments i.e learning rate and epoch
 def scheduler(epoch, lr):
