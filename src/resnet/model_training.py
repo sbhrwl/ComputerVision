@@ -25,9 +25,9 @@ def decay(epoch):
     return learning_rate
 
 
-def start_training(model, X_train, y_train, X_validation, y_validation, erasure_encoding):
+def start_training(model, X_train, y_train, X_validation, y_validation, random_erasing):
     # Setup Train and Validation data
-    if erasure_encoding:
+    if random_erasing:
         print("Performing erasure encoding")
         train_generator = ImageDataGenerator(preprocessing_function=get_random_eraser(v_l=0, v_h=1, pixel_level=True))
         validation_generator = ImageDataGenerator(preprocessing_function=get_random_eraser(v_l=0, v_h=1, pixel_level=True))
