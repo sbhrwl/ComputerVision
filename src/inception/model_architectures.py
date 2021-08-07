@@ -5,8 +5,9 @@ from src.inception.model_architectures_tf import *
 
 
 def model_architectures():
-    model = build_model_inception()
-    # model = inception_transfer_learning()
+    print("Inception")
+    # model = build_model_inception()
+    model = inception_transfer_learning()
     # model = inception_transfer_learning_starting_from_mixed_7_layer()
     return model
 

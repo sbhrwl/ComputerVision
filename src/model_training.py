@@ -8,7 +8,9 @@ from keras.callbacks import ModelCheckpoint, LearningRateScheduler
 from keras.callbacks import ReduceLROnPlateau
 # from keras.optimizers import SGD, Adam
 from src.core.data_preparation import *
-from src.resnet.model_architectures import model_architectures
+from src.vgg.model_architectures import model_architectures
+# from src.inception.model_architectures import model_architectures
+# from src.resnet.model_architectures import model_architectures
 # from src.densenet.model_architectures import model_architectures
 # from src.efficientnet.model_architectures import model_architectures
 from src.core.plot_learning_curve import plot_training_history
@@ -27,7 +29,9 @@ def decay(epoch):
     return learning_rate
 
 
-def start_training(model, X_train, y_train, X_validation, y_validation, data_augmentation):
+def start_training(model, X_train, y_train, X_validation, y_validation):
+    data_augmentation = "none"
+    inception_scratch_training = "N"
     # Setup Train and Validation data
     if data_augmentation == "none":
         print("Performing no data augmentation")
@@ -78,11 +82,19 @@ def start_training(model, X_train, y_train, X_validation, y_validation, data_aug
     # Step 4: Start Training
     start = datetime.now()  # time.time()
     if data_augmentation == "none":
-        history = model.fit(X_train, y_train,
-                            validation_data=(X_validation, y_validation),
-                            epochs=1,
-                            batch_size=256,
-                            callbacks=callbacks)
+        if inception_scratch_training == "Y":
+            print("Starting Inception training from scratch")
+            history = model.fit(X_train, [y_train, y_train, y_train],
+                                validation_data=(X_validation, [y_validation, y_validation, y_validation]),
+                                epochs=epochs,
+                                batch_size=batch_size,
+                                callbacks=callbacks)
+        else:
+            history = model.fit(X_train, y_train,
+                                validation_data=(X_validation, y_validation),
+                                epochs=1,
+                                batch_size=256,
+                                callbacks=callbacks)
     else:
         history = model.fit(train_generator.flow(X_train, y_train, batch_size=batch_size),
                             validation_data=validation_generator.flow(X_validation, y_validation,
@@ -107,9 +119,9 @@ def start_training(model, X_train, y_train, X_validation, y_validation, data_aug
 
 def model_preparation():
     train_features, train_labels, validation_features, validation_labels, test_features, test_labels = \
-        data_preparation_cifar_resize(64, 64)  # data_preparation_cifar_original()
+        data_preparation_cifar_original()
     model = build_model()
-    start_training(model, train_features, train_labels, validation_features, validation_labels, 'none')
+    start_training(model, train_features, train_labels, validation_features, validation_labels)
 
 
 if __name__ == '__main__':

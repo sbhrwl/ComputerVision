@@ -6,7 +6,7 @@ from tensorflow.keras.applications.inception_v3 import InceptionV3
 
 
 def inception_transfer_learning():
-    # @title Default title text
+    num_classes = 10  # y_train.shape[1]
     conv_base = InceptionV3(weights='imagenet', include_top=False, input_shape=(256, 256, 3))
     conv_base.summary()
 
@@ -20,13 +20,16 @@ def inception_transfer_learning():
     # conv_base is the inception network
     model.add(conv_base)
     model.add(Flatten())
+
+    model.add(BatchNormalization())
     model.add(Dense(128, activation='relu'))
     model.add(Dropout(0.5))
+
     model.add(BatchNormalization())
     model.add(Dense(64, activation='relu'))
     model.add(Dropout(0.5))
-    model.add(BatchNormalization())
-    model.add(Dense(10, activation='softmax'))
+
+    model.add(Dense(num_classes, activation='softmax'))
 
     input_shape = (None, 32, 32, 3)
     model.build(input_shape)
@@ -50,10 +53,11 @@ def inception_transfer_learning_starting_from_mixed_7_layer():
     last_output = last_layer.output
 
     x = layers.Flatten()(last_output)
+
     x = layers.Dense(1024, activation='relu')(x)
     x = layers.Dropout(0.2)(x)
-    x = layers.Dense(10, activation='softmax')(x)
 
+    x = layers.Dense(10, activation='softmax')(x)
     model = Model(pre_trained_model.input, x)
     model.summary()
     return model
