@@ -7,6 +7,7 @@ from glob import glob
 
 
 def model_architectures():
+    print("VGG")
     # model = build_model_vgg_16()
     # model = build_model_vgg_19()
     model = build_vgg_model_transfer_leaning_custom()

@@ -29,9 +29,26 @@ def decay(epoch):
     return learning_rate
 
 
+def start_training_custom_dataset(model, train_set, test_set):
+    # Setup Training parameters
+    batch_size = 128
+    epochs = 1  # 50
+    steps_per_epoch = 5
+    validation_steps = 32
+
+    history = model.fit(train_set,
+                        validation_data=test_set,
+                        epochs=epochs,
+                        batch_size=batch_size,
+                        steps_per_epoch=steps_per_epoch,
+                        validation_steps=validation_steps,
+                        verbose=1)
+
+
 def start_training(model, X_train, y_train, X_validation, y_validation):
     data_augmentation = "none"
     inception_scratch_training = "N"
+
     # Setup Train and Validation data
     if data_augmentation == "none":
         print("Performing no data augmentation")
@@ -117,6 +134,12 @@ def start_training(model, X_train, y_train, X_validation, y_validation):
     plot_training_history(model)
 
 
+def model_preparation_custom_dataset():
+    train_dataset, test_dataset = data_preparation_custom()
+    model = build_model()
+    start_training_custom_dataset(model, train_dataset, test_dataset)
+
+
 def model_preparation():
     train_features, train_labels, validation_features, validation_labels, test_features, test_labels = \
         data_preparation_cifar_original()
@@ -125,4 +148,5 @@ def model_preparation():
 
 
 if __name__ == '__main__':
-    model_preparation()
+    model_preparation_custom_dataset()
+    # model_preparation()
