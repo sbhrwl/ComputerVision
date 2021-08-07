@@ -8,6 +8,8 @@
 - [Task 6 VGG architectures for CIFAR10 datatset](#task-6-vgg-architectures-for-cifar10-datatset)
 - [Task 7 Inception architectures for CIFAR10 datatset](#task-7-inception-architectures-for-cifar10-datatset)
 - [Task 8 Resnet architectures for CIFAR10 datatset](#task-8-resnet-architectures-for-cifar10-datatset)
+- [Task 9 DenseNet architectures for CIFAR10 datatset](#task-9-densenet-architectures-for-cifar10-datatset)
+- [Task 10 EfficientNet architectures for CIFAR10 datatset](#task-10-efficientnet-architectures-for-cifar10-datatset)
 
 ## General Approach
 ### Step 1: Data Preparation
