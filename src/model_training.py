@@ -109,6 +109,7 @@ def start_training(model, X_train, y_train, X_validation, y_validation):
     # print('Training time: %s' % (t - time.time()))
 
     # Step 5: Save Model
+    # model.save("artifacts/model/model.h5")
     print("Model saved to disk via ModelCheckpoint callback")
 
     # Step 6: Plot Training history

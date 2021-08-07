@@ -1,3 +1,4 @@
+from src.networks.convnet_mnist_architectures import *
 from src.networks.vgg_architectures import *
 from src.networks.inception_architectures import *
 from src.networks.inception_architectures_tf import *
@@ -7,6 +8,12 @@ from src.networks.efficientnet_architectures import *
 
 
 def get_model():
+    # print("ConvNet MNIST")
+    # model = model_architecture_original()
+    # model = model_architecture_16_channels_replaced_with_8_channels()
+    # model = model_architecture_max_pool_after_image_reduced_to_8()
+    # model = model_architecture_one_more_11_conv_to_reduce_dimension_from_16_to_10_with_conv_size_8()
+
     # print("VGG")
     # model = build_model_vgg_16()
     # model = build_model_vgg_19()

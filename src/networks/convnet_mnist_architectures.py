@@ -3,12 +3,7 @@ from keras import layers, models
 
 # Create a pure CNN with less than 10K training parameters for MNIST dataset having an accuracy>99.40%
 
-def model_architecture():
-    model = model_architecture_original()
-    # model = model_architecture_16_channels_replaced_with_8_channels()
-    # model = model_architecture_max_pool_after_image_reduced_to_8()
-    # model = model_architecture_one_more_11_conv_to_reduce_dimension_from_16_to_10_with_conv_size_8()
-    return model
+
 
 
 # Accuracy 86%, parameters 11.5K
