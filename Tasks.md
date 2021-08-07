@@ -182,11 +182,13 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
   <img src="https://github.com/sbhrwl/ComputerVision/blob/main/artifacts/images/resnet_cifar100_training.png">
 
 ## DenseNet
-  | DenseNet | Parameters | Epochs | Batch size | Accuracy | Training time |
+  | DenseNet | Parameters | Data Augmentation | Epochs | Batch size | Accuracy | Training time |
   | ----------------| ---------- | -------| -----------| -------- | ------------- |
-  | Transfer Learning CIFAR10 Dataset | 42,239,102 out of 42,292,222| 1 | 100 | 10.20% | 28 mins 36 sec |
+  | Transfer Learning CIFAR10 Dataset | 307,018 out of 7,347,338 | None | 1 | 100 | 50.91% | 2 mins 28 sec |
+  | Transfer Learning CIFAR10 Dataset (Convnet) | 10,250 out of 7,347,338 | None | 1 | 100 | 56.84% | 2 mins 22 sec |
 
 ## EfficientNet
-  | EfficientNet | Parameters | Epochs | Batch size | Accuracy | Training time |
+  | EfficientNet | Parameters | Data Augmentation | Epochs | Batch size | Accuracy | Training time |
   | ----------------| ---------- | -------| -----------| -------- | ------------- |
-  | Transfer Learning CIFAR10 Dataset | 42,239,102 out of 42,292,222| 1 | 100 | 10.20% | 28 mins 36 sec |
+  | Transfer Learning CIFAR10 Dataset | 307,018 out of 7,347,338 | None | 1 | 100 | 50.91% | 2 mins 28 sec |
+  | Transfer Learning CIFAR10 Dataset (Convnet) | 10,250 out of 7,347,338 | None | 1 | 100 | 56.84% | 2 mins 22 sec |
