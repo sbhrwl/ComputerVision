@@ -201,6 +201,7 @@
 
 ## ResNet
 - ResNet, also known as residual neural network, refers to the idea of **​​adding residual learning** to the traditional convolutional neural network, 
+- Era of **Deeper Neural Network** (18, 34, 50, 151) started
 - Residual learning solves the problem of 
   - Gradient dispersion and 
   - Accuracy degradation (training set) in deep networks, 
@@ -221,6 +222,7 @@
 
 ### Residual Block
 - Convolution layer followed by Relu and BN
+- Uses Residual block to overcome problem of Vanishing Gradient
 - [Paper](https://arxiv.org/pdf/1512.03385.pdf)
 - [ResNet](https://www.youtube.com/watch?v=ZILIbUvp5lk)
 - [Why ResNet works](https://www.youtube.com/watch?v=RYth6EbBUqM)
