@@ -130,7 +130,7 @@
 - Inception-v1 was introduced in 2014
 - It is also called as GoogleNet
 
-## InceptionV2
+## [InceptionV2](https://colab.research.google.com/drive/1bbhZYdvBueu2OH7i-GaOFD-TtVHonBLK?usp=sharing)
 - Inception-v2 (2015) uses **Batch Normalization**
 - Batch Normalization accelerates the training of the networkand also reduces the degree of overfitting of the network. 
 
@@ -155,8 +155,6 @@
     - In our method, random selection is more effective when the model sees different samples each time.
 7. **To reduce image distortion**: 
     - Because BN network training is faster and observes each training sample less often, we want the model to see a more realistic image instead of a distorted image.
-
-[notebook](https://colab.research.google.com/drive/1bbhZYdvBueu2OH7i-GaOFD-TtVHonBLK?usp=sharing)
 
 ## InceptionV3
 - **Label-smoothing**
@@ -198,6 +196,8 @@
   - Fit of weak GPUs
   - Faster training of network
   - Enables use to deploy our model in weak systems (poor hardware)
+
+- [ResNet influence on Innception](https://colab.research.google.com/drive/17SN0XSPdBLyiNVBac8SFg62TVlczEG8q?usp=sharing)
 
 ## [ResNet](https://colab.research.google.com/drive/1XLWVNqkaE6TpYptGWsM10pqvCDnpxptt?usp=sharing)
 - ResNet, also known as residual neural network, refers to the idea of **​​adding residual learning** to the traditional convolutional neural network, 
