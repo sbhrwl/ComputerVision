@@ -295,7 +295,11 @@
                                     require_flatten=include_top,
                                     weights=weights)
   ```
+
+#### Resnet Variants
 - Smaller resnet (<50) are not in keras
+
+<img src='https://github.com/sbhrwl/computer_vision/blob/main/artifacts/images/ResnetVariants.png'>
 
 ## [Model available in Keras](https://keras.io/api/applications/)
 
