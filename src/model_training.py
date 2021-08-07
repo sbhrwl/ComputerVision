@@ -30,12 +30,18 @@ def decay(epoch):
 
 
 def start_training_custom_dataset(model, train_set, test_set):
-    # Setup Training parameters
+    # Step 1: Compile model
+    model.compile(loss='binary_crossentropy',
+                  optimizer='sgd',
+                  metrics=['accuracy'])
+
+    # Step 2: Setup Training parameters
     batch_size = 128
     epochs = 1  # 50
     steps_per_epoch = 5
     validation_steps = 32
 
+    # Step 3: Start Training
     history = model.fit(train_set,
                         validation_data=test_set,
                         epochs=epochs,
