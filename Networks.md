@@ -44,7 +44,7 @@
 - 1x1 kernel **increases the nonlinearity of the model** without affecting the receptive field
 - 1x1 winding machine is equivalent to linear transformation, and the non-linear activation function plays a non-linear role
 
-## Inception
+## [Inception](https://colab.research.google.com/drive/1P-0FBj2f0KEsgNevk2SBNzdkPIhnIIrT?usp=sharing)
 ### Intution
 #### Drawbacks of Fully connected/Dense layers
 - Trainable parameters increases exponentially
@@ -130,7 +130,7 @@
 - Inception-v1 was introduced in 2014
 - It is also called as GoogleNet
 
-## InceptionV2
+## [InceptionV2](https://colab.research.google.com/drive/1bbhZYdvBueu2OH7i-GaOFD-TtVHonBLK?usp=sharing)
 - Inception-v2 (2015) uses **Batch Normalization**
 - Batch Normalization accelerates the training of the networkand also reduces the degree of overfitting of the network. 
 
@@ -155,8 +155,6 @@
     - In our method, random selection is more effective when the model sees different samples each time.
 7. **To reduce image distortion**: 
     - Because BN network training is faster and observes each training sample less often, we want the model to see a more realistic image instead of a distorted image.
-
-[notebook](https://colab.research.google.com/drive/1bbhZYdvBueu2OH7i-GaOFD-TtVHonBLK?usp=sharing)
 
 ## InceptionV3
 - **Label-smoothing**
@@ -199,7 +197,9 @@
   - Faster training of network
   - Enables use to deploy our model in weak systems (poor hardware)
 
-## ResNet
+- [ResNet influence on Inception](https://colab.research.google.com/drive/17SN0XSPdBLyiNVBac8SFg62TVlczEG8q?usp=sharing)
+
+## [ResNet](https://colab.research.google.com/drive/1XLWVNqkaE6TpYptGWsM10pqvCDnpxptt?usp=sharing)
 - ResNet, also known as residual neural network, refers to the idea of **​​adding residual learning** to the traditional convolutional neural network, 
 - Era of **Deeper Neural Network** (18, 34, 50, 151) started
 - Residual learning solves the problem of 
