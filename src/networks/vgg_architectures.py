@@ -1,19 +1,8 @@
-from keras import models
 from keras.models import Sequential, Model
 from keras.layers import Conv2D, Flatten, Dense, MaxPool2D, Dropout, UpSampling2D
 from keras.applications.vgg16 import VGG16
 from keras.applications.vgg19 import VGG19
 from glob import glob
-
-
-def model_architectures():
-    print("VGG")
-    # model = build_model_vgg_16()
-    # model = build_model_vgg_19()
-    model = build_vgg_model_transfer_leaning_custom()
-    # model = build_vgg_model_vgg16_transfer_learning_cifar()
-    # model = build_vgg_model_vgg19_transfer_learning_cifar()
-    return model
 
 
 def build_vgg_model_transfer_leaning_custom():

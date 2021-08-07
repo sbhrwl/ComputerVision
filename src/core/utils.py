@@ -36,11 +36,3 @@ def get_random_eraser(p=0.5, s_l=0.02, s_h=0.4, r_1=0.3, r_2=1/0.3, v_l=0, v_h=2
         input_img[top:top + h, left:left + w, :] = c
         return input_img
     return eraser
-
-
-def decay(epoch):
-    initial_learning_rate = 0.01
-    drop = 0.96
-    epochs_drop = 8
-    learning_rate = initial_learning_rate * math.pow(drop, math.floor((1 + epoch) / epochs_drop))
-    return learning_rate

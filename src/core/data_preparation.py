@@ -8,6 +8,15 @@ from keras.preprocessing.image import ImageDataGenerator
 from keras.applications.vgg16 import preprocess_input
 
 
+def get_data():
+    # X_train, y_train, X_test, y_test = data_preparation_mnist()
+    X_train, y_train, X_validation, y_validation, X_test, y_test = data_preparation_cifar_original()
+    # X_train, y_train, X_validation, y_validation, X_test, y_test = data_preparation_cifar_resize(32, 32)
+    # X_train, y_train, X_validation, y_validation, X_test, y_test = data_preparation_cifar100
+    # train_set, test_set = data_preparation_custom
+    return X_train, y_train, X_validation, y_validation, X_test, y_test
+
+
 def data_preparation_mnist():
     (X_train, y_train), (X_test, y_test) = mnist.load_data()
     # print(X_train.shape)
@@ -106,7 +115,7 @@ def data_preparation_cifar_resize(img_rows, img_cols):
     return X_train, y_train, X_validation, y_validation, X_test, y_test
 
 
-def data_preparation_cifar100_eraser():
+def data_preparation_cifar100():
     (X_train, y_train), (X_test, y_test) = cifar100.load_data()
     X_train, X_validation, y_train, y_validation = train_test_split(X_train, y_train, test_size=.3)
     print('Train set', (X_train.shape, y_train.shape))

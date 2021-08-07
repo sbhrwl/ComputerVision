@@ -6,15 +6,6 @@ from tensorflow.python.ops.init_ops_v2 import glorot_uniform
 from tensorflow.keras.models import Model
 
 
-def model_architectures():
-    print("ResNet")
-    # model = resnet_transfer_learning()
-    model = resnet_convnet_transfer_learning()
-    # model = resnet_transfer_learning_skip_bn()
-    # model = resNet50_scratch()
-    return model
-
-
 def resnet_transfer_learning():
     num_classes = 10  # y_train.shape[1]
     base_model = ResNet50(include_top=False, weights='imagenet', input_shape=(32, 32, 3), classes=num_classes)

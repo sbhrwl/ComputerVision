@@ -1,15 +1,6 @@
 from tensorflow import keras
-from tensorflow.keras.layers import Conv2D, Flatten, Dense, MaxPool2D, Dropout, Input, concatenate, AveragePooling2D, GlobalAveragePooling2D
-from tensorflow.keras.models import Model
+from tensorflow.keras.layers import Conv2D, MaxPool2D, Input, concatenate, AveragePooling2D, GlobalAveragePooling2D
 from src.inception.model_architectures_tf import *
-
-
-def model_architectures():
-    print("Inception")
-    # model = build_model_inception()
-    model = inception_transfer_learning()
-    # model = inception_transfer_learning_starting_from_mixed_7_layer()
-    return model
 
 
 def inception_module(x,

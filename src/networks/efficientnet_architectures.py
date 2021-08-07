@@ -3,13 +3,6 @@ from tensorflow.keras.applications.efficientnet import EfficientNetB1
 from tensorflow.keras.layers import Flatten, Dense, BatchNormalization, Dropout, GlobalAveragePooling2D
 
 
-def model_architectures():
-    print("EfficientNet")
-    # model = efficient_net_transfer_learning()
-    model = efficient_net_convnet_transfer_learning()
-    return model
-
-
 def efficient_net_transfer_learning():
     num_classes = 10  # y_train.shape[1]
     base_model = EfficientNetB1(include_top=False, weights='imagenet', input_shape=(32, 32, 3), classes=num_classes)
