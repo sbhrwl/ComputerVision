@@ -44,7 +44,7 @@
 - 1x1 kernel **increases the nonlinearity of the model** without affecting the receptive field
 - 1x1 winding machine is equivalent to linear transformation, and the non-linear activation function plays a non-linear role
 
-## Inception
+## [Inception](https://colab.research.google.com/drive/1P-0FBj2f0KEsgNevk2SBNzdkPIhnIIrT?usp=sharing)
 ### Intution
 #### Drawbacks of Fully connected/Dense layers
 - Trainable parameters increases exponentially
@@ -199,7 +199,7 @@
   - Faster training of network
   - Enables use to deploy our model in weak systems (poor hardware)
 
-## ResNet
+## [ResNet](https://colab.research.google.com/drive/1XLWVNqkaE6TpYptGWsM10pqvCDnpxptt?usp=sharing)
 - ResNet, also known as residual neural network, refers to the idea of **​​adding residual learning** to the traditional convolutional neural network, 
 - Era of **Deeper Neural Network** (18, 34, 50, 151) started
 - Residual learning solves the problem of 
