@@ -8,6 +8,8 @@
 - [Task 6 VGG architectures for CIFAR10 datatset](#task-6-vgg-architectures-for-cifar10-datatset)
 - [Task 7 Inception architectures for CIFAR10 datatset](#task-7-inception-architectures-for-cifar10-datatset)
 - [Task 8 Resnet architectures for CIFAR10 datatset](#task-8-resnet-architectures-for-cifar10-datatset)
+- [Task 9 DenseNet architectures for CIFAR10 datatset](#task-9-densenet-architectures-for-cifar10-datatset)
+- [Task 10 EfficientNet architectures for CIFAR10 datatset](#task-10-efficientnet-architectures-for-cifar10-datatset)
 
 ## General Approach
 ### Step 1: Data Preparation
@@ -171,23 +173,23 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
         - Use model.add(UpSampling2D()) to increase image size to 256
         - Followed by using repeated Conv2d block with kernel size of 3x3 to reduce image to 224x224
   
-## [Task 8 Resnet architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/resnet/model_training.py)
+## Task 8 Resnet architectures for CIFAR10 datatset
   | Resnet | Parameters | Epochs | Batch size | Accuracy | Training time |
   | ----------------| ---------- | -------| -----------| -------- | ------------- |
-  | Transfer Learning CIFAR10 Dataset | 42,239,102 out of 42,292,222| 1 | 100 | 10.20% | 28 mins 36 sec |
-  | Transfer Learning (convnet) CIFAR10 Dataset | 20,490 out of 23,608,202| 1 | 100 | 26.38% | 10 mins 12 sec |
+  | Transfer Learning CIFAR10 Dataset | 571,210 out of 24,163,786 | 1 | 100 | 21.77% | 2 mins 24 sec |
+  | Transfer Learning (convnet) CIFAR10 Dataset | 20,490 out of 23,608,202 | 1 | 100 | 26.74% | 2 mins 24 sec |
   | [Scratch training CIFAR10 Dataset](https://pylessons.com/Keras-ResNet-tutorial/) | 23,555,082 | 1 | 100 | 10.47% | 10 min 11 sec |
   | Transfer Learning CIFAR100 Dataset | 603,876 out of 24,138,980 | 1 | 100 | 59.13% | 5 hours 42 min 44 sec |
   - Longest Training 
   <img src="https://github.com/sbhrwl/ComputerVision/blob/main/artifacts/images/resnet_cifar100_training.png">
 
-## DenseNet
+## Task 9 DenseNet architectures for CIFAR10 datatset
   | DenseNet | Parameters | Data Augmentation | Epochs | Batch size | Accuracy | Training time |
   | -------- | ---------- | ----------------- | ------ | ---------- | -------- | ------------- |
   | Transfer Learning CIFAR10 Dataset | 307,018 out of 7,347,338 | None | 1 | 100 | 50.91% | 2 mins 28 sec |
   | Transfer Learning CIFAR10 Dataset (Convnet) | 10,250 out of 7,347,338 | None | 1 | 100 | 56.84% | 2 mins 22 sec |
 
-## EfficientNet
+## Task 10 EfficientNet architectures for CIFAR10 datatset
   | EfficientNet | Parameters | Data Augmentation | Epochs | Batch size | Accuracy | Training time |
   | ------------ | ---------- | ----------------- | ------ | ---------- | -------- | ------------- |
   | Transfer Learning CIFAR10 Dataset | 373,066 out of 6,951,633 | None | 1 | 100 | 10.05% | 1 mins 37 sec |
