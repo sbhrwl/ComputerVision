@@ -2,31 +2,14 @@ import math
 from datetime import datetime
 import time
 
-from src.core.plot_losses import PlotLosses
-from src.core.utils import get_random_eraser
 from keras.callbacks import ModelCheckpoint, LearningRateScheduler
 from keras.callbacks import ReduceLROnPlateau
 # from keras.optimizers import SGD, Adam
 from src.core.data_preparation import *
-from src.vgg.model_architectures import model_architectures
-# from src.inception.model_architectures import model_architectures
-# from src.resnet.model_architectures import model_architectures
-# from src.densenet.model_architectures import model_architectures
-# from src.efficientnet.model_architectures import model_architectures
+from src.core.model_architectures import *
+from src.core.utils import get_random_eraser, decay
 from src.core.plot_learning_curve import plot_training_history
-
-
-def build_model():
-    model = model_architectures()
-    return model
-
-
-def decay(epoch):
-    initial_learning_rate = 0.01
-    drop = 0.96
-    epochs_drop = 8
-    learning_rate = initial_learning_rate * math.pow(drop, math.floor((1 + epoch) / epochs_drop))
-    return learning_rate
+from src.core.plot_losses import PlotLosses
 
 
 def start_training_custom_dataset(model, train_set, test_set):
