@@ -9,6 +9,8 @@ from keras.callbacks import ReduceLROnPlateau
 # from keras.optimizers import SGD, Adam
 from src.core.data_preparation import *
 from src.resnet.model_architectures import model_architectures
+# from src.densenet.model_architectures import model_architectures
+# from src.efficientnet.model_architectures import model_architectures
 from src.core.plot_learning_curve import plot_training_history
 
 
@@ -25,15 +27,12 @@ def decay(epoch):
     return learning_rate
 
 
-def start_training(model, X_train, y_train, X_validation, y_validation, random_erasing):
+def start_training(model, X_train, y_train, X_validation, y_validation, data_augmentation):
     # Setup Train and Validation data
-    if random_erasing:
-        print("Performing erasure encoding")
-        train_generator = ImageDataGenerator(preprocessing_function=get_random_eraser(v_l=0, v_h=1, pixel_level=True))
-        validation_generator = ImageDataGenerator(preprocessing_function=get_random_eraser(v_l=0, v_h=1, pixel_level=True))
-        train_generator.fit(X_train)
-        validation_generator.fit(X_validation)
-    else:
+    if data_augmentation == "none":
+        print("Performing no data augmentation")
+    elif data_augmentation == "preprocess":
+        print("Performing preprocess data augmentation")
         train_generator = ImageDataGenerator(
             rotation_range=2,
             horizontal_flip=True,
@@ -43,7 +42,13 @@ def start_training(model, X_train, y_train, X_validation, y_validation, random_e
             rotation_range=2,
             horizontal_flip=True,
             zoom_range=.1)
-
+        train_generator.fit(X_train)
+        validation_generator.fit(X_validation)
+    elif data_augmentation == "random_erasing":
+        print("Performing random erasing")
+        train_generator = ImageDataGenerator(preprocessing_function=get_random_eraser(v_l=0, v_h=1, pixel_level=True))
+        validation_generator = ImageDataGenerator(
+            preprocessing_function=get_random_eraser(v_l=0, v_h=1, pixel_level=True))
         train_generator.fit(X_train)
         validation_generator.fit(X_validation)
 
@@ -54,7 +59,7 @@ def start_training(model, X_train, y_train, X_validation, y_validation, random_e
     model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
     # Step 2: Setup Checkpoints
-    checkpoint = ModelCheckpoint(filepath='artifacts/model/resnet/my_model.h5',
+    checkpoint = ModelCheckpoint(filepath='artifacts/model/densenet/my_model.h5',
                                  verbose=1,
                                  save_best_only=True)
     lr_sc = LearningRateScheduler(decay, verbose=1)
@@ -72,14 +77,22 @@ def start_training(model, X_train, y_train, X_validation, y_validation, random_e
 
     # Step 4: Start Training
     start = datetime.now()  # time.time()
-    model.fit(train_generator.flow(X_train, y_train, batch_size=batch_size),
-              validation_data=validation_generator.flow(X_validation, y_validation, batch_size=batch_size),
-              # validation_data=(X_validation, y_validation),
-              epochs=epochs,
-              steps_per_epoch=X_train.shape[0] // batch_size,
-              validation_steps=250,
-              callbacks=callbacks,
-              verbose=1)
+    if data_augmentation == "none":
+        history = model.fit(X_train, y_train,
+                            validation_data=(X_validation, y_validation),
+                            epochs=1,
+                            batch_size=256,
+                            callbacks=callbacks)
+    else:
+        history = model.fit(train_generator.flow(X_train, y_train, batch_size=batch_size),
+                            validation_data=validation_generator.flow(X_validation, y_validation,
+                                                                      batch_size=batch_size),
+                            # validation_data=(X_validation, y_validation),
+                            epochs=epochs,
+                            steps_per_epoch=X_train.shape[0] // batch_size,
+                            validation_steps=250,
+                            callbacks=callbacks,
+                            verbose=1)
 
     duration = datetime.now() - start
     print("Training completed in time: ", duration)
@@ -94,10 +107,9 @@ def start_training(model, X_train, y_train, X_validation, y_validation, random_e
 
 def model_preparation():
     train_features, train_labels, validation_features, validation_labels, test_features, test_labels = \
-        data_preparation_cifar_resize(64, 64)
-    # data_preparation_cifar_original, data_preparation_cifar100_eraser data_preparation_cifar_resize(64, 64)
+        data_preparation_cifar_resize(64, 64)  # data_preparation_cifar_original()
     model = build_model()
-    start_training(model, train_features, train_labels, validation_features, validation_labels, 'N')
+    start_training(model, train_features, train_labels, validation_features, validation_labels, 'none')
 
 
 if __name__ == '__main__':
