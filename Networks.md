@@ -197,7 +197,7 @@
   - Faster training of network
   - Enables use to deploy our model in weak systems (poor hardware)
 
-- [ResNet influence on Innception](https://colab.research.google.com/drive/17SN0XSPdBLyiNVBac8SFg62TVlczEG8q?usp=sharing)
+- [ResNet influence on Inception](https://colab.research.google.com/drive/17SN0XSPdBLyiNVBac8SFg62TVlczEG8q?usp=sharing)
 
 ## [ResNet](https://colab.research.google.com/drive/1XLWVNqkaE6TpYptGWsM10pqvCDnpxptt?usp=sharing)
 - ResNet, also known as residual neural network, refers to the idea of **​​adding residual learning** to the traditional convolutional neural network, 
