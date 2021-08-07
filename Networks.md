@@ -263,9 +263,26 @@
   - then restores it under another 1x1 convolutional layer , both **maintaining accuracy and reducing the amount of calculation**.
 <img src='https://github.com/sbhrwl/ComputerVision/blob/main/artifacts/images/ResnetCostOptimization.png'>
 
-- 1x1 implementation in whole network
-<img src="https://cdn-5f733ed3c1ac190fbc56ef88.closte.com/wp-content/uploads/2019/07/ResNet50_architecture-1.png">
+#### 1x1 and Stride of 2
+- For first layer, stride of 2 reduces image size by factor of 2 
+- Instead of Max Pooling, Resnet use stride of 2
+- Whereever, it is written **/2**, it represent stride of 2
+- Resnet uses only **2** Pooling layer 
+  - Second layer (Max pool) and 
+  - Last layer (Average Pool)
+- All feature Extractors are of Kernel size **3x3**
+- 1x1 before 3x3 improves the process of Feature Extraction
+- 1x1 after 3x3 with increased channel (256), increases the number of extracted features
+- When Stage changes (Stage 1 to Stage 2), 
+  - We reduce the size of **Image** (Stride of 2, instead of Max pooling)
+  - It also represnet Entry Point (Dotted Curved line)
+  - Solid line represents That Image size is same
+- Which is better, Stride of 2 or Max pooling?
+  - Max pooling focuses on Higher features and rejects lower features
+  - Stride of 2 focuses on both Higher and Lower features
+  - Stride of 2 is better because it is a **Convolution layer** 
 
+<img src="https://cdn-5f733ed3c1ac190fbc56ef88.closte.com/wp-content/uploads/2019/07/ResNet50_architecture-1.png">
 
 - In ResNet, Residual Block (Conv+Relu+BN) is amplifying Gradients whereas in inception Auxillary block was amplifying the gradients
 - When training network, check for supported default and minimum size of input image
@@ -279,8 +296,6 @@
                                     weights=weights)
   ```
 - Smaller resnet (<50) are not in keras
-
-
 
 ## [Model available in Keras](https://keras.io/api/applications/)
 
