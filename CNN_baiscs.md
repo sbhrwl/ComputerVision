@@ -181,6 +181,7 @@ from keras.preprocessing.image import ImageDataGenerator
                          layers.Dropout(0.2),
                          ...
 ```
+- [Random erasing](https://arxiv.org/abs/1708.04896)
 
 ## Hyper parameter Tuning
 Consider below CNN architecture
