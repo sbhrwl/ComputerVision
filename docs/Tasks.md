@@ -1,6 +1,6 @@
 # Tasks
-- [General Approach](#general-approach)
 - [Information](#information)
+- [General Approach](#general-approach)
 - [Task 1 Basic CNN architectures for MNIST datatset](#task-1-basic-cnn-architectures-for-mnist-datatset)
 - [Task 2 Basic CNN architectures for CIFAR10 datatset](#task-2-basic-cnn-architectures-for-cifar10-datatset)
 - [Task 3 Basic CNN architectures for Flower datatset](#task-3-basic-cnn-architectures-for-flower-datatset)
@@ -11,6 +11,13 @@
 - [Task 8 Resnet architectures for CIFAR10 datatset](#task-8-resnet-architectures-for-cifar10-datatset)
 - [Task 9 DenseNet architectures for CIFAR10 datatset](#task-9-densenet-architectures-for-cifar10-datatset)
 - [Task 10 EfficientNet architectures for CIFAR10 datatset](#task-10-efficientnet-architectures-for-cifar10-datatset)
+
+## Information
+- [Data preparation options](https://github.com/sbhrwl/computer_vision/blob/main/src/core/data_preparation.py)
+- [Network architectures](https://github.com/sbhrwl/computer_vision/tree/main/src/networks)
+- [Training file](https://github.com/sbhrwl/computer_vision/blob/main/src/training.py)
+- The training parameters is controlled via [parameters yaml file](https://github.com/sbhrwl/computer_vision/blob/main/parameters.yaml)
+- Below **Training times** are on a Computer with 16GB RAM and 2 cores and 4 Logical processors
 
 ## General Approach
 ### Step 1: Data Preparation
@@ -58,14 +65,6 @@
                     verbose=2,
                     shuffle=True)
   ```
-
-## Information
-- [Data preparation](https://github.com/sbhrwl/computer_vision/blob/main/src/core/data_preparation.py)
-- Network architectures are under [network directory](https://github.com/sbhrwl/computer_vision/tree/main/src/networks)
-- [Training file](https://github.com/sbhrwl/computer_vision/blob/main/src/training.py)
-- The training parameters is controlled via [parameters yaml file](https://github.com/sbhrwl/computer_vision/blob/main/parameters.yaml)
-- Below **Training times** are on a Computer with 16GB RAM and 2 cores and 4 Logical processors
-
 ## Task 1 Basic CNN architectures for MNIST datatset
   | Model | kernel size | Padding | Parameters | Epochs | Batch size | Accuracy | Training time |
   | ----- | ----------- | --------| -----------| ------ | ---------- | -------- | ------------- |
