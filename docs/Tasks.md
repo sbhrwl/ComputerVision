@@ -96,7 +96,7 @@
   | ----- | ----------- | ------- | ---------- | ------ | -------- | ------------- |
   | Alternate 3 conv and Max pool |  3x3 | same | 646,273 | 1 | 50.00% | 13 sec |
 
-## [Task 5 Convnet architectures for MNIST datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/convnet_mnist/model_training.py)
+## Task 5 Convnet architectures for MNIST datatset
   | Changes to Existing Model | Parameters | Epochs | Batch size | Accuracy | Training time |
   | ------------------------- | ---------- | -------| ---------- | -------- | ------------- |
   | Original | 11,450 | 1 | 128 | 86.65% | 1 min 39 sec |
