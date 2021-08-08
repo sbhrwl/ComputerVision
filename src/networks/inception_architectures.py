@@ -1,5 +1,7 @@
 from tensorflow import keras
-from tensorflow.keras.layers import Conv2D, MaxPool2D, Input, concatenate, AveragePooling2D, GlobalAveragePooling2D
+from tensorflow.keras.models import Model
+from tensorflow.keras.layers import Flatten, Dense, Dropout, Conv2D, MaxPool2D, Input, concatenate, \
+    AveragePooling2D, GlobalAveragePooling2D
 
 
 def inception_module(x,
@@ -34,7 +36,7 @@ def inception_module(x,
     return output
 
 
-def build_model_inception():
+def build_model_inception(classes):
     kernel_init = keras.initializers.glorot_uniform()
     bias_init = keras.initializers.Constant(value=0.2)
     input_layer = Input(shape=(128, 128, 3))
@@ -80,7 +82,7 @@ def build_model_inception():
     x1 = Flatten()(x1)
     x1 = Dense(1024, activation='relu')(x1)
     x1 = Dropout(0.7)(x1)
-    x1 = Dense(10, activation='softmax', name='auxilliary_output_1')(x1)
+    x1 = Dense(classes, activation='softmax', name='auxilliary_output_1')(x1)
 
     x = inception_module(x,
                          filters_1x1=160,
@@ -114,7 +116,7 @@ def build_model_inception():
     x2 = Flatten()(x2)
     x2 = Dense(1024, activation='relu')(x2)
     x2 = Dropout(0.7)(x2)
-    x2 = Dense(10, activation='softmax', name='auxilliary_output_2')(x2)
+    x2 = Dense(classes, activation='softmax', name='auxilliary_output_2')(x2)
 
     x = inception_module(x,
                          filters_1x1=256,
@@ -149,7 +151,8 @@ def build_model_inception():
 
     x = Dropout(0.4)(x)
 
-    x = Dense(10, activation='softmax', name='output')(x)
+    x = Dense(classes, activation='softmax', name='output')(x)
     model = Model(input_layer, [x, x1, x2], name='inception_v1')
     model.summary()
+    return model
     return model

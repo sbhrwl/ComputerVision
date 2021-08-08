@@ -43,7 +43,7 @@ classes: 10   # y_train.shape[1]
 img_rows: 32
 img_cols: 32
 
-model: dense_net_convnet_transfer_learning
+model: resnet_transfer_learning_skip_bn
   # ConvNet MNIST
   # model_architecture_original
   # model_architecture_16_channels_replaced_with_8_channels

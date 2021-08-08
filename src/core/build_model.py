@@ -14,35 +14,35 @@ def get_model():
     classes = config["classes"]
 
     if model_config == "model_architecture_original":
-        model = model_architecture_original()
+        model = model_architecture_original(classes)
     elif model_config == "model_architecture_16_channels_replaced_with_8_channels":
-        model = model_architecture_16_channels_replaced_with_8_channels()
+        model = model_architecture_16_channels_replaced_with_8_channels(classes)
     elif model_config == "model_architecture_max_pool_after_image_reduced_to_8":
-        model = model_architecture_max_pool_after_image_reduced_to_8()
+        model = model_architecture_max_pool_after_image_reduced_to_8(classes)
     elif model_config == "model_architecture_one_more_11_conv_to_reduce_dimension_from_16_to_10_with_conv_size_8":
-        model = model_architecture_one_more_11_conv_to_reduce_dimension_from_16_to_10_with_conv_size_8()
+        model = model_architecture_one_more_11_conv_to_reduce_dimension_from_16_to_10_with_conv_size_8(classes)
     elif model_config == "build_model_vgg_16":
-        model = build_model_vgg_16()
+        model = build_model_vgg_16(classes)
     elif model_config == "build_model_vgg_19":
-        model = build_model_vgg_19()
+        model = build_model_vgg_19(classes)
     elif model_config == "build_vgg_model_transfer_leaning_custom":
         model = build_vgg_model_transfer_leaning_custom()
     elif model_config == "build_vgg_model_vgg16_transfer_learning_cifar":
-        model = build_vgg_model_vgg16_transfer_learning_cifar()
+        model = build_vgg_model_vgg16_transfer_learning_cifar(classes)
     elif model_config == "build_vgg_model_vgg19_transfer_learning_cifar":
-        model = build_vgg_model_vgg19_transfer_learning_cifar()
+        model = build_vgg_model_vgg19_transfer_learning_cifar(classes)
     elif model_config == "build_model_inception":
-        model = build_model_inception()
+        model = build_model_inception(classes)
     elif model_config == "inception_transfer_learning":
-        model = inception_transfer_learning()
+        model = inception_transfer_learning(classes)
     elif model_config == "inception_transfer_learning_starting_from_mixed_7_layer":
-        model = inception_transfer_learning_starting_from_mixed_7_layer()
+        model = inception_transfer_learning_starting_from_mixed_7_layer(classes)
     elif model_config == "resnet_transfer_learning":
-        model = resnet_transfer_learning()
+        model = resnet_transfer_learning(classes)
     elif model_config == "resnet_convnet_transfer_learning":
-        model = resnet_convnet_transfer_learning()
+        model = resnet_convnet_transfer_learning(classes)
     elif model_config == "resnet_transfer_learning_skip_bn":
-        model = resnet_transfer_learning_skip_bn()
+        model = resnet_transfer_learning_skip_bn(classes)
     elif model_config == "resNet50_scratch":
         model = resNet50_scratch()
     elif model_config == "dense_net_transfer_learning":

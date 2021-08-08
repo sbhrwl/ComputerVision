@@ -1,13 +1,9 @@
 from keras import layers, models
-
-
 # Create a pure CNN with less than 10K training parameters for MNIST dataset having an accuracy>99.40%
 
 
-
-
 # Accuracy 86%, parameters 11.5K
-def model_architecture_original():
+def model_architecture_original(classes):
     model = models.Sequential()
 
     # Channel dimension and Receptive field dimensions Change in opposite direction
@@ -51,13 +47,13 @@ def model_architecture_original():
     model.add(layers.Conv2D(10, (4, 4)))  # 4
 
     model.add(layers.Flatten())
-    model.add(layers.Dense(10, activation='softmax'))
+    model.add(layers.Dense(classes, activation='softmax'))
     model.summary()
     return model
 
 
 # Accuracy 93.72%, parameters 6340
-def model_architecture_16_channels_replaced_with_8_channels():
+def model_architecture_16_channels_replaced_with_8_channels(classes):
     model = models.Sequential()
 
     model.add(layers.Conv2D(10, (3, 3), activation='relu', input_shape=(28, 28, 1)))
@@ -82,13 +78,13 @@ def model_architecture_16_channels_replaced_with_8_channels():
     model.add(layers.Conv2D(10, (4, 4)))  # 4
 
     model.add(layers.Flatten())
-    model.add(layers.Dense(10, activation='softmax'))
+    model.add(layers.Dense(classes, activation='softmax'))
     model.summary()
     return model
 
 
 # Accuracy 95.88%, parameters 8K
-def model_architecture_max_pool_after_image_reduced_to_8():
+def model_architecture_max_pool_after_image_reduced_to_8(classes):
     model = models.Sequential()
 
     model.add(layers.Conv2D(10, (3, 3), activation='relu', input_shape=(28, 28, 1)))
@@ -116,14 +112,14 @@ def model_architecture_max_pool_after_image_reduced_to_8():
     model.add(layers.Conv2D(10, (4, 4)))  # 4
 
     model.add(layers.Flatten())
-    model.add(layers.Dense(10, activation='softmax'))
+    model.add(layers.Dense(classes, activation='softmax'))
     model.summary()
     return model
 
 
 # Accuracy 95.45%, parameters 6332, epoch 1
 # Accuracy 98.14%, parameters 6332, epoch 2
-def model_architecture_one_more_11_conv_to_reduce_dimension_from_16_to_10_with_conv_size_8():
+def model_architecture_one_more_11_conv_to_reduce_dimension_from_16_to_10_with_conv_size_8(classes):
     model = models.Sequential()
 
     model.add(layers.Conv2D(10, (3, 3), activation='relu', input_shape=(28, 28, 1)))
@@ -152,6 +148,6 @@ def model_architecture_one_more_11_conv_to_reduce_dimension_from_16_to_10_with_c
     model.add(layers.Conv2D(10, (4, 4)))  # 4
 
     model.add(layers.Flatten())
-    model.add(layers.Dense(10, activation='softmax'))
+    model.add(layers.Dense(classes, activation='softmax'))
     model.summary()
     return model

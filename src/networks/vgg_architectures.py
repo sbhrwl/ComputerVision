@@ -25,7 +25,7 @@ def build_vgg_model_transfer_leaning_custom():
     return model
 
 
-def build_vgg_model_vgg16_transfer_learning_cifar():
+def build_vgg_model_vgg16_transfer_learning_cifar(classes):
     IMAGE_SIZE = [32, 32]
     vgg = VGG16(input_shape=IMAGE_SIZE + [3], weights='imagenet', include_top=False)
 
@@ -34,14 +34,14 @@ def build_vgg_model_vgg16_transfer_learning_cifar():
         layer.trainable = False
 
     x = Flatten()(vgg.output)
-    prediction = Dense(10, activation='softmax')(x)
+    prediction = Dense(classes, activation='softmax')(x)
     model = Model(inputs=vgg.input, outputs=prediction)
     model.summary()
     return model
 
 
-def build_vgg_model_vgg19_transfer_learning_cifar():
-    base_model = VGG19(include_top=False, weights='imagenet', input_shape=(32, 32, 3), classes=10)
+def build_vgg_model_vgg19_transfer_learning_cifar(classes):
+    base_model = VGG19(include_top=False, weights='imagenet', input_shape=(32, 32, 3), classes=classes)
     # don't train existing weights
     for layer in base_model.layers:
         layer.trainable = False
@@ -54,12 +54,12 @@ def build_vgg_model_vgg19_transfer_learning_cifar():
     model.add(Dense(512, activation='relu'))
     model.add(Dense(256, activation='relu'))
     model.add(Dense(128, activation='relu'))
-    model.add(Dense(10, activation='softmax'))  # This is the classification layer
+    model.add(Dense(classes, activation='softmax'))  # This is the classification layer
     model.summary()
     return model
 
 
-def build_model_vgg_16():
+def build_model_vgg_16(classes):
     vgg_16 = Sequential()
 
     # first block
@@ -98,13 +98,13 @@ def build_model_vgg_16():
     vgg_16.add(Dense(4096, activation='relu'))
     vgg_16.add(Dropout(0.5))
     # vgg_16.add(Dense(1000, activation='softmax'))
-    vgg_16.add(Dense(10, activation='softmax'))
+    vgg_16.add(Dense(classes, activation='softmax'))
 
     vgg_16.summary()
     return vgg_16
 
 
-def build_model_vgg_19():
+def build_model_vgg_19(classes):
     vgg_19 = Sequential()
 
     # first block
@@ -145,8 +145,8 @@ def build_model_vgg_19():
     vgg_19.add(Dropout(0.5))
     vgg_19.add(Dense(4096, activation='relu'))
     vgg_19.add(Dropout(0.5))
-    # vgg_19.add(Dense(1000, activation='softmax'))
-    vgg_19.add(Dense(10, activation='softmax'))
+
+    vgg_19.add(Dense(classes, activation='softmax'))
 
     vgg_19.summary()
     return vgg_19

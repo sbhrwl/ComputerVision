@@ -6,9 +6,8 @@ from tensorflow.python.ops.init_ops_v2 import glorot_uniform
 from tensorflow.keras.models import Model
 
 
-def resnet_transfer_learning():
-    num_classes = 10  # y_train.shape[1]
-    base_model = ResNet50(include_top=False, weights='imagenet', input_shape=(32, 32, 3), classes=num_classes)
+def resnet_transfer_learning(classes):
+    base_model = ResNet50(include_top=False, weights='imagenet', input_shape=(32, 32, 3), classes=classes)
     for layer in base_model.layers:
         layer.trainable = False
 
@@ -28,14 +27,13 @@ def resnet_transfer_learning():
     model.add(Dense(64, activation='relu'))
     model.add(Dropout(.3))
 
-    model.add(Dense(num_classes, activation='softmax'))
+    model.add(Dense(classes, activation='softmax'))
     model.summary()
     return model
 
 
-def resnet_convnet_transfer_learning():
-    num_classes = 10  # y_train.shape[1]
-    base_model = ResNet50(include_top=False, weights='imagenet', input_shape=(32, 32, 3), classes=num_classes)
+def resnet_convnet_transfer_learning(classes):
+    base_model = ResNet50(include_top=False, weights='imagenet', input_shape=(32, 32, 3), classes=classes)
     base_model.trainable = False
 
     model = Sequential()
@@ -43,14 +41,13 @@ def resnet_convnet_transfer_learning():
 
     model.add(GlobalAveragePooling2D())
     model.add(Dropout(0.2))
-    model.add(Dense(num_classes, activation='softmax'))
+    model.add(Dense(classes, activation='softmax'))
     model.summary()
     return model
 
 
-def resnet_transfer_learning_skip_bn():
+def resnet_transfer_learning_skip_bn(classes):
     resnet_model = ResNet50(weights='imagenet', include_top=False, input_shape=(256, 256, 3))
-    num_classes = 10
 
     for layer in resnet_model.layers:
         if isinstance(layer, BatchNormalization):
@@ -69,7 +66,7 @@ def resnet_transfer_learning_skip_bn():
     model.add(Dropout(.25))
 
     model.add(BatchNormalization())
-    model.add(Dense(num_classes, activation='softmax'))
+    model.add(Dense(classes, activation='softmax'))
 
     input_shape = (None, 32, 32, 3)
     model.build(input_shape)
