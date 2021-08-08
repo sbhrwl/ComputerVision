@@ -1,5 +1,6 @@
 # Tasks
 - [General Approach](#general-approach)
+- [Information](#information)
 - [Task 1 Basic CNN architectures for MNIST datatset](#task-1-basic-cnn-architectures-for-mnist-datatset)
 - [Task 2 Basic CNN architectures for CIFAR10 datatset](#task-2-basic-cnn-architectures-for-cifar10-datatset)
 - [Task 3 Basic CNN architectures for Flower datatset](#task-3-basic-cnn-architectures-for-flower-datatset)
@@ -14,6 +15,7 @@
 ## General Approach
 ### Step 1: Data Preparation
   - Load dataset
+  - Split dataset to create Train, Validation and Test sets
   - Preprocess features
     - Rescale features to have values within 0 - 1 range, ex: [0,255] --> [0,1]
     ```
@@ -46,7 +48,6 @@
   - Setup Callbacks
     - Early Stopping call back
     - Check pointer call back to save best found weights
-  - Split dataset to create Train and Validation sets
   - Start Training
   ```
   history = model.fit(X_train, y_train,
@@ -57,7 +58,13 @@
                     verbose=2,
                     shuffle=True)
   ```
-* Below **Training times** are on a Computer with 16GB RAM and 2 cores and 4 Logical processors
+
+## Information
+- [Data preparation](https://github.com/sbhrwl/computer_vision/blob/main/src/core/data_preparation.py)
+- Network architectures are under [network directory](https://github.com/sbhrwl/computer_vision/tree/main/src/networks)
+- [Training file](https://github.com/sbhrwl/computer_vision/blob/main/src/training.py)
+- The training parameters is controlled via [parameters yaml file](https://github.com/sbhrwl/computer_vision/blob/main/parameters.yaml)
+- Below **Training times** are on a Computer with 16GB RAM and 2 cores and 4 Logical processors
 
 ## Task 1 Basic CNN architectures for MNIST datatset
   | Model | kernel size | Padding | Parameters | Epochs | Batch size | Accuracy | Training time |
