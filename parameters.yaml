@@ -3,7 +3,8 @@ base:
 
 model_compile:
   loss: binary_crossentropy
-  optimizer: sgd
+  optimizer: adam
+  learning_rate: 0.00001
   metrics: ['accuracy']
 
 model_training:
@@ -14,7 +15,6 @@ model_training:
 
 data_augmentation: none  # none preprocess random_erasing
 inception_scratch_training: "N"  # Y N
-custom_dataset: "N"  # Y N
 
 callbacks:
   checkpoint_file_path: 'artifacts/model/densenet/my_model.h5'

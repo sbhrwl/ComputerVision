@@ -122,7 +122,7 @@ def start_training(model, X_train, y_train, X_validation, y_validation):
     print("Model saved to disk via ModelCheckpoint callback")
 
     # Step 6: Plot Training history
-    plot_training_history(model)
+    # plot_training_history(model)
 
 
 def model_preparation_custom_dataset():
@@ -138,9 +138,9 @@ def model_preparation():
 
 
 if __name__ == '__main__':
-    config_parameters = get_parameters()
-    custom_dataset = config_parameters["custom_dataset"]
-    if custom_dataset == "Y":
+    config = get_parameters()
+    dataset_config = config["dataset"]
+    if dataset_config == "custom_dataset":
         model_preparation_custom_dataset()
     else:
         model_preparation()

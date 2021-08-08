@@ -23,8 +23,8 @@ def get_callbacks():
                                  verbose=1,
                                  save_best_only=True)
 
-    early_stopping_callback = EarlyStopping(patience=config["callbacks"]["early_stopping_callback"]["patience"],
-                                            restore_best_weights=True)
+    early_stopping = EarlyStopping(patience=config["callbacks"]["early_stopping_callback"]["patience"],
+                                   restore_best_weights=True)
 
     lr_sc = LearningRateScheduler(decay, verbose=1)
 
@@ -36,4 +36,5 @@ def get_callbacks():
         min_lr=lrr_config["min_lr"])
 
     plot_losses = PlotLosses()
-    return [checkpoint, early_stopping_callback, lr_sc, lrr, plot_losses]
+    # [checkpoint, early_stopping_callback, lr_sc, lrr, plot_losses]
+    return [early_stopping, lr_sc, lrr]
