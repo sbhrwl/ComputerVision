@@ -42,7 +42,7 @@ img_cols: 32
 data_augmentation: none  # none preprocess random_erasing
 
 inception_scratch_training: "N"  # Y N
-model: resnet_transfer_learning_skip_bn
+model: dense_net_transfer_learning
   # ConvNet MNIST
   # model_architecture_original
   # model_architecture_16_channels_replaced_with_8_channels
