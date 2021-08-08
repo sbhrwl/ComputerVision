@@ -7,7 +7,7 @@ model_compile:
   metrics: ['accuracy']
 
 model_training:
-  batch_size: 128
+  batch_size: 256
   epochs: 1
   steps_per_epoch: 5
   validation_steps: 32
@@ -18,12 +18,15 @@ custom_dataset: "N"  # Y N
 
 callbacks:
   checkpoint_file_path: 'artifacts/model/densenet/my_model.h5'
+  early_stopping_callback:
+    patience: 3
   LearningRateScheduler:
+    epoch: 10
     initial_learning_rate: 0.01
     drop: 0.96
     epochs_drop: 8
   ReduceLROnPlateau:
     monitor: val_accuracy  # Metric to be measured
-    factor: .01  # Factor by which learning rate will be reduced
+    factor: 0.01  # Factor by which learning rate will be reduced
     patience: 3  # No. of epochs after which if there is no improvement in the val_acc, the learning rate is reduced
-    min_lr: 1e-5  # The minimum learning rate
+    min_lr: 0.00001  # The minimum learning rate: 1e-5
