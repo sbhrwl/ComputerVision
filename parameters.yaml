@@ -1,6 +1,6 @@
 base:
   project_name: Computer Vision
-  # set PYTHONPATH=%PYTHONPATH%;C:\project\3.ComputerVision
+  # set PYTHONPATH=%PYTHONPATH%;C:\project\ComputerVision
 model_compile:
   loss: binary_crossentropy
   optimizer: adam
@@ -19,9 +19,6 @@ model_training:
   epochs: 1
   steps_per_epoch: 5
   validation_steps: 32
-
-data_augmentation: none  # none preprocess random_erasing
-inception_scratch_training: "N"  # Y N
 
 callbacks:
   checkpoint_file_path: 'artifacts/model/densenet/my_model.h5'
@@ -42,7 +39,9 @@ dataset: cifar10_original  # mnist cifar10_original cifar10_resize cifar100 cust
 classes: 10   # y_train.shape[1]
 img_rows: 32
 img_cols: 32
+data_augmentation: none  # none preprocess random_erasing
 
+inception_scratch_training: "N"  # Y N
 model: resnet_transfer_learning_skip_bn
   # ConvNet MNIST
   # model_architecture_original
