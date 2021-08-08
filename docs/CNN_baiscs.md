@@ -218,7 +218,7 @@ Consider below CNN architecture
   - We have 2000 sample images
   - Steps per epoch = 2000/32 = 62
 
-## [BP in CNN](https://github.com/sbhrwl/ComputerVision/blob/main/CNN_BP.md)
+## [BP in CNN](https://github.com/sbhrwl/computer_vision/blob/main/docs/CNN_BP.md)
 
 ## [1x1 conv](https://machinelearningmastery.com/introduction-to-1x1-convolutions-to-reduce-the-complexity-of-convolutional-neural-networks/)
 - Projecting Feature Maps
