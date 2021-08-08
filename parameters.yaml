@@ -30,3 +30,37 @@ callbacks:
     factor: 0.01  # Factor by which learning rate will be reduced
     patience: 3  # No. of epochs after which if there is no improvement in the val_acc, the learning rate is reduced
     min_lr: 0.00001  # The minimum learning rate: 1e-5
+
+dataset: cifar10_original  # mnist cifar10_original cifar10_resize cifar100 custom_dataset
+model: dense_net_transfer_learning
+  # ConvNet MNIST
+  # model_architecture_original
+  # model_architecture_16_channels_replaced_with_8_channels
+  # model_architecture_max_pool_after_image_reduced_to_8
+  # model_architecture_one_more_11_conv_to_reduce_dimension_from_16_to_10_with_conv_size_8
+
+  # VGG
+  # build_model_vgg_16
+  # build_model_vgg_19
+  # build_vgg_model_transfer_leaning_custom
+  # build_vgg_model_vgg16_transfer_learning_cifar
+  # build_vgg_model_vgg19_transfer_learning_cifar
+
+  # Inception
+  # build_model_inception
+  # inception_transfer_learning
+  # inception_transfer_learning_starting_from_mixed_7_layer
+
+  # ResNet
+  # resnet_transfer_learning
+  # resnet_convnet_transfer_learning
+  # resnet_transfer_learning_skip_bn
+  # resNet50_scratch
+
+  # DenseNet
+  # dense_net_transfer_learning
+  # dense_net_convnet_transfer_learning
+
+  # EfficientNet
+  # efficient_net_transfer_learning
+  # efficient_net_convnet_transfer_learning

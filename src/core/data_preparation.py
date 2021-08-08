@@ -6,33 +6,46 @@ from keras.utils import np_utils
 from sklearn.model_selection import train_test_split
 from keras.preprocessing.image import ImageDataGenerator
 from keras.applications.vgg16 import preprocess_input
+from src.core.utils import get_parameters
 
 
 def get_data():
-    # X_train, y_train, X_test, y_test = data_preparation_mnist()
-    X_train, y_train, X_validation, y_validation, X_test, y_test = data_preparation_cifar_original()
-    # X_train, y_train, X_validation, y_validation, X_test, y_test = data_preparation_cifar_resize(32, 32)
-    # X_train, y_train, X_validation, y_validation, X_test, y_test = data_preparation_cifar100
-    # train_set, test_set = data_preparation_custom
+    config = get_parameters()
+    dataset_config = config["dataset"]
+    if dataset_config == "mnist":
+        X_train, y_train, X_validation, y_validation, X_test, y_test = data_preparation_mnist()
+    elif dataset_config == "cifar10_original":
+        X_train, y_train, X_validation, y_validation, X_test, y_test = data_preparation_cifar_original()
+    elif dataset_config == "cifar10_resize":
+        X_train, y_train, X_validation, y_validation, X_test, y_test = data_preparation_cifar_resize(32, 32)
+    elif dataset_config == "cifar100":
+        X_train, y_train, X_validation, y_validation, X_test, y_test = data_preparation_cifar100
+    elif dataset_config == "custom_dataset":
+        train_set, test_set = data_preparation_custom
+    # return train_set, test_set
     return X_train, y_train, X_validation, y_validation, X_test, y_test
 
 
 def data_preparation_mnist():
     (X_train, y_train), (X_test, y_test) = mnist.load_data()
+    X_train, X_validation, y_train, y_validation = train_test_split(X_train, y_train, test_size=.3)
     # print(X_train.shape)
     # plotting the first image or the image at index zero in the training dataset
     plt.imshow(X_train[0])
 
     # Reshaping our training and testing dataset using numpy's reshape function which we will feed to the model
     X_train = X_train.reshape(X_train.shape[0], 28, 28, 1)
+    X_validation = X_validation.reshape(X_validation.shape[0], 28, 28, 1)
     X_test = X_test.reshape(X_test.shape[0], 28, 28, 1)
 
     # Doing type conversion or changing the datatype to float32 for the data
     X_train = X_train.astype('float32')
+    X_validation = X_validation.astype('float32')
     X_test = X_test.astype('float32')
 
     # Doing standardization or normalization here dividing each pixel by 255 in the train and test data
     X_train /= 255
+    X_validation /= 255
     X_test /= 255
 
     # Checking first 10 image labels
@@ -40,12 +53,13 @@ def data_preparation_mnist():
 
     # Convert 1-dimensional class arrays to 10-dimensional class matrices
     # simply we can say we are doing sort of one hot encoding
-    Y_train = np_utils.to_categorical(y_train, 10)
-    Y_test = np_utils.to_categorical(y_test, 10)
+    y_train = np_utils.to_categorical(y_train, 10)
+    y_validation = np_utils.to_categorical(y_validation, 10)
+    y_test = np_utils.to_categorical(y_test, 10)
     # having a look in the first 10 data points after one hot encoding
-    print(Y_train[:10])
+    print(y_train[:10])
 
-    return X_train, Y_train, X_test, Y_test
+    return X_train, y_train, X_validation, y_validation, X_test, y_test
 
 
 def data_preparation_cifar_original():
@@ -84,12 +98,12 @@ def data_preparation_cifar_resize(img_rows, img_cols):
     idx_train = np.arange(len(X_train))
     idx_validation = np.arange(len(X_validation))
     idx_test = np.arange(len(X_test))
-    X_train = X_train[:int(.10*len(idx_train))]
-    y_train = y_train[:int(.10*len(idx_train))]
-    X_validation = X_validation[:int(.10*len(idx_validation))]
-    y_validation = y_validation[:int(.10*len(idx_validation))]
-    X_test = X_test[:int(.10*len(idx_test))]
-    y_test = y_test[:int(.10*len(idx_test))]
+    X_train = X_train[:int(.10 * len(idx_train))]
+    y_train = y_train[:int(.10 * len(idx_train))]
+    X_validation = X_validation[:int(.10 * len(idx_validation))]
+    y_validation = y_validation[:int(.10 * len(idx_validation))]
+    X_test = X_test[:int(.10 * len(idx_test))]
+    y_test = y_test[:int(.10 * len(idx_test))]
 
     # Resize training images
     X_train = np.array([cv2.resize(img, (img_rows, img_cols)) for img in X_train[:, :, :, :]])

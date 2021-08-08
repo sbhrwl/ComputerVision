@@ -4,10 +4,10 @@ from src.core.utils import get_parameters
 from src.core.plot_losses import PlotLosses
 
 
-def decay():
+def decay(epoch):
     config = get_parameters()
     lr_sc_config = config["callbacks"]["LearningRateScheduler"]
-    epoch = lr_sc_config["epoch"]
+    # epoch = lr_sc_config["epoch"]
     initial_learning_rate = lr_sc_config["initial_learning_rate"]
     drop = lr_sc_config["drop"]
     epochs_drop = lr_sc_config["epochs_drop"]
