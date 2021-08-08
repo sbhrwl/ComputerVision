@@ -16,7 +16,7 @@
 - [Data preparation options](https://github.com/sbhrwl/computer_vision/blob/main/src/core/data_preparation.py)
 - [Network architectures](https://github.com/sbhrwl/computer_vision/tree/main/src/networks)
 - [Training file](https://github.com/sbhrwl/computer_vision/blob/main/src/training.py)
-- The training parameters is controlled via [parameters yaml file](https://github.com/sbhrwl/computer_vision/blob/main/parameters.yaml)
+- [Parameters yaml](https://github.com/sbhrwl/computer_vision/blob/main/parameters.yaml): Configuring training parameters
   - Configure data set: 
     ```
     dataset: cifar10_original  # mnist cifar10_original cifar10_resize cifar100 custom_dataset
@@ -25,7 +25,7 @@
     ```
     model: dense_net_transfer_learning
     ```
-- Below **Training times** are on a Computer with 16GB RAM and 2 cores and 4 Logical processors
+- **Training times** are on a Computer with 16GB RAM and 2 cores and 4 Logical processors
 
 ## General Approach
 ### Step 1: Data Preparation
