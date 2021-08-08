@@ -69,9 +69,8 @@ def start_training(model, X_train, y_train, X_validation, y_validation):
         validation_generator.fit(X_validation)
 
     # Step 1: Compile model
-    # learn_rate = .001
-    # sgd = SGD(lr=learn_rate, momentum=.9, nesterov=False)
-    # adam = Adam(lr=learn_rate, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, rmsgrad=False)
+    # sgd = SGD(lr=0.01, momentum=.9, nesterov=False)
+    # adam = Adam(lr=0.01, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, rmsgrad=False)
     model_compile_config = config["model_compile"]
     model.compile(loss=model_compile_config["loss"],
                   optimizer=model_compile_config["optimizer"],
@@ -125,22 +124,18 @@ def start_training(model, X_train, y_train, X_validation, y_validation):
     # plot_training_history(model)
 
 
-def model_preparation_custom_dataset():
-    train_dataset, test_dataset = get_data()
-    model = get_model()
-    start_training_custom_dataset(model, train_dataset, test_dataset)
-
-
 def model_preparation():
-    train_features, train_labels, validation_features, validation_labels, test_features, test_labels = get_data()
     model = get_model()
-    start_training(model, train_features, train_labels, validation_features, validation_labels)
 
-
-if __name__ == '__main__':
     config = get_parameters()
     dataset_config = config["dataset"]
     if dataset_config == "custom_dataset":
-        model_preparation_custom_dataset()
+        train_dataset, test_dataset = get_data()
+        start_training_custom_dataset(model, train_dataset, test_dataset)
     else:
-        model_preparation()
+        train_features, train_labels, validation_features, validation_labels, test_features, test_labels = get_data()
+        start_training(model, train_features, train_labels, validation_features, validation_labels)
+
+
+if __name__ == '__main__':
+    model_preparation()
