@@ -1,9 +1,9 @@
 # Computer Vision
 
-- [CNN Basics](https://github.com/sbhrwl/ComputerVision/blob/main/CNN_baiscs.md)
-- [Networks](https://github.com/sbhrwl/ComputerVision/blob/main/Networks.md)
-- [Tasks](https://github.com/sbhrwl/ComputerVision/blob/main/Tasks.md)
-- [Object Detection](https://github.com/sbhrwl/computer_vision/blob/main/Object_Detection.md)
+- [CNN Basics](https://github.com/sbhrwl/computer_vision/blob/main/docs/CNN_baiscs.md)
+- [Networks](https://github.com/sbhrwl/computer_vision/blob/main/docs/Networks.md)
+- [Tasks](https://github.com/sbhrwl/computer_vision/blob/main/docs/Tasks.md)
+- [Object Detection](https://github.com/sbhrwl/computer_vision/blob/main/docs/Object_Detection.md)
 
 ## References
 - Kernels
