@@ -16,7 +16,7 @@
 - [Data preparation options](https://github.com/sbhrwl/computer_vision/blob/main/src/core/data_preparation.py)
 - [Network architectures](https://github.com/sbhrwl/computer_vision/tree/main/src/networks)
 - [Training file](https://github.com/sbhrwl/computer_vision/blob/main/src/training.py)
-- The training parameters is controlled via [parameters yaml file](https://github.com/sbhrwl/computer_vision/blob/main/parameters.yaml)
+- [Parameters yaml](https://github.com/sbhrwl/computer_vision/blob/main/parameters.yaml): Configuring training parameters
   - Configure data set: 
     ```
     dataset: cifar10_original  # mnist cifar10_original cifar10_resize cifar100 custom_dataset
@@ -25,7 +25,7 @@
     ```
     model: dense_net_transfer_learning
     ```
-- Below **Training times** are on a Computer with 16GB RAM and 2 cores and 4 Logical processors
+- **Training times** are on a Computer with 16GB RAM and 2 cores and 4 Logical processors
 
 ## General Approach
 ### Step 1: Data Preparation
@@ -73,7 +73,7 @@
                     verbose=2,
                     shuffle=True)
   ```
-## Task 1 Basic CNN architectures for MNIST datatset
+## [Task 1 Basic CNN architectures for MNIST datatset](https://github.com/sbhrwl/computer_vision/blob/main/src/cnn_starters/mnist/model_architectures.py)
   | Model | kernel size | Padding | Parameters | Epochs | Batch size | Accuracy | Training time |
   | ----- | ----------- | --------| -----------| ------ | ---------- | -------- | ------------- |
   | 1conv_1max_pool | 3x3 | same | 402,442 | 1 | 32 | 97.82% | 25 sec |
@@ -82,7 +82,7 @@
   | 1conv_1max_pool_dropout | 3x3 | same | 201,498 | 1 | 32 | 96.06% | 17 sec |
   | alternate_1conv_1max_pool | 3x3 | same | 220,234 | 1 | 32 | 98.10% | 44 sec |
 
-## Task 2 Basic CNN architectures for CIFAR10 datatset
+## [Task 2 Basic CNN architectures for CIFAR10 datatset](https://github.com/sbhrwl/computer_vision/blob/main/src/cnn_starters/cifar10/model_architectures.py)
   | Model | kernel size | Padding | Parameters | Epochs | Batch size | Accuracy | Training time |
   | ----- | ----------- | --------| -----------| ------ | ---------- | -------- | ------------- |
   | 1conv_1max_pool | 3x3 | same | 525,898 | 1 | 32 | 54.08% | 32 sec |
@@ -105,12 +105,12 @@
   ])
   ```
   
-## Task 4 Basic Image Classifier
+## [Task 4 Basic Image Classifier](https://github.com/sbhrwl/computer_vision/blob/main/src/cnn_starters/custom_classifier/model_architectures.py)
   | Model | kernel size | Padding | Parameters | Epochs | Accuracy | Training time |
   | ----- | ----------- | ------- | ---------- | ------ | -------- | ------------- |
   | Alternate 3 conv and Max pool |  3x3 | same | 646,273 | 1 | 50.00% | 13 sec |
 
-## Task 5 Convnet architectures for MNIST datatset
+## [Task 5 Convnet architectures for MNIST datatset](https://github.com/sbhrwl/computer_vision/blob/main/src/networks/convnet_mnist_architectures.py)
   | Changes to Existing Model | Parameters | Epochs | Batch size | Accuracy | Training time |
   | ------------------------- | ---------- | -------| ---------- | -------- | ------------- |
   | Original | 11,450 | 1 | 128 | 86.65% | 1 min 39 sec |
@@ -134,7 +134,7 @@
           callbacks=[LearningRateScheduler(scheduler, verbose=1)])
   ```
   
-## Task 6 VGG architectures for CIFAR10 datatset
+## [Task 6 VGG architectures for CIFAR10 datatset](https://github.com/sbhrwl/computer_vision/blob/main/src/networks/vgg_architectures.py)
 Read comments mentioned under "Usage" in the vgg_model_training.py
 
   | VGG Model | Parameters | Epochs | Batch size | Accuracy | Training time |
@@ -158,7 +158,7 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
   W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 12845056000 exceeds 10% of free system memory.
   ```
   
-## Task 7 Inception architectures for CIFAR10 datatset
+## [Task 7 Inception architectures for CIFAR10 datatset](https://github.com/sbhrwl/computer_vision/blob/main/src/networks/inception_architectures_tf.py)
   | Inception Model | Parameters | Epochs | Batch size | Accuracy | Training time |
   | ----------------| ---------- | -------| -----------| -------- | ------------- |
   | Transfer Learning CIFAR10 Dataset | 31,214,954 | 1 | 32 | 10% | 19 mins |
@@ -187,7 +187,7 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
         - Use model.add(UpSampling2D()) to increase image size to 256
         - Followed by using repeated Conv2d block with kernel size of 3x3 to reduce image to 224x224
   
-## Task 8 Resnet architectures for CIFAR10 datatset
+## [Task 8 Resnet architectures for CIFAR10 datatset](https://github.com/sbhrwl/computer_vision/blob/main/src/networks/resnet_architectures.py)
   | Resnet | Parameters | Epochs | Batch size | Accuracy | Training time |
   | ----------------| ---------- | -------| -----------| -------- | ------------- |
   | Transfer Learning CIFAR10 Dataset | 571,210 out of 24,163,786 | 1 | 256 | 21.77% | 2 mins 24 sec |
@@ -198,13 +198,13 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
   - Longest Training 
   <img src="https://github.com/sbhrwl/ComputerVision/blob/main/artifacts/images/resnet_cifar100_training.png">
 
-## Task 9 DenseNet architectures for CIFAR10 datatset
+## [Task 9 DenseNet architectures for CIFAR10 datatset](https://github.com/sbhrwl/computer_vision/blob/main/src/networks/densenet_architectures.py)
   | DenseNet | Parameters | Data Augmentation | Epochs | Batch size | Accuracy | Training time |
   | -------- | ---------- | ----------------- | ------ | ---------- | -------- | ------------- |
   | Transfer Learning CIFAR10 Dataset | 307,018 out of 7,347,338 | None | 1 | 256 | 50.91% | 2 mins 28 sec |
   | Transfer Learning CIFAR10 Dataset (Convnet) | 10,250 out of 7,347,338 | None | 1 | 256 | 56.84% | 2 mins 22 sec |
 
-## Task 10 EfficientNet architectures for CIFAR10 datatset
+## [Task 10 EfficientNet architectures for CIFAR10 datatset](https://github.com/sbhrwl/computer_vision/blob/main/src/networks/efficientnet_architectures.py)
   | EfficientNet | Parameters | Data Augmentation | Epochs | Batch size | Accuracy | Training time |
   | ------------ | ---------- | ----------------- | ------ | ---------- | -------- | ------------- |
   | Transfer Learning CIFAR10 Dataset | 373,066 out of 6,951,633 | None | 1 | 256 | 10.05% | 1 mins 37 sec |
