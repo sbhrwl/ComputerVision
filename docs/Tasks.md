@@ -178,7 +178,7 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
   | ----------------| ---------- | -------| -----------| -------- | ------------- |
   | Transfer Learning CIFAR10 Dataset | 571,210 out of 24,163,786 | 1 | 256 | 21.77% | 2 mins 24 sec |
   | Transfer Learning (convnet) CIFAR10 Dataset | 20,490 out of 23,608,202 | 1 | 256 | 26.74% | 2 mins 24 sec |
-  | Transfer Learning (skip_bn) CIFAR10 Dataset | 580,746 out of 24,115,850 | 1 | 256 | 26.74% | 2 mins 24 sec |
+  | Transfer Learning (skip_bn) CIFAR10 Dataset | 580,746 out of 24,115,850 | 1 | 256 | 57.74% | 5 hours 20 mins 24 sec |
   | [Scratch training CIFAR10 Dataset](https://pylessons.com/Keras-ResNet-tutorial/) | 23,555,082 | 1 | 256 | 10.47% | 10 min 11 sec |
   | Transfer Learning CIFAR100 Dataset | 603,876 out of 24,138,980 | 1 | 256 | 59.13% | 5 hours 42 min 44 sec |
   - Longest Training 
