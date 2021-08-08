@@ -12,13 +12,13 @@ from src.core.utils import get_parameters
 def get_data():
     config = get_parameters()
     dataset_config = config["dataset"]
+    img_rows = config["img_rows"]
+    img_cols = config["img_cols"]
     if dataset_config == "mnist":
         X_train, y_train, X_validation, y_validation, X_test, y_test = data_preparation_mnist()
     elif dataset_config == "cifar10_original":
         X_train, y_train, X_validation, y_validation, X_test, y_test = data_preparation_cifar_original()
     elif dataset_config == "cifar10_resize":
-        img_rows = dataset_config["img_rows"]
-        img_cols = dataset_config["img_cols"]
         X_train, y_train, X_validation, y_validation, X_test, y_test = data_preparation_cifar_resize(img_rows, img_cols)
     elif dataset_config == "cifar100":
         X_train, y_train, X_validation, y_validation, X_test, y_test = data_preparation_cifar100

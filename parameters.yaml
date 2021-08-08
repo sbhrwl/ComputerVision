@@ -39,7 +39,11 @@ callbacks:
     min_lr: 0.00001  # The minimum learning rate: 1e-5
 
 dataset: cifar10_original  # mnist cifar10_original cifar10_resize cifar100 custom_dataset
-model: dense_net_transfer_learning
+classes: 10   # y_train.shape[1]
+img_rows: 32
+img_cols: 32
+
+model: dense_net_convnet_transfer_learning
   # ConvNet MNIST
   # model_architecture_original
   # model_architecture_16_channels_replaced_with_8_channels

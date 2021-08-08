@@ -11,6 +11,7 @@ from src.core.utils import get_parameters
 def get_model():
     config = get_parameters()
     model_config = config["model"]
+    classes = config["classes"]
 
     if model_config == "model_architecture_original":
         model = model_architecture_original()
@@ -45,11 +46,11 @@ def get_model():
     elif model_config == "resNet50_scratch":
         model = resNet50_scratch()
     elif model_config == "dense_net_transfer_learning":
-        model = dense_net_transfer_learning()
+        model = dense_net_transfer_learning(classes)
     elif model_config == "dense_net_convnet_transfer_learning":
-        model = dense_net_convnet_transfer_learning()
+        model = dense_net_convnet_transfer_learning(classes)
     elif model_config == "efficient_net_transfer_learning":
-        model = efficient_net_transfer_learning()
+        model = efficient_net_transfer_learning(classes)
     elif model_config == "efficient_net_convnet_transfer_learning":
-        model = efficient_net_convnet_transfer_learning()
+        model = efficient_net_convnet_transfer_learning(classes)
     return model
