@@ -5,6 +5,13 @@ model_compile:
   loss: binary_crossentropy
   optimizer: adam
   learning_rate: 0.00001
+  momentum: 0.9
+  nesterov: True  # True False
+  beta_1: 0.9
+  beta_2: 0.999
+  epsilon: 0.000001
+  decay: 0.0
+  rmsgrad: False  # True False
   metrics: ['accuracy']
 
 model_training:
