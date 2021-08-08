@@ -1,6 +1,5 @@
 from tensorflow import keras
 from tensorflow.keras.layers import Conv2D, MaxPool2D, Input, concatenate, AveragePooling2D, GlobalAveragePooling2D
-from src.inception.model_architectures_tf import *
 
 
 def inception_module(x,

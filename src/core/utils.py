@@ -1,5 +1,17 @@
+import yaml
+import argparse
 import base64
 import numpy as np
+
+
+def get_parameters():
+    args = argparse.ArgumentParser()
+    args.add_argument("--config", default="parameters.yaml")
+    parsed_args = args.parse_args()
+
+    with open(parsed_args.config) as yaml_file:
+        config = yaml.safe_load(yaml_file)
+    return config
 
 
 def decode_image(input_image_base64_string, model_input_file_name):

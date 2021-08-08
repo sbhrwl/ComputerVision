@@ -1,0 +1,29 @@
+base:
+  project_name: Computer Vision
+
+model_compile:
+  loss: binary_crossentropy
+  optimizer: sgd
+  metrics: ['accuracy']
+
+model_training:
+  batch_size: 128
+  epochs: 1
+  steps_per_epoch: 5
+  validation_steps: 32
+
+data_augmentation: none  # none preprocess random_erasing
+inception_scratch_training: "N"  # Y N
+custom_dataset: "N"  # Y N
+
+callbacks:
+  checkpoint_file_path: 'artifacts/model/densenet/my_model.h5'
+  LearningRateScheduler:
+    initial_learning_rate: 0.01
+    drop: 0.96
+    epochs_drop: 8
+  ReduceLROnPlateau:
+    monitor: val_accuracy  # Metric to be measured
+    factor: .01  # Factor by which learning rate will be reduced
+    patience: 3  # No. of epochs after which if there is no improvement in the val_acc, the learning rate is reduced
+    min_lr: 1e-5  # The minimum learning rate
