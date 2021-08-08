@@ -17,7 +17,9 @@ def get_data():
     elif dataset_config == "cifar10_original":
         X_train, y_train, X_validation, y_validation, X_test, y_test = data_preparation_cifar_original()
     elif dataset_config == "cifar10_resize":
-        X_train, y_train, X_validation, y_validation, X_test, y_test = data_preparation_cifar_resize(32, 32)
+        img_rows = dataset_config["img_rows"]
+        img_cols = dataset_config["img_cols"]
+        X_train, y_train, X_validation, y_validation, X_test, y_test = data_preparation_cifar_resize(img_rows, img_cols)
     elif dataset_config == "cifar100":
         X_train, y_train, X_validation, y_validation, X_test, y_test = data_preparation_cifar100
     elif dataset_config == "custom_dataset":
