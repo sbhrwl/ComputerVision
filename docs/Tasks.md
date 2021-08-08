@@ -1,4 +1,5 @@
 # Tasks
+- [Information](#information)
 - [General Approach](#general-approach)
 - [Task 1 Basic CNN architectures for MNIST datatset](#task-1-basic-cnn-architectures-for-mnist-datatset)
 - [Task 2 Basic CNN architectures for CIFAR10 datatset](#task-2-basic-cnn-architectures-for-cifar10-datatset)
@@ -11,9 +12,25 @@
 - [Task 9 DenseNet architectures for CIFAR10 datatset](#task-9-densenet-architectures-for-cifar10-datatset)
 - [Task 10 EfficientNet architectures for CIFAR10 datatset](#task-10-efficientnet-architectures-for-cifar10-datatset)
 
+## Information
+- [Data preparation options](https://github.com/sbhrwl/computer_vision/blob/main/src/core/data_preparation.py)
+- [Network architectures](https://github.com/sbhrwl/computer_vision/tree/main/src/networks)
+- [Training file](https://github.com/sbhrwl/computer_vision/blob/main/src/training.py)
+- The training parameters is controlled via [parameters yaml file](https://github.com/sbhrwl/computer_vision/blob/main/parameters.yaml)
+  - Configure data set: 
+    ```
+    dataset: cifar10_original  # mnist cifar10_original cifar10_resize cifar100 custom_dataset
+    ```
+  - Configure Model to train on:
+    ```
+    model: dense_net_transfer_learning
+    ```
+- Below **Training times** are on a Computer with 16GB RAM and 2 cores and 4 Logical processors
+
 ## General Approach
 ### Step 1: Data Preparation
   - Load dataset
+  - Split dataset to create Train, Validation and Test sets
   - Preprocess features
     - Rescale features to have values within 0 - 1 range, ex: [0,255] --> [0,1]
     ```
@@ -46,7 +63,6 @@
   - Setup Callbacks
     - Early Stopping call back
     - Check pointer call back to save best found weights
-  - Split dataset to create Train and Validation sets
   - Start Training
   ```
   history = model.fit(X_train, y_train,
@@ -57,8 +73,6 @@
                     verbose=2,
                     shuffle=True)
   ```
-* Below **Training times** are on a Computer with 16GB RAM and 2 cores and 4 Logical processors
-
 ## Task 1 Basic CNN architectures for MNIST datatset
   | Model | kernel size | Padding | Parameters | Epochs | Batch size | Accuracy | Training time |
   | ----- | ----------- | --------| -----------| ------ | ---------- | -------- | ------------- |
@@ -178,7 +192,7 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
   | ----------------| ---------- | -------| -----------| -------- | ------------- |
   | Transfer Learning CIFAR10 Dataset | 571,210 out of 24,163,786 | 1 | 256 | 21.77% | 2 mins 24 sec |
   | Transfer Learning (convnet) CIFAR10 Dataset | 20,490 out of 23,608,202 | 1 | 256 | 26.74% | 2 mins 24 sec |
-  | Transfer Learning (skip_bn) CIFAR10 Dataset | 580,746 out of 24,115,850 | 1 | 256 | 26.74% | 2 mins 24 sec |
+  | Transfer Learning (skip_bn) CIFAR10 Dataset | 580,746 out of 24,115,850 | 1 | 256 | 57.74% | 5 hours 20 mins 24 sec |
   | [Scratch training CIFAR10 Dataset](https://pylessons.com/Keras-ResNet-tutorial/) | 23,555,082 | 1 | 256 | 10.47% | 10 min 11 sec |
   | Transfer Learning CIFAR100 Dataset | 603,876 out of 24,138,980 | 1 | 256 | 59.13% | 5 hours 42 min 44 sec |
   - Longest Training 
