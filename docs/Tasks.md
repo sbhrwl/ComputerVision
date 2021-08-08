@@ -59,7 +59,7 @@
   ```
 * Below **Training times** are on a Computer with 16GB RAM and 2 cores and 4 Logical processors
 
-## [Task 1 Basic CNN architectures for MNIST datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/basic_cnn_mnist/model_training.py)
+## Task 1 Basic CNN architectures for MNIST datatset
   | Model | kernel size | Padding | Parameters | Epochs | Batch size | Accuracy | Training time |
   | ----- | ----------- | --------| -----------| ------ | ---------- | -------- | ------------- |
   | 1conv_1max_pool | 3x3 | same | 402,442 | 1 | 32 | 97.82% | 25 sec |
@@ -68,7 +68,7 @@
   | 1conv_1max_pool_dropout | 3x3 | same | 201,498 | 1 | 32 | 96.06% | 17 sec |
   | alternate_1conv_1max_pool | 3x3 | same | 220,234 | 1 | 32 | 98.10% | 44 sec |
 
-## [Task 2 Basic CNN architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/basic_cnn_cifar10/model_training.py)
+## Task 2 Basic CNN architectures for CIFAR10 datatset
   | Model | kernel size | Padding | Parameters | Epochs | Batch size | Accuracy | Training time |
   | ----- | ----------- | --------| -----------| ------ | ---------- | -------- | ------------- |
   | 1conv_1max_pool | 3x3 | same | 525,898 | 1 | 32 | 54.08% | 32 sec |
@@ -91,7 +91,7 @@
   ])
   ```
   
-## [Task 4 Basic Image Classifier](https://github.com/sbhrwl/ComputerVision/blob/main/src/basic_image_classifier/model_training.py)
+## Task 4 Basic Image Classifier
   | Model | kernel size | Padding | Parameters | Epochs | Accuracy | Training time |
   | ----- | ----------- | ------- | ---------- | ------ | -------- | ------------- |
   | Alternate 3 conv and Max pool |  3x3 | same | 646,273 | 1 | 50.00% | 13 sec |
@@ -120,7 +120,7 @@
           callbacks=[LearningRateScheduler(scheduler, verbose=1)])
   ```
   
-## [Task 6 VGG architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/vgg/model_training.py)
+## Task 6 VGG architectures for CIFAR10 datatset
 Read comments mentioned under "Usage" in the vgg_model_training.py
 
   | VGG Model | Parameters | Epochs | Batch size | Accuracy | Training time |
@@ -144,7 +144,7 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
   W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 12845056000 exceeds 10% of free system memory.
   ```
   
-## [Task 7 Inception architectures for CIFAR10 datatset](https://github.com/sbhrwl/ComputerVision/blob/main/src/inception/model_training.py)  
+## Task 7 Inception architectures for CIFAR10 datatset
   | Inception Model | Parameters | Epochs | Batch size | Accuracy | Training time |
   | ----------------| ---------- | -------| -----------| -------- | ------------- |
   | Transfer Learning CIFAR10 Dataset | 31,214,954 | 1 | 32 | 10% | 19 mins |
