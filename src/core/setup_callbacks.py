@@ -37,4 +37,4 @@ def get_callbacks():
 
     plot_losses = PlotLosses()
     # [checkpoint, early_stopping_callback, lr_sc, lrr, plot_losses]
-    return [early_stopping, lr_sc, lrr]
+    return [checkpoint, early_stopping, lr_sc, lrr]
