@@ -26,4 +26,6 @@
 - [Train VGG, Inception and ResNet from scratch](https://machinelearningmastery.com/how-to-implement-major-architecture-innovations-for-convolutional-neural-networks/)
 - [Neural networks repository](https://github.com/niconielsen32/NeuralNetworks)
 - [Computer Vision repository](https://github.com/niconielsen32/ComputerVision)
+- [Monk](https://clever-noyce-f9d43f.netlify.app/#/introduction)
+  - [Monk GitHub](https://github.com/Tessellate-Imaging/monk_v1)
   
