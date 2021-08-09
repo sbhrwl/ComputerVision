@@ -28,4 +28,6 @@
 - [Computer Vision repository](https://github.com/niconielsen32/ComputerVision)
 - [Monk](https://clever-noyce-f9d43f.netlify.app/#/introduction)
   - [Monk GitHub](https://github.com/Tessellate-Imaging/monk_v1)
+  - [Monk Blog](https://medium.com/@monkai/plant-disease-classification-with-monk-3a4d7ba419b9)
+  - [Monk Colab](https://colab.research.google.com/drive/1HilR4pPZjgti0eLGzNc2ScvqR3kY2ihj?usp=sharing)
   
