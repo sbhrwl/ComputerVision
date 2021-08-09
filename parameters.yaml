@@ -21,7 +21,7 @@ model_training:
   validation_steps: 32
 
 callbacks:
-  checkpoint_file_path: 'artifacts/model/densenet/my_model.h5'
+  checkpoint_file_path: 'artifacts/model/my_model.h5'
   early_stopping_callback:
     patience: 3
   LearningRateScheduler:

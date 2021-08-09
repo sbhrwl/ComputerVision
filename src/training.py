@@ -125,6 +125,7 @@ def start_training(model, X_train, y_train, X_validation, y_validation):
 
 
 def model_preparation():
+    # Step 1: Get Model
     model = get_model()
 
     config = get_parameters()
@@ -133,8 +134,14 @@ def model_preparation():
         train_dataset, test_dataset = get_data()
         start_training_custom_dataset(model, train_dataset, test_dataset)
     else:
+        # Step 2: Get Data
         train_features, train_labels, validation_features, validation_labels, test_features, test_labels = get_data()
+        # Step 3: Start Training
         start_training(model, train_features, train_labels, validation_features, validation_labels)
+        # Step 4: Evaluate on Test dataset
+        score = model.evaluate(test_features, test_labels, verbose=0)
+        accuracy = 100 * score[1]
+        print('Test accuracy: %.4f%%' % accuracy)
 
 
 if __name__ == '__main__':
