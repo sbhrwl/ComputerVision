@@ -23,7 +23,7 @@ def get_data():
     elif dataset_config == "cifar100":
         X_train, y_train, X_validation, y_validation, X_test, y_test = data_preparation_cifar100
     elif dataset_config == "custom_dataset":
-        train_set, test_set = data_preparation_custom
+        train_set, validation_set = data_preparation_custom
     # return train_set, test_set
     return X_train, y_train, X_validation, y_validation, X_test, y_test
 
@@ -167,7 +167,7 @@ def data_preparation_custom():
         fill_mode='nearest')
 
     # Data Augmentation
-    test_data_generator = ImageDataGenerator(
+    validation_data_generator = ImageDataGenerator(
         preprocessing_function=preprocess_input,
         rotation_range=40,
         width_shift_range=0.2,
@@ -183,8 +183,8 @@ def data_preparation_custom():
                                                          batch_size=32,
                                                          class_mode='categorical')
 
-    test_set = test_data_generator.flow_from_directory('images/validation',
-                                                       target_size=(224, 224),
-                                                       batch_size=32,
-                                                       class_mode='categorical')
-    return train_set, test_set
+    validation_set = test_data_generator.flow_from_directory('images/validation',
+															 target_size=(224, 224),
+															 batch_size=32,
+															 class_mode='categorical')
+    return train_set, validation_set

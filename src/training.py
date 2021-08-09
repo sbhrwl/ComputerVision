@@ -10,7 +10,7 @@ from src.core.utils import get_random_eraser
 from src.core.plot_learning_curve import plot_training_history
 
 
-def start_training_custom_dataset(model, train_set, test_set):
+def start_training_custom_dataset(model, train_set, validation_set):
     config = get_parameters()
     model_compile_config = config["model_compile"]
     # Step 1: Compile model
@@ -30,7 +30,7 @@ def start_training_custom_dataset(model, train_set, test_set):
 
     # Step 4: Start Training
     history = model.fit(train_set,
-                        validation_data=test_set,
+                        validation_data=validation_set,
                         epochs=epochs,
                         batch_size=batch_size,
                         steps_per_epoch=steps_per_epoch,
@@ -131,8 +131,8 @@ def model_preparation():
     config = get_parameters()
     dataset_config = config["dataset"]
     if dataset_config == "custom_dataset":
-        train_dataset, test_dataset = get_data()
-        start_training_custom_dataset(model, train_dataset, test_dataset)
+        train_dataset, validation_dataset = get_data()
+        start_training_custom_dataset(model, train_dataset, validation_dataset)
     else:
         # Step 2: Get Data
         train_features, train_labels, validation_features, validation_labels, test_features, test_labels = get_data()
