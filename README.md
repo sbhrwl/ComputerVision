@@ -6,7 +6,7 @@
 - [References](#references)
 
 ## Tasks
-- [Information](#information)
+- [Important Files](#important-files)
 - [General Approach](#general-approach)
 - [Task 1 Basic CNN architectures for MNIST datatset](#task-1-basic-cnn-architectures-for-mnist-datatset)
 - [Task 2 Basic CNN architectures for CIFAR10 datatset](#task-2-basic-cnn-architectures-for-cifar10-datatset)
