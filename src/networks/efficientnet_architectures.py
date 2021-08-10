@@ -1,10 +1,10 @@
 from tensorflow.keras import Sequential
-from tensorflow.keras.applications.efficientnet import EfficientNetB1
+from tensorflow.keras.applications.efficientnet import EfficientNetB5
 from tensorflow.keras.layers import Flatten, Dense, BatchNormalization, Dropout, GlobalAveragePooling2D
 
 
 def efficient_net_transfer_learning(classes):
-    base_model = EfficientNetB1(include_top=False, weights='imagenet', input_shape=(32, 32, 3), classes=classes)
+    base_model = EfficientNetB5(include_top=False, weights='imagenet', input_shape=(32, 32, 3), classes=classes)
     for layer in base_model.layers:
         layer.trainable = False
 
@@ -30,7 +30,7 @@ def efficient_net_transfer_learning(classes):
 
 
 def efficient_net_convnet_transfer_learning(classes):
-    base_model = EfficientNetB1(include_top=False, weights='imagenet', input_shape=(32, 32, 3), classes=classes)
+    base_model = EfficientNetB5(include_top=False, weights='imagenet', input_shape=(32, 32, 3), classes=classes)
     base_model.trainable = False
 
     model = Sequential()
