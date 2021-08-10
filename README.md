@@ -6,7 +6,6 @@
 - [References](#references)
 
 ## Tasks
-- [Important Files](#important-files)
 - [General Approach](#general-approach)
 - [Task 1 Basic CNN architectures for MNIST datatset](#task-1-basic-cnn-architectures-for-mnist-datatset)
 - [Task 2 Basic CNN architectures for CIFAR10 datatset](#task-2-basic-cnn-architectures-for-cifar10-datatset)
@@ -19,23 +18,8 @@
 - [Task 9 DenseNet architectures for CIFAR10 datatset](#task-9-densenet-architectures-for-cifar10-datatset)
 - [Task 10 EfficientNet architectures for CIFAR10 datatset](#task-10-efficientnet-architectures-for-cifar10-datatset)
 
-## Important Files
-- [Data preparation options](https://github.com/sbhrwl/computer_vision/blob/main/src/core/data_preparation.py)
-- [Network architectures](https://github.com/sbhrwl/computer_vision/tree/main/src/networks)
-- [Training file](https://github.com/sbhrwl/computer_vision/blob/main/src/training.py)
-- [Parameters yaml](https://github.com/sbhrwl/computer_vision/blob/main/parameters.yaml): Configuring training parameters
-  - Configure data set: 
-    ```
-    dataset: cifar10_original  # mnist cifar10_original cifar10_resize cifar100 custom_dataset
-    ```
-  - Configure Model to train on:
-    ```
-    model: dense_net_transfer_learning
-    ```
-- **Training times** are on a Computer with 16GB RAM and 2 cores and 4 Logical processors
-
 ## General Approach
-### Step 1: Data Preparation
+### [Step 1: Data Preparation](https://github.com/sbhrwl/computer_vision/blob/main/src/core/data_preparation.py)
   - Load dataset
   - Split dataset to create Train, Validation and Test sets
   - Preprocess features
@@ -62,11 +46,15 @@
     X_test = test_features.reshape(test_features.shape[0], img_rows, img_cols, 1)
     input_shape = (img_rows, img_cols, 1)
     ```
-  
-### Step 2: Build Model Architectures
+  - [Parameters yaml](https://github.com/sbhrwl/computer_vision/blob/main/parameters.yaml): Configuring training parameters
+    - Configure data set: 
+      ```
+      dataset: cifar10_original  # mnist cifar10_original cifar10_resize cifar100 custom_dataset
+      ```
+### [Step 2: Build Model Architectures](https://github.com/sbhrwl/computer_vision/tree/main/src/networks)
 Refer **hyperlink** for each task heading to get information about underlying network architecture used for performing the task.
   
-### Step 3: Model Training
+### [Step 3: Model Training](https://github.com/sbhrwl/computer_vision/blob/main/src/training.py)
   - Compile the model
   - Setup Callbacks
     - Early Stopping call back
@@ -81,6 +69,13 @@ Refer **hyperlink** for each task heading to get information about underlying ne
                       verbose=2,
                       shuffle=True)
     ```
+  - [Parameters yaml](https://github.com/sbhrwl/computer_vision/blob/main/parameters.yaml): Configuring training parameters
+    - Configure Model to train on:
+      ```
+      model: dense_net_transfer_learning
+      ```
+  - **Training times** are on a Computer with 16GB RAM and 2 cores and 4 Logical processors
+
 ## [Task 1 Basic CNN architectures for MNIST datatset](https://github.com/sbhrwl/computer_vision/blob/main/src/cnn_starters/mnist/model_architectures.py)
   | Model | kernel size | Padding | Parameters | Epochs | Batch size | Accuracy | Training time |
   | ----- | ----------- | --------| -----------| ------ | ---------- | -------- | ------------- |
