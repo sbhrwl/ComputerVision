@@ -40,18 +40,18 @@
   - Split dataset to create Train, Validation and Test sets
   - Preprocess features
     - Rescale features to have values within 0 - 1 range, ex: [0,255] --> [0,1]
-    ```
-    X_train = train_features.astype('float32') / 255
-    X_test = test_features.astype('float32') / 255
-    ```
+      ```
+      X_train = train_features.astype('float32') / 255
+      X_test = test_features.astype('float32') / 255
+      ```
   - Preprocess labels
     - One Hot Encode Labels
-    ```
-    y_train = np_utils.to_categorical(train_labels, num_classes)
-    y_test = np_utils.to_categorical(test_labels, num_classes)
-    ```
+      ```
+      y_train = np_utils.to_categorical(train_labels, num_classes)
+      y_test = np_utils.to_categorical(test_labels, num_classes)
+      ```
   - Reshape features
-  ```
+    ```
     # Monochrome image with 1 Channel
     # width * height * channel: 28 * 28 * 1
     # input image dimensions 28x28 pixel images.
@@ -61,9 +61,10 @@
     X_train = train_features.reshape(train_features.shape[0], img_rows, img_cols, 1)
     X_test = test_features.reshape(test_features.shape[0], img_rows, img_cols, 1)
     input_shape = (img_rows, img_cols, 1)
-  ```
+    ```
   
 ### Step 2: Build Model Architectures
+Refer **hyperlink** for each task heading to get information about underlying network architecture used for performing the task.
   
 ### Step 3: Model Training
   - Compile the model
@@ -71,15 +72,15 @@
     - Early Stopping call back
     - Check pointer call back to save best found weights
   - Start Training
-  ```
-  history = model.fit(X_train, y_train,
-                    batch_size=32,
-                    epochs=1,
-                    validation_data=(X_validation, y_validation),
-                    callbacks=[early_stopping_cb, check_pointer],
-                    verbose=2,
-                    shuffle=True)
-  ```
+    ```
+    history = model.fit(X_train, y_train,
+                      batch_size=32,
+                      epochs=1,
+                      validation_data=(X_validation, y_validation),
+                      callbacks=[early_stopping_cb, check_pointer],
+                      verbose=2,
+                      shuffle=True)
+    ```
 ## [Task 1 Basic CNN architectures for MNIST datatset](https://github.com/sbhrwl/computer_vision/blob/main/src/cnn_starters/mnist/model_architectures.py)
   | Model | kernel size | Padding | Parameters | Epochs | Batch size | Accuracy | Training time |
   | ----- | ----------- | --------| -----------| ------ | ---------- | -------- | ------------- |
@@ -127,19 +128,19 @@
   | Added a 1x1 to reduce dimension from 16 to 10 | 6,332 | 2 | 128 | 98.14% | 2 min 20 sec |
   
   ### Callback: Learing Rate Scheduler
-  ```
-  from keras.callbacks import LearningRateScheduler
-  
-  def scheduler(epoch, lr):
-    # Learning rate = Learning rate * 1/(1 + decay * epoch)
-    # here decay is 0.319 and epoch is 10.
-    return round(0.003 * 1 / (1 + 0.319 * epoch), 10)
-  
-  model.fit(X_train, y_train,
-          batch_size=128, epochs=1, verbose=1,
-          validation_data=(X_test, y_test),
-          callbacks=[LearningRateScheduler(scheduler, verbose=1)])
-  ```
+    ```
+    from keras.callbacks import LearningRateScheduler
+
+    def scheduler(epoch, lr):
+      # Learning rate = Learning rate * 1/(1 + decay * epoch)
+      # here decay is 0.319 and epoch is 10.
+      return round(0.003 * 1 / (1 + 0.319 * epoch), 10)
+
+    model.fit(X_train, y_train,
+            batch_size=128, epochs=1, verbose=1,
+            validation_data=(X_test, y_test),
+            callbacks=[LearningRateScheduler(scheduler, verbose=1)])
+    ```
   
 ## [Task 6 VGG architectures for CIFAR10 datatset](https://github.com/sbhrwl/computer_vision/blob/main/src/networks/vgg_architectures.py)
 Read comments mentioned under "Usage" in the vgg_model_training.py
@@ -151,19 +152,19 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
   | VGG 16 scratch CIFAR10 Dataset | 33,638,218 | 1 | 1000 | 10.5% | 58 mins |
   | VGG 19 scratch CIFAR10 Dataset | 38,947,914 | 1 | 1000 |  10% | 1 hour 17 mins |
 
-  ```
-  from keras.callbacks import ReduceLROnPlateau
-  lr_reducer = ReduceLROnPlateau(factor=np.sqrt(0.1),
-                               cooldown=0,
-                               patience=5,
-                               min_lr=0.5e-6)
-  callbacks = [lr_reducer]
-  ```
+    ```
+    from keras.callbacks import ReduceLROnPlateau
+    lr_reducer = ReduceLROnPlateau(factor=np.sqrt(0.1),
+                                 cooldown=0,
+                                 patience=5,
+                                 min_lr=0.5e-6)
+    callbacks = [lr_reducer]
+    ```
   
   - Training on CIFAR10 with image size 224x224 gives below message and then process terminates
-  ```
-  W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 12845056000 exceeds 10% of free system memory.
-  ```
+    ```
+    W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 12845056000 exceeds 10% of free system memory.
+    ```
   
 ## [Task 7 Inception architectures for CIFAR10 datatset](https://github.com/sbhrwl/computer_vision/blob/main/src/networks/inception_architectures_tf.py)
   | Inception Model | Parameters | Epochs | Batch size | Accuracy | Training time |
