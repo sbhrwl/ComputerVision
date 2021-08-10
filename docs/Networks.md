@@ -13,6 +13,11 @@
   - [InceptionV2](#inceptionv2)
   - [InceptionV3](#inceptionv3)
   - [ResNet](#resnet)
+    - [Challenges faced by increasing depth](#challenges-faced-by-increasing-depth)
+    - [Residual Block](#residual-block)
+    - [How are 1x1 used in ResNet](#how-are-1x1-used-in-resnet)
+    - [1x1 and Stride of 2](#1x1-and-stride-of-2)
+    - [Resnet Variants](#resnet-variants)
   - [Model available in Keras](#model-available-in-keras)
 
 ## [LeNet](https://colab.research.google.com/drive/1N29L05F972fB97JL0mdqQwc3os2OB-Me?usp=sharing)
