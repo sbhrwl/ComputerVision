@@ -122,21 +122,6 @@ Refer **hyperlink** for each task heading to get information about underlying ne
   | Added a 1x1 to reduce dimension from 16 to 10 | 6,332 | 1 | 128 | 95.45% | 1 min 21 sec |
   | Added a 1x1 to reduce dimension from 16 to 10 | 6,332 | 2 | 128 | 98.14% | 2 min 20 sec |
   
-  ### Callback: Learing Rate Scheduler
-    ```
-    from keras.callbacks import LearningRateScheduler
-
-    def scheduler(epoch, lr):
-      # Learning rate = Learning rate * 1/(1 + decay * epoch)
-      # here decay is 0.319 and epoch is 10.
-      return round(0.003 * 1 / (1 + 0.319 * epoch), 10)
-
-    model.fit(X_train, y_train,
-            batch_size=128, epochs=1, verbose=1,
-            validation_data=(X_test, y_test),
-            callbacks=[LearningRateScheduler(scheduler, verbose=1)])
-    ```
-  
 ## [Task 6 VGG architectures for CIFAR10 datatset](https://github.com/sbhrwl/computer_vision/blob/main/src/networks/vgg_architectures.py)
 Read comments mentioned under "Usage" in the vgg_model_training.py
 
@@ -145,17 +130,7 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
   | Transfer Learning Custom Dataset | 50,178 out of 14,719,818 | 1 | 1000 | 53.08% | 7 mins 6 sec |
   | Transfer Learning CIFAR10 Dataset | 5,130 out of 14,719,818 | 1 | 1000 | 11.68% | 6 mins 51 sec |
   | VGG 16 scratch CIFAR10 Dataset | 33,638,218 | 1 | 1000 | 10.5% | 58 mins |
-  | VGG 19 scratch CIFAR10 Dataset | 38,947,914 | 1 | 1000 |  10% | 1 hour 17 mins |
-
-    ```
-    from keras.callbacks import ReduceLROnPlateau
-    lr_reducer = ReduceLROnPlateau(factor=np.sqrt(0.1),
-                                 cooldown=0,
-                                 patience=5,
-                                 min_lr=0.5e-6)
-    callbacks = [lr_reducer]
-    ```
-  
+  | VGG 19 scratch CIFAR10 Dataset | 38,947,914 | 1 | 1000 |  10% | 1 hour 17 mins |  
   - Training on CIFAR10 with image size 224x224 gives below message and then process terminates
     ```
     W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 12845056000 exceeds 10% of free system memory.
