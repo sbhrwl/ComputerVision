@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify, render_template
 import os
 from flask_cors import CORS, cross_origin
 from src.core.utils import decode_image
-from src.basic_image_classifier.predict import ImageClassification
+from src.cnn_starters.custom_classifier.predict import ImageClassification
 
 os.putenv('LANG', 'en_US.UTF-8')
 os.putenv('LC_ALL', 'en_US.UTF-8')
