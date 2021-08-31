@@ -3,6 +3,7 @@
 - [CNN Basics](https://github.com/sbhrwl/computer_vision/blob/main/docs/CNN_basics.md)
 - [Networks](https://github.com/sbhrwl/computer_vision/blob/main/docs/Networks.md)
 - [Tasks](#tasks)
+- [Pytorch](#pytorch)
 - [References](#references)
 
 ## Tasks
@@ -187,6 +188,12 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
   | ------------ | ---------- | ----------------- | ------ | ---------- | -------- | ------------- |
   | Transfer Learning CIFAR10 Dataset | 373,066 out of 6,951,633 | None | 1 | 256 | 10.05% | 1 mins 37 sec |
   | Transfer Learning CIFAR10 Dataset (Convnet) | 12,810 out of 6,588,049 | None | 1 | 256 | 9.95% | 1 mins 35 sec |
+
+## Pytorch
+- [Pytorch Basics](https://colab.research.google.com/drive/1-cd9S754YuFrqnVtm4AqerIGSCbcoCVJ?usp=sharing)
+- Fashion MNIST(https://colab.research.google.com/drive/19rEgaf0ufCGAdgzkxTQrHtz3E7KBjPR3?usp=sharing)
+- Custom Dataset(https://colab.research.google.com/drive/1n0fINUZZBXWWPVQFawLdOc_AqC4uTkL6?usp=sharing)
+- Jovian(https://colab.research.google.com/drive/1cgqVDsvW3tE7UieRotmfqo2uiMysGmH2?usp=sharing)
 
 ## References
 - Kernels
