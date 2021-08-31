@@ -193,7 +193,6 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
 - [Pytorch Basics](https://colab.research.google.com/drive/1-cd9S754YuFrqnVtm4AqerIGSCbcoCVJ?usp=sharing)
 - [Fashion MNIST](https://colab.research.google.com/drive/19rEgaf0ufCGAdgzkxTQrHtz3E7KBjPR3?usp=sharing)
 - [Custom Dataset](https://colab.research.google.com/drive/1n0fINUZZBXWWPVQFawLdOc_AqC4uTkL6?usp=sharing)
-- [Jovian](https://colab.research.google.com/drive/1cgqVDsvW3tE7UieRotmfqo2uiMysGmH2?usp=sharing)
 
 ## References
 - Kernels
