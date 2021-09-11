@@ -219,3 +219,6 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
   - [Monk GitHub](https://github.com/Tessellate-Imaging/monk_v1)
   - [Monk Blog](https://medium.com/@monkai/plant-disease-classification-with-monk-3a4d7ba419b9)
   - [Monk Colab](https://colab.research.google.com/drive/1HilR4pPZjgti0eLGzNc2ScvqR3kY2ihj?usp=sharing)
+- ATC
+  - [Documentation](https://drive.google.com/drive/folders/117VFe6ou3Izcan9Quy6pLuM9PzoE1Gj9)
+  - [Code](https://github.com/iNeuron-Pvt-Ltd/ATCC)
