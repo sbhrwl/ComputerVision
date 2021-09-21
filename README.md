@@ -7,6 +7,7 @@
 - [Creating own package](#creating-own-package)
 - [Deployment](#deployment)
 - [Augmentation](#augmentation)
+- [Object Detection](#object-detection)
 - [References](#references)
 
 ## Tasks
@@ -214,6 +215,8 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
   - [Research paper- Cutout](https://arxiv.org/pdf/1708.04552.pdf)
   - [Research paper- Image Cropping and Patching](https://arxiv.org/pdf/1811.09030.pdf)
   - [Library Albumentations](https://github.com/albumentations-team/albumentations)
+
+## [Object Detection](https://github.com/sbhrwl/social_distance_violations/blob/main/docs/object_detection/Object_detection.md)
 
 ## References
 - Kernels
