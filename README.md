@@ -204,7 +204,7 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
 
 ## Deployment
 - [Heroku, AWS and Azure](https://www.youtube.com/embed/4Oz9WcOjdY0)
-- [GCP,AWS EBS](https://www.youtube.com/embed/lTo5RTq-IG0)
+- [GCP and AWS EBS](https://www.youtube.com/embed/lTo5RTq-IG0)
 - [Paperspace](https://www.youtube.com/embed/JJRWNpSiJyU)
 ### Tasks
 - Deploy image classification webapp in GCP having minimum 10 classes(Use any Dataset). Submit the URL
