@@ -4,6 +4,9 @@
 - [Networks](https://github.com/sbhrwl/computer_vision/blob/main/docs/Networks.md)
 - [Tasks](#tasks)
 - [Pytorch](#pytorch)
+- [Creating own package](#creating-own-package)
+- [Deployment](#deployment)
+- [Augmentation](#augmentation)
 - [References](#references)
 
 ## Tasks
@@ -194,6 +197,24 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
 - [Fashion MNIST](https://colab.research.google.com/drive/19rEgaf0ufCGAdgzkxTQrHtz3E7KBjPR3?usp=sharing)
 - [Custom Dataset](https://colab.research.google.com/drive/1n0fINUZZBXWWPVQFawLdOc_AqC4uTkL6?usp=sharing)
 
+## [Creating own package](https://github.com/c17hawke/HTMLrenderer-c17hawke)
+- [Package CNN app](https://github.com/c17hawke/basic-CNN-app)
+- [ImageSeeker](https://github.com/entbappy/ImageSeeker-Package)
+
+## Deployment
+- [Heroku, AWS and Azure](https://www.youtube.com/embed/4Oz9WcOjdY0)
+- [GCP,AWS EBS](https://www.youtube.com/embed/lTo5RTq-IG0)
+- [Paperspace](https://www.youtube.com/embed/JJRWNpSiJyU)
+
+## Augmentation
+- [Data Augmentation](https://www.youtube.com/embed/go0XyGZcxaA)
+  - [Library imgaug](https://github.com/aleju/imgaug)
+  - [Augmentor](https://augmentor.readthedocs.io/en/master/)
+  - [Augmentor github](https://github.com/mdbloice/Augmentor)
+  - [Research paper- Cutout](https://arxiv.org/pdf/1708.04552.pdf)
+  - [Research paper- Image Cropping and Patching](https://arxiv.org/pdf/1811.09030.pdf)
+  - [Library Albumentations](https://github.com/albumentations-team/albumentations)
+
 ## References
 - Kernels
   - [Kernels](https://setosa.io/ev/image-kernels/)
@@ -204,13 +225,6 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
   - [CNN explainer](https://poloclub.github.io/cnn-explainer/)
   - [ConvNetJS](https://cs.stanford.edu/people/karpathy/convnetjs/)
   - [NB](https://jovian.ai/paulbindass/convolutional-neural-network-world)
-- Data Augmentation
-  - [Library imgaug](https://github.com/aleju/imgaug)
-  - [Augmentor](https://augmentor.readthedocs.io/en/master/)
-  - [Augmentor github](https://github.com/mdbloice/Augmentor)
-  - [Research paper- Cutout](https://arxiv.org/pdf/1708.04552.pdf)
-  - [Research paper- Image Cropping and Patching](https://arxiv.org/pdf/1811.09030.pdf)
-  - [Library Albumentations](https://github.com/albumentations-team/albumentations)
 - [Callbacks](https://github.com/niconielsen32/NeuralNetworks/blob/main/CustomCallbacks.ipynb)
 - [Train VGG, Inception and ResNet from scratch](https://machinelearningmastery.com/how-to-implement-major-architecture-innovations-for-convolutional-neural-networks/)
 - [Neural networks repository](https://github.com/niconielsen32/NeuralNetworks)
