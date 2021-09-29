@@ -8,6 +8,7 @@
 - [Deployment](#deployment)
 - [Augmentation](#augmentation)
 - [Object Detection](#object-detection)
+- [Image Segmentation](#image-segmentation)
 - [References](#references)
 
 ## Tasks
@@ -197,10 +198,12 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
 - [Pytorch Basics](https://colab.research.google.com/drive/1-cd9S754YuFrqnVtm4AqerIGSCbcoCVJ?usp=sharing)
 - [Fashion MNIST](https://colab.research.google.com/drive/19rEgaf0ufCGAdgzkxTQrHtz3E7KBjPR3?usp=sharing)
 - [Custom Dataset](https://colab.research.google.com/drive/1n0fINUZZBXWWPVQFawLdOc_AqC4uTkL6?usp=sharing)
+- [Transfer Learning](https://colab.research.google.com/drive/1Suewp8p6h0EUcFC5RQ5YnHB3AjDCXB5j?usp=sharing)
 
 ## [Creating own package](https://github.com/c17hawke/HTMLrenderer-c17hawke)
 - [Package CNN app](https://github.com/c17hawke/basic-CNN-app)
 - [ImageSeeker](https://github.com/entbappy/ImageSeeker-Package)
+- [Custom calculator](https://drive.google.com/drive/u/0/folders/1od1VX0cg0A8ClirNgBMnYDQXXvPERez-)
 
 ## Deployment
 - [Heroku, AWS and Azure](https://www.youtube.com/embed/4Oz9WcOjdY0)
@@ -216,6 +219,7 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
 
 ## Augmentation
 - [Data Augmentation](https://www.youtube.com/embed/go0XyGZcxaA)
+  - [Augmentation examples by Paul](https://drive.google.com/drive/u/0/folders/1Zyv-xmZ0vjazhcALi0bU-CW8BSxKSNpV)
   - [Library imgaug](https://github.com/aleju/imgaug)
   - [Augmentor](https://augmentor.readthedocs.io/en/master/)
   - [Augmentor github](https://github.com/mdbloice/Augmentor)
@@ -224,6 +228,10 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
   - [Library Albumentations](https://github.com/albumentations-team/albumentations)
 
 ## [Object Detection](https://github.com/sbhrwl/social_distance_violations/blob/main/docs/object_detection/Object_detection.md)
+
+## Image Segmentation
+- [Detectron2](https://colab.research.google.com/drive/1_SAxXzQOWsNJ2W-VYeP4FZ1tX58J1sJr?usp=sharing)
+- [TFOD1.4](https://drive.google.com/drive/u/0/folders/12aAKFRS9rrir-Ro837Huk20Ct7wkGc0M)
 
 ## References
 - Kernels
