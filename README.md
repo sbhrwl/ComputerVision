@@ -218,15 +218,7 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
 - Deploy Object Detection webapp in AWS having minimum 25 classes(Use any Dataset to Train) based on Detectron2. Submit the URL
 - Deploy Object Detection webapp in Azure having minimum 35 classes(Use any Dataset to Train) based on YoloV5. Submit the URL
 
-## Augmentation
-- [Data Augmentation](https://www.youtube.com/embed/go0XyGZcxaA)
-  - [Augmentation examples by Paul](https://drive.google.com/drive/u/0/folders/1Zyv-xmZ0vjazhcALi0bU-CW8BSxKSNpV)
-  - [Library imgaug](https://github.com/aleju/imgaug)
-  - [Augmentor](https://augmentor.readthedocs.io/en/master/)
-  - [Augmentor github](https://github.com/mdbloice/Augmentor)
-  - [Research paper- Cutout](https://arxiv.org/pdf/1708.04552.pdf)
-  - [Research paper- Image Cropping and Patching](https://arxiv.org/pdf/1811.09030.pdf)
-  - [Library Albumentations](https://github.com/albumentations-team/albumentations)
+## [Augmentation](https://github.com/sbhrwl/computer_vision/blob/main/docs/Augmentation.md)
 
 ## [Object Detection](https://github.com/sbhrwl/social_distance_violations/blob/main/docs/object_detection/Object_detection.md)
 
