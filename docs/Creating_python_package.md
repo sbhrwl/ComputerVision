@@ -1,4 +1,4 @@
-# [Creating Python Package](https://github.com/c17hawke/HTMLrenderer-c17hawke)
+# [Creating python package](https://github.com/c17hawke/HTMLrenderer-c17hawke)
 - [Package CNN app](https://github.com/c17hawke/basic-CNN-app)
 - [ImageSeeker](https://github.com/entbappy/ImageSeeker-Package)
 - [Custom calculator](https://drive.google.com/drive/u/0/folders/1od1VX0cg0A8ClirNgBMnYDQXXvPERez-)
