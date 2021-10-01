@@ -4,7 +4,7 @@
 - [Networks](https://github.com/sbhrwl/computer_vision/blob/main/docs/Networks.md)
 - [Tasks](#tasks)
 - [Pytorch](#pytorch)
-- [Creating own package](#creating-own-package)
+- [Creating own python package](#creating-own-python-package)
 - [Deployment](#deployment)
 - [Augmentation](#augmentation)
 - [Object Detection](#object-detection)
@@ -200,23 +200,9 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
 - [Custom Dataset](https://colab.research.google.com/drive/1n0fINUZZBXWWPVQFawLdOc_AqC4uTkL6?usp=sharing)
 - [Transfer Learning](https://colab.research.google.com/drive/1Suewp8p6h0EUcFC5RQ5YnHB3AjDCXB5j?usp=sharing)
 
-## [Creating own package](https://github.com/c17hawke/HTMLrenderer-c17hawke)
-- [Package CNN app](https://github.com/c17hawke/basic-CNN-app)
-- [ImageSeeker](https://github.com/entbappy/ImageSeeker-Package)
-- [Custom calculator](https://drive.google.com/drive/u/0/folders/1od1VX0cg0A8ClirNgBMnYDQXXvPERez-)
-  - [Video check from 01:35:00](https://www.youtube.com/embed/lTo5RTq-IG0)
+## [Creating own python package](https://github.com/sbhrwl/computer_vision/blob/main/docs/Creating_python_package.md)
 
-## Deployment
-- [Heroku, AWS and Azure](https://www.youtube.com/embed/4Oz9WcOjdY0)
-- [GCP and AWS EBS](https://www.youtube.com/embed/lTo5RTq-IG0)
-- [Paperspace](https://www.youtube.com/embed/JJRWNpSiJyU)
-### Tasks
-- Deploy image classification webapp in GCP having minimum 10 classes(Use any Dataset). Submit the URL
-- Deploy image classification webapp in AWS having minimum 20 classes(Use any Dataset). Submit the URL
-- Deploy image classification webapp in Azure having minimum 30 classes(Use any Dataset). Submit the URL
-- Deploy Object Detection webapp in GCP having minimum 10 classes(Use any Dataset).TFOD Based. Submit the URL
-- Deploy Object Detection webapp in AWS having minimum 25 classes(Use any Dataset to Train) based on Detectron2. Submit the URL
-- Deploy Object Detection webapp in Azure having minimum 35 classes(Use any Dataset to Train) based on YoloV5. Submit the URL
+## [Deployment](https://github.com/sbhrwl/computer_vision/blob/main/docs/Deployment.md)
 
 ## [Augmentation](https://github.com/sbhrwl/computer_vision/blob/main/docs/Augmentation.md)
 
