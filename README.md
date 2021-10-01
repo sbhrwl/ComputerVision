@@ -204,6 +204,7 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
 - [Package CNN app](https://github.com/c17hawke/basic-CNN-app)
 - [ImageSeeker](https://github.com/entbappy/ImageSeeker-Package)
 - [Custom calculator](https://drive.google.com/drive/u/0/folders/1od1VX0cg0A8ClirNgBMnYDQXXvPERez-)
+  - [Video check from 52:52](https://www.youtube.com/embed/lTo5RTq-IG0)
 
 ## Deployment
 - [Heroku, AWS and Azure](https://www.youtube.com/embed/4Oz9WcOjdY0)
