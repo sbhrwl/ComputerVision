@@ -9,6 +9,7 @@
 - [Augmentation](#augmentation)
 - [Object Detection](#object-detection)
 - [Image Segmentation](#image-segmentation)
+- [Feature Store](#feature-store)
 - [References](#references)
 
 ## Tasks
@@ -210,6 +211,13 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
 
 ## [Image Segmentation](https://github.com/sbhrwl/social_distance_violations/blob/main/docs/image_segmentation/Image_segmentation.md)
 
+## Feature store
+- can you please explain feature store?
+For example, we have some data and we are trying to build multiple models for different use cases using the same dataset, how would a feature store be useful in this case?
+how is it used in industry?
+
+- could you please also tell, how do we build model via transfer learning starting from layer3 of ResNet model using "Pytorch"
+
 ## References
 - Kernels
   - [Kernels](https://setosa.io/ev/image-kernels/)
@@ -224,6 +232,7 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
 - [Train VGG, Inception and ResNet from scratch](https://machinelearningmastery.com/how-to-implement-major-architecture-innovations-for-convolutional-neural-networks/)
 - [Neural networks repository](https://github.com/niconielsen32/NeuralNetworks)
 - [Computer Vision repository](https://github.com/niconielsen32/ComputerVision)
+- [Workload woth GPUs](https://analyticsindiamag.com/webinar-alert-accelerating-data-science-workloads-with-gpus/)
 - [Monk](https://clever-noyce-f9d43f.netlify.app/#/introduction)
   - [Monk GitHub](https://github.com/Tessellate-Imaging/monk_v1)
   - [Monk Blog](https://medium.com/@monkai/plant-disease-classification-with-monk-3a4d7ba419b9)
