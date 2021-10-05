@@ -208,9 +208,7 @@ Read comments mentioned under "Usage" in the vgg_model_training.py
 
 ## [Object Detection](https://github.com/sbhrwl/social_distance_violations/blob/main/docs/object_detection/Object_detection.md)
 
-## Image Segmentation
-- [Detectron2](https://colab.research.google.com/drive/1_SAxXzQOWsNJ2W-VYeP4FZ1tX58J1sJr?usp=sharing)
-- [TFOD1.4](https://drive.google.com/drive/u/0/folders/12aAKFRS9rrir-Ro837Huk20Ct7wkGc0M)
+## [Image Segmentation](https://github.com/sbhrwl/social_distance_violations/blob/main/docs/image_segmentation/Image_segmentation.md)
 
 ## References
 - Kernels
