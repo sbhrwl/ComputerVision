@@ -232,7 +232,7 @@ how is it used in industry?
 - [Train VGG, Inception and ResNet from scratch](https://machinelearningmastery.com/how-to-implement-major-architecture-innovations-for-convolutional-neural-networks/)
 - [Neural networks repository](https://github.com/niconielsen32/NeuralNetworks)
 - [Computer Vision repository](https://github.com/niconielsen32/ComputerVision)
-- [Workload woth GPUs](https://analyticsindiamag.com/webinar-alert-accelerating-data-science-workloads-with-gpus/)
+- [Workload with GPUs](https://analyticsindiamag.com/webinar-alert-accelerating-data-science-workloads-with-gpus/)
 - [Monk](https://clever-noyce-f9d43f.netlify.app/#/introduction)
   - [Monk GitHub](https://github.com/Tessellate-Imaging/monk_v1)
   - [Monk Blog](https://medium.com/@monkai/plant-disease-classification-with-monk-3a4d7ba419b9)
