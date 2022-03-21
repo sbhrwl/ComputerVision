@@ -20,6 +20,7 @@
 - [BP in CNN](#bp-in-cnn)
 - [1x1 conv](#1x1-conv)
 - [Common Operations when building a network](#common-operations-when-building-a-network)
+- [Cheatsheet](#cheatsheet)
 
 ## Drawbacks of ANN
 - Loss of features
@@ -239,3 +240,6 @@ Increasing feature maps/channels after a convolution
 
 Decreasing feature maps/channels after a convolution
 - 1x1 with Decreasing Feature Maps mode
+
+## Cheatsheet
+<img src="https://github.com/sbhrwl/computer_vision/blob/main/artifacts/images/cnn_cheatsheet.png">
